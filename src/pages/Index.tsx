@@ -4,7 +4,8 @@ import Benefits from "@/components/Benefits";
 import Activator from "@/components/Activator";
 import Blog from "@/components/Blog";
 import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/FooterBanner";
+import FooterBanner from "@/components/FooterBanner";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -15,7 +16,8 @@ const Index = () => {
       <Activator />
       <Blog />
       <Testimonials />
-      <Footer />
+      <FooterBanner />
+      <Footer/>
     </div>
   );
 };
