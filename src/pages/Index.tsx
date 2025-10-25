@@ -4,7 +4,7 @@ import Benefits from "@/components/Benefits";
 import Activator from "@/components/Activator";
 import Blog from "@/components/Blog";
 import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
+import Footer from "@/components/FooterBanner";
 
 const Index = () => {
   return (
