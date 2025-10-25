@@ -1,7 +1,12 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
 
 const Navigation = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navLinks = [
     { name: "HOW IT WORKS", path: "/how-it-works" },
     { name: "PORTAL", path: "/portal" },
@@ -13,36 +18,114 @@ const Navigation = () => {
     { name: "CONTACT", path: "/contact" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background z-50 border-b border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center gap-2">
-            <img 
-              src="https://www.lurity.com/logo.jpg" 
-              alt="Lurity Logo" 
-              className="h-10 w-auto"
-            />
-          </Link>
-          
-          <div className="hidden lg:flex items-center gap-8">
+    <>
+      {/* --- Top Banner --- */}
+      <div
+        className={`bg-black text-gray-400 flex justify-end items-center py-2 px-6 min-h-14 transition-all duration-500 ${
+          isScrolled
+            ? "-translate-y-full opacity-0"
+            : "translate-y-0 opacity-100"
+        }`}
+      >
+        <a
+          href="mailto:hello@lurity.com"
+          className="text-gray-400 hover:text-white transition-colors mr-4"
+        >
+          hello@lurity.com
+        </a>
+        <p className="mx-1 text-gray-500">|</p>
+        <button className="text-gray-400 hover:text-white transition-colors">
+          en ▼
+        </button>
+      </div>
+
+      {/* --- Navbar --- */}
+      <nav
+        className={`fixed left-0 right-0 z-50 border-b border-border transition-all duration-500 ${
+          isScrolled ? "top-0 bg-background shadow-md" : "top-12 bg-background"
+        }`}
+      >
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-between gap-4 h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-2">
+              <img
+                src="https://www.lurity.com/logo.jpg"
+                alt="Lurity Logo"
+                className="h-10 w-auto max-w-[178px]"
+              />
+            </Link>
+
+            {/* Desktop Nav */}
+            <div className="hidden w-full lg:flex items-center justify-between gap-4 text-nowrap">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="text-sm font-semibold text-black hover:text-cyan transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+
+            {/* Launch Button (Desktop) */}
+            <div className="hidden lg:block">
+              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-5 py-7 rounded-sm shadow-md">
+                LAUNCH CAMPAIGN
+              </Button>
+            </div>
+
+            {/* Hamburger Icon (Mobile) */}
+            <button
+              className="lg:hidden text-black"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
+
+        {/* --- Mobile Menu --- */}
+        <div
+          className={`lg:hidden bg-black border-t border-border absolute left-0 w-full transition-all duration-300 ease-in-out ${
+            menuOpen
+              ? "max-h-[500px] opacity-100"
+              : "max-h-0 opacity-0 overflow-hidden"
+          }`}
+        >
+          <div className="flex flex-col items-center py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-sm font-semibold text-foreground hover:text-cyan transition-colors"
+                onClick={() => setMenuOpen(false)}
+                className="text-sm font-semibold text-white hover:text-cyan transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-          </div>
 
-          <Button className="bg-cyan hover:bg-cyan/90 text-white font-bold px-8 rounded-lg shadow-cyan">
-            LAUNCH CAMPAIGN
-          </Button>
+            <Button
+              onClick={() => setMenuOpen(false)}
+              className="bg-cyan w-9/12 hover:bg-cyan/80 text-black font-bold px-6 rounded-sm shadow-md"
+            >
+              LAUNCH CAMPAIGN
+            </Button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Spacer so content isn’t hidden behind navbar */}
+      <div className="h-[140px]" />
+    </>
   );
 };
 

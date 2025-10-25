@@ -6,10 +6,12 @@ import Blog from "@/components/Blog";
 import Testimonials from "@/components/Testimonials";
 import FooterBanner from "@/components/FooterBanner";
 import Footer from "@/components/Footer";
+import Topbar from "@/components/Topbar";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <Topbar />
       <Navigation />
       <Hero />
       <Benefits />
@@ -17,7 +19,7 @@ const Index = () => {
       <Blog />
       <Testimonials />
       <FooterBanner />
-      <Footer/>
+      <Footer />
     </div>
   );
 };
