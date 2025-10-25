@@ -22,28 +22,31 @@ const Benefits = () => {
     {
       icon: ImageIcon,
       title: "Visual or spot?",
-      description: "or multiple for a campaign? Change anytime.",
+      description: "Or multiple for a campaign? Change anytime.",
     },
   ];
 
   return (
-    <section className="py-24 bg-secondary">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16 space-y-6">
-          <h2 className="text-5xl lg:text-6xl font-black">
+    <section className="bg-secondary py-20">
+      <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start ">
+        {/* Left Column: Heading + Button */}
+        <div className="flex flex-col items-start space-y-20">
+          <h2 className="text-5xl lg:text-6xl font-black text-left leading-tight">
             Why should you have Lurity in your campaign?
           </h2>
-          <Button className="bg-magenta hover:bg-magenta/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan group">
+
+          <Button className="bg-magenta hover:bg-magenta/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan flex items-center group">
             I'M INTERESTED
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+        {/* Right Column: Benefits Grid */}
+        <div className="grid md:grid-cols-2 grid-rows-2 gap-8 mt-10 lg:mt-0">
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="bg-card p-8 rounded-2xl shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-transparent p-8 rounded-2xl shadow-card hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-gradient-magenta rounded-2xl flex items-center justify-center mb-6">
                 <benefit.icon className="w-8 h-8 text-white" />
