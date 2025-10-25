@@ -7,18 +7,18 @@ const Hero = () => {
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-6xl lg:text-7xl font-black leading-tight text-black">
+          <div className="space-y-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <h1 className="text-6xl lg:text-7xl xl:text-8xl font-black leading-[0.95] text-foreground">
               Lurity<br />
               <span className="inline-block">Intelligent Ad.</span><br />
               <span className="inline-block">step ahead.</span>
             </h1>
             
-            <p className="text-lg text-black max-w-xl leading-relaxed">
+            <p className="text-lg lg:text-xl text-foreground/80 max-w-xl leading-relaxed">
               Advertising network of 600 digital screens in 3 countries, at the busiest places with a monthly viewing of 15 million people. The most effective medium for online activation.
             </p>
 
-            <Button className="bg-cyan hover:bg-cyan/90 text-white font-bold px-8 py-6 text-base rounded-lg shadow-cyan group uppercase tracking-wide">
+            <Button className="bg-cyan hover:bg-cyan/90 text-white font-bold px-8 py-6 text-base rounded-lg shadow-cyan group uppercase tracking-wide transition-all hover:scale-105 hover:shadow-[0_20px_50px_hsl(193_100%_50%/0.4)]">
               I'M INTERESTED 
               <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
             </Button>
