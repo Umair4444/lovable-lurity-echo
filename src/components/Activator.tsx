@@ -1,35 +1,89 @@
+"use client";
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
-const Activator = () => {
+export default function Activator() {
+  const tabData = [
+    {
+      value: "dooh",
+      title: "OOH is the cheapest online activator",
+      text: "Lurity is an affinity medium, at places where your customers are. A real accelerator of purchasing behavior of the target group* (OOAs Nielsen Research).",
+      button: "Find out more",
+      image: "https://www.lurity.com/images/hp_tab_image_1.png",
+    },
+    {
+      value: "planning",
+      title: "The only one with a self-service planning software",
+      text: "Plan your campaign easily in a few steps: choose a location, timing of the campaign, upload a visual or video. Campaign ready in 7 steps.",
+      button: "I'm Interested",
+      image: "https://www.lurity.com/images/hp_tab_image_1.png",
+    },
+    {
+      value: "campaign",
+      title: "The only one with campaign deployment ASAP",
+      text: "If everything is okay, your campaign runs within 10 minutes. Plus, you have control over the campaign status and its fulfillment anytime.",
+      button: "Find out more",
+      image: "https://www.lurity.com/images/hp_tab_image_1.png",
+    },
+  ];
+
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <h2 className="text-5xl lg:text-6xl font-black leading-tight">
-              OOH is the cheapest online activator
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Lurity is an affinity medium, at places where your customers are. A real accelerator of purchasing behavior of the target group* (OOAs Nielsen Research)
-            </p>
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-8 py-6 text-lg rounded-lg group">
-              Find out more
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </div>
+    <div className="mt-20 text-center space-y-6 py-4">
+      <h3 className="text-3xl font-bold">How we're better</h3>
 
-          <div className="relative">
-            <img 
-              src="https://www.lurity.com/images/hp_tab_image_1.png" 
-              alt="OOH Analytics" 
-              className="w-full h-auto rounded-2xl shadow-card"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
+      <Tabs defaultValue="dooh" className="w-full max-w-6xl mx-auto">
+        {/* --- Tab Buttons --- */}
+        <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent">
+          <TabsTrigger
+            value="dooh"
+            className="data-[state=active]:bg-cyan data-[state=active]:text-white bg-cyan/10 text-cyan rounded-full px-6 py-3 font-semibold text-lg transition-all"
+          >
+            Effective DOOH
+          </TabsTrigger>
+
+          <TabsTrigger
+            value="planning"
+            className="data-[state=active]:bg-magenta data-[state=active]:text-white bg-magenta/10 text-magenta rounded-full px-6 py-3 font-semibold text-lg transition-all"
+          >
+            Planning Software
+          </TabsTrigger>
+
+          <TabsTrigger
+            value="campaign"
+            className="data-[state=active]:bg-yellow data-[state=active]:text-black bg-yellow/10 text-yellow-800 rounded-full px-6 py-3 font-semibold text-lg transition-all"
+          >
+            Campaign Deployment
+          </TabsTrigger>
+        </TabsList>
+
+        {/* --- Tab Content --- */}
+        {tabData.map((tab) => (
+          <TabsContent key={tab.value} value={tab.value} className="mt-8">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8 pt-10">
+              {/* Text Section */}
+              <div className="flex-1 text-left space-y-4">
+                <h1 className="text-3xl lg:text-4xl font-bold">{tab.title}</h1>
+                <p className="text-gray-700 text-base">{tab.text}</p>
+                <Button className="bg-magenta text-white hover:bg-magenta/90 rounded-lg px-6 py-4 uppercase tracking-wide font-medium flex items-center gap-2">
+                  {tab.button}{" "}
+                  <ArrowRight className="w-4 h-4 text-yellow-400" />
+                </Button>
+              </div>
+
+              {/* Image Section */}
+              <div className="flex-1">
+                <img
+                  src={tab.image}
+                  alt={tab.title}
+                  className="w-full h-auto rounded-2xl shadow-lg"
+                />
+              </div>
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </div>
   );
-};
-
-export default Activator;
+}
