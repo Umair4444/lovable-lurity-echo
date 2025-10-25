@@ -3,25 +3,27 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <h1 className="text-6xl lg:text-7xl font-black leading-tight">
+          <div className="space-y-8 opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-foreground">
               Lurity<br />
               <span className="inline-block">Intelligent Ad.</span><br />
               <span className="inline-block">step ahead.</span>
             </h1>
             
-            <p className="text-lg text-muted-foreground max-w-xl">
+            <p className="text-base md:text-lg text-foreground/80 max-w-xl opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
               Advertising network of 600 digital screens in 3 countries, at the busiest places with a monthly viewing of 15 million people. The most effective medium for online activation.
             </p>
 
-            <Button className="bg-cyan hover:bg-cyan/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan group">
-              I'M INTERESTED 
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <div className="opacity-0 animate-fade-in-up" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+              <Button className="bg-cyan hover:bg-cyan/90 hover:scale-105 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan group transition-all duration-300">
+                I'M INTERESTED 
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
           </div>
 
           {/* Right Visual */}
