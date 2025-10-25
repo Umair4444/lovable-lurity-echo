@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-black text-white px-6 sm:px-12 lg:px-24 py-16">
+    <footer className="bg-black text-white px-6 sm:px-12 lg:px-24 pt-16 pb-8">
       {/* Upper Section */}
       <div className="flex flex-col lg:flex-row justify-between gap-10 mb-16">
         {/* Left Text */}
@@ -140,7 +140,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center">© Lurity SK s.r.o., 2024</div>
+      <div className="text-center pt-6">© Lurity SK s.r.o., 2024</div>
     </footer>
   );
 };
