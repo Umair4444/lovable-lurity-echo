@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col items-center pt-32 pb-20 overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -32,7 +32,7 @@ const Hero = () => {
               className="opacity-0 animate-fade-in-up"
               style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
             >
-              <Button className="bg-cyan hover:bg-cyan/90 hover:scale-105 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan group transition-all duration-300">
+              <Button className="bg-cyan hover:bg-cyan/90 hover:scale-105 text-black font-bold px-8 py-8 text-lg rounded-lg shadow-cyan group transition-all duration-300">
                 I'M INTERESTED
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -53,87 +53,102 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-
             {/* Floating Stat Cards */}
-            <div
-              className="absolute z-40 -top-5 left-28 bg-gradient-magenta text-white p-8 rounded-3xl shadow-magenta animate-float"
-              style={{ animationDelay: "0s" }}
-            >
-              <div className="text-xs text-center font-semibold mb-1">
-                VIEWS PER YEAR
-              </div>
-              <div className="text-4xl font-black">55mil.</div>
+
+            {/* Stats Box with Ripple Effect */}
+            {/* Ripple border effect */}
+            <div className="absolute z-40 left-16 -top-5 inset-0 ">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
             </div>
 
-            <div
-              className="absolute top-1/2 -right-12 bg-gradient-lime text-black p-8 rounded-3xl shadow-cyan animate-float"
-              style={{ animationDelay: "0.5s" }}
-            >
-              <div className="text-xs text-center font-semibold mb-1">
-                VIEWS PER MONTH
+            {/* Stats Card */}
+            <div className="absolute z-40 left-10 -top-10 bg-pink-600 px-8 py-4 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1">VIEWS PER YEAR</div>
+                <div className="text-4xl font-black">55 mil.</div>
               </div>
-              <div className="text-4xl font-black">15mil.</div>
             </div>
 
-            <div
-              className="absolute bottom-0 -left-0 bg-gradient-yellow text-black p-8 rounded-3xl shadow-cyan animate-float"
-              style={{ animationDelay: "1s" }}
-            >
-              <div className="text-xs text-center font-semibold mb-1">
-                SCREENS
+            {/* Stats Box with Ripple Effect */}
+            {/* Ripple border effect */}
+            <div className="absolute z-40 top-[36%] -right-6">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+
+            {/* Stats Card */}
+            <div className="absolute z-40 top-1/3 -right-12  bg-lime px-8 py-4 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1">
+                  VIEWS PER MONTH
+                </div>
+                <div className="text-4xl font-black">15mil.</div>
               </div>
-              <div className="text-4xl font-black">600</div>
+            </div>
+
+            {/* Stats Box with Ripple Effect */}
+            {/* Ripple border effect */}
+            <div className="absolute z-40 bottom-8 -left-8">
+              <div className="bg-gray-400 w-20 px-12 py-12 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+
+            {/* Stats Card */}
+            <div className="absolute z-40 bottom-5 -left-12 bg-yellow px-8 py-4 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1">SCREENS </div>
+                <div className="text-4xl font-black">600</div>
+              </div>
             </div>
 
             {/* Floating People Images */}
             <div
-              className="absolute top-1/2 left-0 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float"
+              className="absolute top-1/3 -left-10 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float delay-300"
               style={{ animationDelay: "0.3s" }}
             >
               <img
-                src="https://lbapi.tapgest.com/lurity/image/upload/w_330/v1688109852/ajgyfneamdsq2br1nrpp.jpg"
+                src="/1.png"
                 alt="Person"
                 className="w-full h-full object-cover"
               />
             </div>
-
             <div
-              className="absolute top-4 right-0 w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float"
+              className="absolute top-4 -right-10 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float"
               style={{ animationDelay: "0.7s" }}
             >
               <img
-                src="https://lbapi.tapgest.com/lurity/image/upload/w_330/v1688109852/ajgyfneamdsq2br1nrpp.jpg"
+                src="/2.jpg"
                 alt="Person"
                 className="w-full h-full object-cover"
               />
             </div>
-
             <div
-              className="absolute bottom-4 right-10 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float"
+              className="absolute bottom-4 -right-10 w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg animate-float"
               style={{ animationDelay: "1.2s" }}
             >
               <img
-                src="https://lbapi.tapgest.com/lurity/image/upload/w_330/v1688109852/ajgyfneamdsq2br1nrpp.jpg"
+                src="/3.jpg"
                 alt="Person"
                 className="w-full h-full object-cover"
               />
             </div>
-
             {/* Decorative Dots */}
             <div
-              className="absolute top-1/3 left-20 w-4 h-4 bg-cyan rounded-full animate-float"
+              className="absolute top-1/4 left-20 w-4 h-4 bg-cyan rounded animate-float"
               style={{ animationDelay: "0.4s" }}
             ></div>
             <div
-              className="absolute z-50 bottom-40 left-10 w-4 h-4 bg-lime rounded-full animate-float"
+              className="absolute z-50 bottom-52 left-0 w-4 h-4 bg-blue-700 rounded animate-float"
               style={{ animationDelay: "0.8s" }}
             ></div>
             <div
-              className="absolute z-50 bottom-32 right-24 w-5 h-5 bg-yellow rounded-full animate-float"
+              className="absolute z-50 top-0 right-24 w-4 h-4 bg-lime rounded animate-float"
+              style={{ animationDelay: "0.8s" }}
+            ></div>
+            <div
+              className="absolute z-50 bottom-48 right-10 w-5 h-5 bg-yellow rounded animate-float"
               style={{ animationDelay: "1.1s" }}
             ></div>
             <div
-              className="absolute z-50 bottom-20 right-0 w-3 h-3 bg-magenta rounded-full animate-float"
+              className="absolute z-50 bottom-40 -right-10 w-3 h-3 bg-magenta rounded animate-float"
               style={{ animationDelay: "0.6s" }}
             ></div>
           </div>
@@ -154,7 +169,7 @@ const Hero = () => {
 
           {/* <!-- Text Section --> */}
           <div className="text-start md:text-start">
-            <p className="font-medium uppercase text-black/70 mb-2">
+            <p className="font-medium uppercase text-black/80 mb-2">
               22 OCTOBER 2025
             </p>
 
@@ -164,22 +179,9 @@ const Hero = () => {
 
             {/* <!-- Button --> */}
             <div className="action-container mt-4">
-              <button className="web-button flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[--why-banner-bg-color] px-6 py-[18px] font-medium uppercase tracking-widest text-white shadow-md transition-all hover:opacity-90">
+              <button className="web-button flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[--why-banner-bg-color] px-6 py-[18px]  uppercase tracking-widest text-black font-bold shadow-md transition-all hover:opacity-90">
                 <span>Read more</span>
-                <span className="nuxt-icon">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12.748 12.2627L15.3607 9.65C15.7849 9.20543 16.0216 8.61452 16.0216 8C16.0216 7.38548 15.7849 6.79457 15.3607 6.35L12.748 3.73733C12.5605 3.54973 12.3062 3.44431 12.0409 3.44424C11.7757 3.44418 11.5213 3.54949 11.3337 3.737C11.1461 3.9245 11.0407 4.17885 11.0406 4.44409C11.0405 4.70933 11.1458 4.96373 11.3334 5.15133L13.1867 7.00533L1.02002 7.02066C0.754803 7.02066 0.500449 7.12602 0.312913 7.31356C0.125376 7.50109 0.0200195 7.75545 0.0200195 8.02067C0.0200195 8.28588 0.125376 8.54024 0.312913 8.72777C0.500449 8.91531 0.754803 9.02067 1.02002 9.02067L13.174 9.00533L11.3334 10.8487C11.1512 11.0373 11.0504 11.2899 11.0527 11.5521C11.055 11.8143 11.1601 12.0651 11.3455 12.2505C11.5309 12.4359 11.7818 12.5411 12.044 12.5433C12.3061 12.5456 12.5588 12.4448 12.7474 12.2627H12.748Z"
-                      fill="#FFD503"
-                    />
-                  </svg>
-                </span>
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>
