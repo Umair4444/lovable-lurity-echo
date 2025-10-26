@@ -27,8 +27,8 @@ const PhoneCarousel = () => {
   };
 
   return (
-    <div className="relative w-[300px] lg:w-[350px] mx-auto">
-      <div className="relative bg-black rounded-[3rem] p-3 shadow-2xl">
+    <div className="relative w-[240px] sm:w-[280px] md:w-[300px] lg:w-[350px] mx-auto">
+      <div className="relative bg-black rounded-[2rem] md:rounded-[3rem] p-2 md:p-3 shadow-2xl">
         {/* Main Image */}
         <div className="bg-black rounded-[2.5rem] aspect-[9/19] flex items-center justify-center overflow-hidden">
           <img
@@ -39,11 +39,11 @@ const PhoneCarousel = () => {
         </div>
 
         {/* Bottom Logo */}
-        <div className="absolute w-full bg-black -bottom-0 -left-0 rounded-full flex flex-row items-center justify-center gap-2 h-28 mt-4">
+        <div className="absolute w-full bg-black -bottom-0 -left-0 rounded-full flex flex-row items-center justify-center gap-2 h-20 md:h-28 mt-4">
           <img
             src="/lurity.png"
             alt="Lurity Body"
-            className="w-52 object-contain"
+            className="w-36 sm:w-44 md:w-52 object-contain"
           />
         </div>
 
