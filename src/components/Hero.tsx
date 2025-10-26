@@ -1,9 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const logos = [
+  "https://plus.unsplash.com/premium_photo-1671599016130-7882dbff302f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cXVvdGVzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+  "https://images.unsplash.com/photo-1567219934540-9f75f7b87552?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cXVvdGVzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+  "https://images.unsplash.com/photo-1698620225002-36b415f78d57?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHF1b3Rlc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+  "https://images.unsplash.com/photo-1641673840250-2843679337f3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHF1b3Rlc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+];
 
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  // Auto slide every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % logos.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + logos.length) % logos.length);
+  };
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % logos.length);
+  };
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center pt-32 pb-20 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col items-center pt-20  overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -42,17 +69,43 @@ const Hero = () => {
           {/* Right Visual */}
           <div className="relative h-[600px] lg:h-[700px]">
             {/* Main Phone Mockup */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] lg:w-[350px] z-10">
+            <div className="relative w-[300px] lg:w-[350px] mx-auto">
+              {/* Slider Container */}
               <div className="relative bg-black rounded-[3rem] p-3 shadow-2xl">
-                <div className="bg-white rounded-[2.5rem] aspect-[9/19] flex items-center justify-center overflow-hidden">
+                {/* Main Image */}
+                <div className="bg-black rounded-[2.5rem] aspect-[9/19] flex items-center justify-center overflow-hidden">
                   <img
-                    src="https://www.lurity.com/logo.jpg"
+                    src={logos[current]}
                     alt="Lurity"
-                    className="w-32 object-contain"
+                    className="w-full object-contain transition-all duration-700"
                   />
                 </div>
+
+                {/* Bottom Image (static) */}
+                <div className="absolute w-full bg-black -bottom-0 -left-0  rounded-full  flex flex-row items-center justify-center gap-2 h-28 mt-4">
+                  <img
+                    src="/lurity.png"
+                    alt="Lurity Body"
+                    className="w-52 object-contain"
+                  />
+                </div>
+
+                {/* Arrows */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute hidden left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+                >
+                  <ChevronLeft className="w-6 h-6 text-black" />
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute hidden right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+                >
+                  <ChevronRight className="w-6 h-6 text-black" />
+                </button>
               </div>
             </div>
+
             {/* Floating Stat Cards */}
 
             {/* Stats Box with Ripple Effect */}
