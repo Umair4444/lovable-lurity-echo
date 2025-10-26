@@ -27,10 +27,10 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="bg-secondary py-20">
+    <section className="bg-secondary py-12">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-12 items-start ">
         {/* Left Column: Heading + Button */}
-        <div className="flex flex-col items-start space-y-20">
+        <div className="flex flex-col items-start space-y-10">
           <h2 className="text-5xl lg:text-6xl font-black text-left leading-tight">
             Why should you have Lurity in your campaign?
           </h2>
@@ -42,7 +42,7 @@ const Benefits = () => {
         </div>
 
         {/* Right Column: Benefits Grid */}
-        <div className="grid md:grid-cols-2 grid-rows-2 gap-8 mt-10 lg:mt-0">
+        <div className="grid md:grid-cols-2 grid-rows-2 gap-8 lg:mt-0">
           {benefits.map((benefit, index) => (
             <div
               key={index}

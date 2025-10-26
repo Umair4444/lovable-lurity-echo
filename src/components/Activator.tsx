@@ -60,7 +60,7 @@ export default function Activator() {
 
         {/* --- Tab Content --- */}
         {tabData.map((tab) => (
-          <TabsContent key={tab.value} value={tab.value} className="mt-8">
+          <TabsContent key={tab.value} value={tab.value} className="mt-8 px-8">
             <div className="flex flex-col justify-between items-start gap-8 pt-10">
               {/* Text Section */}
               <div className="flex-1 flex flex-row items-center justify-center text-left gap-12">

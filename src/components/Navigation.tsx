@@ -25,9 +25,8 @@ const Navigation = () => {
   }, []);
 
   return (
-    <>
-      {/* --- Navbar --- */}
-      <nav
+    <nav>
+      <div
         className={`fixed left-0 right-0 z-40 border-b border-border transition-all duration-500 ${
           isScrolled ? "top-0 bg-background shadow-md" : "top-12 bg-background"
         }`}
@@ -101,11 +100,11 @@ const Navigation = () => {
             </Button>
           </div>
         </div>
-      </nav>
+      </div>
 
       {/* Spacer so content isn’t hidden behind navbar */}
-      <div className="h-[140px]" />
-    </>
+      <div className="md:h-[40px] lg:h-[80px]" />
+    </nav>
   );
 };
 
