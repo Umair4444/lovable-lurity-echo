@@ -26,29 +26,9 @@ const Navigation = () => {
 
   return (
     <>
-      {/* --- Top Banner --- */}
-      <div
-        className={`bg-black text-gray-400 flex justify-end items-center py-2 px-6 min-h-14 transition-all duration-500 ${
-          isScrolled
-            ? "-translate-y-full opacity-0"
-            : "translate-y-0 opacity-100"
-        }`}
-      >
-        <a
-          href="mailto:hello@lurity.com"
-          className="text-gray-400 hover:text-white transition-colors mr-4"
-        >
-          hello@lurity.com
-        </a>
-        <p className="mx-1 text-gray-500">|</p>
-        <button className="text-gray-400 hover:text-white transition-colors">
-          en ▼
-        </button>
-      </div>
-
       {/* --- Navbar --- */}
       <nav
-        className={`fixed left-0 right-0 z-50 border-b border-border transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-40 border-b border-border transition-all duration-500 ${
           isScrolled ? "top-0 bg-background shadow-md" : "top-12 bg-background"
         }`}
       >
