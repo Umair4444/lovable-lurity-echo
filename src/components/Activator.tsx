@@ -18,22 +18,22 @@ export default function Activator() {
       title: "The only one with a self-service planning software",
       text: "Plan your campaign easily in a few steps: choose a location, timing of the campaign, upload a visual or video. Campaign ready in 7 steps.",
       button: "I'm Interested",
-      image: "https://www.lurity.com/images/hp_tab_image_1.png",
+      image: "https://www.lurity.com/images/hp_tab_image_2.png",
     },
     {
       value: "campaign",
       title: "The only one with campaign deployment ASAP",
       text: "If everything is okay, your campaign runs within 10 minutes. Plus, you have control over the campaign status and its fulfillment anytime.",
       button: "Find out more",
-      image: "https://www.lurity.com/images/hp_tab_image_1.png",
+      image: "https://www.lurity.com/images/hp_tab_image_3.png",
     },
   ];
 
   return (
-    <div className="mt-20 text-center space-y-6 py-4">
-      <h3 className="text-3xl font-bold">How we're better</h3>
+    <div className="mt-5 text-center space-y-6 py-4">
+      <h3 className="text-5xl font-extrabold">How we're better</h3>
 
-      <Tabs defaultValue="dooh" className="w-full max-w-6xl mx-auto">
+      <Tabs defaultValue="dooh" className="w-full max-w-7xl mx-auto">
         {/* --- Tab Buttons --- */}
         <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent">
           <TabsTrigger
@@ -61,19 +61,21 @@ export default function Activator() {
         {/* --- Tab Content --- */}
         {tabData.map((tab) => (
           <TabsContent key={tab.value} value={tab.value} className="mt-8">
-            <div className="flex flex-col md:flex-row justify-between items-start gap-8 pt-10">
+            <div className="flex flex-col justify-between items-start gap-8 pt-10">
               {/* Text Section */}
-              <div className="flex-1 text-left space-y-4">
+              <div className="flex-1 flex flex-row items-center justify-center text-left gap-12">
                 <h1 className="text-3xl lg:text-4xl font-bold">{tab.title}</h1>
-                <p className="text-gray-700 text-base">{tab.text}</p>
-                <Button className="bg-magenta text-white hover:bg-magenta/90 rounded-lg px-6 py-4 uppercase tracking-wide font-medium flex items-center gap-2">
-                  {tab.button}{" "}
-                  <ArrowRight className="w-4 h-4 text-yellow-400" />
-                </Button>
+                <div className="flex flex-col items-start justify-center gap-4">
+                  <p className="text-gray-700 text-base">{tab.text}</p>
+                  <Button className="w-fit bg-magenta text-white hover:bg-magenta/90 rounded-lg px-6 py-4 uppercase tracking-wide font-medium flex items-center gap-2">
+                    {tab.button}{" "}
+                    <ArrowRight className="w-4 h-4 text-yellow-400" />
+                  </Button>
+                </div>
               </div>
 
               {/* Image Section */}
-              <div className="flex-1">
+              <div className="w-full max-w-7xl">
                 <img
                   src={tab.image}
                   alt={tab.title}

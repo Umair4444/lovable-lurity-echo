@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { TbBrandTelegram } from "react-icons/tb";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="E-mail address"
-                className="w-full border border-gray-300 rounded-lg py-3 px-4 text-lg focus:ring-2 focus:ring-black outline-none"
+                className="w-full border border-gray-300 rounded-lg py-3 px-4 text-lg focus:ring-2 focus:ring-black outline-none bg-black"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -42,12 +43,12 @@ const Footer = () => {
                 type="submit"
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-black hover:scale-110 transition-transform"
               >
-                ➜
+                <TbBrandTelegram className="text-yellow w-10 h-10 px-2" />
               </button>
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}
 
-            <label className="flex items-center gap-2 text-[14px] sm:text-[16px]">
+            <label className="flex items-center gap-2 px-2 py-2 text-[14px] sm:text-[16px]">
               <input
                 type="checkbox"
                 checked={agree}
@@ -65,13 +66,13 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="h-px bg-[#181818] w-full mb-16"></div>
+      <div className="h-px bg-[#2e2d2d] w-full"></div>
 
       {/* Lower Section */}
       <div className="flex flex-col lg:flex-row py-10 gap-16 lg:gap-0">
         {/* Menu */}
         <div className="w-full lg:w-3/5">
-          <h2 className="font-medium text-2xl mb-4">Menu</h2>
+          <h2 className="font-semibold text-2xl mb-4">Menu</h2>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-2 text-gray-600">
             {[
               "How it works",
@@ -94,7 +95,7 @@ const Footer = () => {
 
         {/* Address */}
         <div className="w-full lg:w-2/4">
-          <h2 className="font-medium text-2xl mb-4">Adresa</h2>
+          <h2 className="font-semibold text-2xl mb-4">Adresa</h2>
           <div className="text-gray-600">
             <div className="mb-8">
               <p>Lurity SK s.r.o.,</p>
@@ -111,7 +112,7 @@ const Footer = () => {
 
         {/* Contact */}
         <div className="w-full lg:w-1/4">
-          <h2 className="font-medium text-2xl mb-4">Kontakt</h2>
+          <h2 className="font-semibold text-2xl mb-4">Kontakt</h2>
           <a
             href="mailto:hello@lurity.com"
             className="block mb-4 text-gray-600 hover:text-black"
@@ -140,6 +141,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="h-px bg-[#181818] w-full"></div>
       <div className="text-center pt-6">© Lurity SK s.r.o., 2024</div>
     </footer>
   );

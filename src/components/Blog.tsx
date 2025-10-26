@@ -29,24 +29,19 @@ const Blog = () => {
   ];
 
   const logos = [
-    "https://upload.wikimedia.org/wikipedia/commons/0/0b/BBC_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/6/67/CNN_International_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/6/6f/Forbes_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/2/20/The_New_York_Times_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/4/40/Reuters_Logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/d/d6/TechCrunch_logo.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/4/44/The_Guardian_2018.svg",
-    "https://upload.wikimedia.org/wikipedia/commons/5/51/Wired_logo.svg",
+    "/eva.png",
+    "/forbes.png",
+    "/mediaguru.png",
+    "/mam.png",
+    "/ta3.svg",
+    "/trend.png",
+    "/startitup.png",
+    "/strategies.png",
   ];
 
   return (
     <section className="py-24 bg-secondary">
       <div className="container mx-auto px-6">
-        {/* <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-black mb-4">
-            Lurity in the media
-          </h2>
-        </div> */}
         <section className="py-20 bg-yellow px-10 mb-16 rounded-xl">
           <div className="flex flex-col md:flex-row items-center justify-start gap-10">
             {/* Left Text Section */}
@@ -63,7 +58,7 @@ const Blog = () => {
                   key={index}
                   src={logo}
                   alt={`Media logo ${index + 1}`}
-                  className="h-10 md:h-14 object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="h-10 md:h-14 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
                 />
               ))}
             </div>
