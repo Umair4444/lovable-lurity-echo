@@ -46,60 +46,68 @@ const Hero = () => {
           </div>
 
           {/* Right Visual */}
-          <div className="relative h-[500px] md:h-[600px] lg:h-[700px] order-1 lg:order-2">
+          <div className="relative h-[500px] md:h-[600px] lg:h-[700px] xl:h-[750px] order-1 lg:order-2">
             <PhoneCarousel />
 
-            {/* Floating Stat Cards - Hidden on mobile, visible on md+ */}
-            <div className="hidden md:block">
+            {/* Floating Stat Cards - Progressive reveal across breakpoints */}
+            <div className="hidden sm:block">
               <StatCard
                 label="VIEWS PER YEAR"
                 value="55 mil."
                 bgColor="bg-pink-600"
-                position="left-4 md:left-10 -top-6 md:-top-10"
+                position="left-0 sm:left-2 md:left-6 lg:left-10 -top-4 sm:-top-6 md:-top-8 lg:-top-10"
               />
+            </div>
+            <div className="hidden md:block">
               <StatCard
                 label="VIEWS PER MONTH"
                 value="15mil."
                 bgColor="bg-lime"
-                position="top-1/3 -right-6 md:-right-12"
+                position="top-1/3 md:top-1/4 lg:top-1/3 -right-4 md:-right-8 lg:-right-12 xl:-right-16"
               />
               <StatCard
                 label="SCREENS"
                 value="600"
                 bgColor="bg-yellow"
-                position="bottom-5 -left-6 md:-left-12"
+                position="bottom-8 md:bottom-6 lg:bottom-5 -left-4 md:-left-8 lg:-left-12 xl:-left-16"
               />
             </div>
 
-            {/* Floating People Images - Hidden on small screens */}
-            <div className="hidden md:block">
+            {/* Floating People Images - Staggered visibility */}
+            <div className="hidden sm:block">
               <FloatingImage
                 src="/1.png"
                 alt="Person"
-                position="top-1/3 -left-6 md:-left-10"
+                position="top-1/3 sm:top-1/4 md:top-1/3 -left-4 sm:-left-6 md:-left-8 lg:-left-10 xl:-left-12"
                 delay="0.3s"
               />
+            </div>
+            <div className="hidden md:block">
               <FloatingImage
                 src="/2.jpg"
                 alt="Person"
-                position="top-4 -right-6 md:-right-10"
+                position="top-2 md:top-4 lg:top-6 -right-4 md:-right-6 lg:-right-8 xl:-right-10"
                 delay="0.7s"
               />
+            </div>
+            <div className="hidden lg:block">
               <FloatingImage
                 src="/3.jpg"
                 alt="Person"
-                position="bottom-4 -right-6 md:-right-10"
+                position="bottom-2 md:bottom-4 lg:bottom-6 -right-4 md:-right-6 lg:-right-8 xl:-right-10"
                 delay="1.2s"
               />
             </div>
 
-            {/* Decorative Dots - Responsive positioning */}
+            {/* Decorative Dots - Enhanced positioning across breakpoints */}
+            <div className="hidden md:block">
+              <FloatingDot bgColor="bg-cyan" position="top-1/4 left-12 md:left-16 lg:left-20 xl:left-24" delay="0.4s" size="w-3 h-3 md:w-4 md:h-4" />
+              <FloatingDot bgColor="bg-lime" position="top-0 md:top-2 right-16 md:right-20 lg:right-24 xl:right-28" delay="0.8s" size="w-3 h-3 md:w-4 md:h-4" />
+            </div>
             <div className="hidden lg:block">
-              <FloatingDot bgColor="bg-cyan" position="top-1/4 left-20" delay="0.4s" />
-              <FloatingDot bgColor="bg-blue-700" position="bottom-52 left-0" delay="0.8s" />
-              <FloatingDot bgColor="bg-lime" position="top-0 right-24" delay="0.8s" />
-              <FloatingDot bgColor="bg-yellow" position="bottom-48 right-10" delay="1.1s" size="w-5 h-5" />
-              <FloatingDot bgColor="bg-magenta" position="bottom-40 -right-10" delay="0.6s" size="w-3 h-3" />
+              <FloatingDot bgColor="bg-blue-700" position="bottom-40 md:bottom-48 lg:bottom-52 left-0 md:-left-2 lg:left-0" delay="0.8s" size="w-4 h-4" />
+              <FloatingDot bgColor="bg-yellow" position="bottom-40 md:bottom-44 lg:bottom-48 right-6 md:right-8 lg:right-10 xl:right-12" delay="1.1s" size="w-4 h-4 md:w-5 md:h-5" />
+              <FloatingDot bgColor="bg-magenta" position="bottom-32 md:bottom-36 lg:bottom-40 -right-6 md:-right-8 lg:-right-10 xl:-right-12" delay="0.6s" size="w-2 h-2 md:w-3 md:h-3" />
             </div>
           </div>
         </div>
