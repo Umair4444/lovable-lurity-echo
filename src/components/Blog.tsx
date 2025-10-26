@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { Calendar, ArrowRightIcon } from "lucide-react";
 
 const Blog = () => {
   const articles = [
@@ -29,43 +29,72 @@ const Blog = () => {
   ];
 
   const logos = [
-    "/eva.png",
     "/forbes.png",
-    "/mediaguru.png",
-    "/mam.png",
+    "/strategies.png",
+    "/startitup.png",
     "/ta3.svg",
     "/trend.png",
-    "/startitup.png",
-    "/strategies.png",
+    "/eva.png",
+    "/mediaguru.png",
+    "/mediaguru.png",
   ];
 
   return (
-    <section className="py-24 bg-secondary">
-      <div className="container mx-auto px-6">
-        <section className="py-20 bg-yellow px-10 mb-16 rounded-xl">
+    <section className="bg-secondary py-12">
+      <div className="container mx-auto px-3">
+        <section className="py-12 bg-yellow px-10 mb-16 rounded-xl">
           <div className="flex flex-col md:flex-row items-center justify-start gap-10">
-            {/* Left Text Section */}
-            <h2 className="font-bold text-[32px] lg:text-[46px] leading-none md:mr-16 xl:mr-28 text-left">
-              Lurity
-              <br />
-              <span className="text-magenta">in the media</span>
+            {/* Text Section */}
+            <h2 className="font-bold text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
+              Lurity in the media
             </h2>
 
-            {/* Right Logos Grid */}
-            <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+            {/* Logos Grid */}
+            <div className="hidden max-w-full flex-1 md:grid grid-cols-4 gap-x-5 gap-y-2 ">
               {logos.map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt={`Media logo ${index + 1}`}
-                  className="h-10 md:h-14 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
-                />
+                <div key={index} className="w-full grid">
+                  <img
+                    src={logo}
+                    alt={`Media logo ${index + 1}`}
+                    className="w-full h-14 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               ))}
+            </div>
+
+            {/* Logos Grid on mobile Only */}
+            <div className=" md:hidden ">
+              <div className="max-w-full flex-1 grid grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-2 ">
+                {logos.slice(0, 6).map((logo, index) => (
+                  <div key={index} className="w-full grid">
+                    <img
+                      src={logo}
+                      alt={`Media logo ${index + 1}`}
+                      className="w-full h-14 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="max-w-full w-full flex items-center justify-between gap-x-5 ">
+                {logos.slice(6).map((logo, index) => (
+                  <div
+                    key={index}
+                    className="w-full flex flex-row items-center justify-between "
+                  >
+                    <img
+                      src={logo}
+                      alt={`Media logo ${index + 1}`}
+                      className="w-full h-14 object-contain opacity-40 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
           {articles.map((article, index) => (
             <Card
               key={index}
@@ -100,6 +129,7 @@ const Blog = () => {
             className="font-bold px-8 py-6 text-lg rounded-lg bg-yellow hover:bg-yellow/90 hover:text-black hover:border-yellow"
           >
             All articles
+            <ArrowRightIcon className="w-5 h-5 ml-2" />
           </Button>
         </div>
       </div>
