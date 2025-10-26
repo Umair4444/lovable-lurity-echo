@@ -172,3 +172,12 @@ All colors MUST be HSL.
 .delay-1000 {
   animation-delay: 1s;
 }
+
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
