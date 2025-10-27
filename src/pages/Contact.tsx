@@ -391,7 +391,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl  w-full mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
           {teamMembers[activeTab].map((member, index) => (
             <div key={index} className="flex flex-col items-center group">
               <div className="w-32 h-32 md:w-60 md:h-60 gap-4 mx-2 rounded-xl overflow-hidden bg-gradient-to-br from-blue-200 to-purple-200 mb-4 shadow-lg group-hover:shadow-2xl transition-all">
@@ -417,7 +417,7 @@ export default function ContactPage() {
 
       {/* Instagram Feed Section */}
       <div>
-        <div className="flex flex-wrap items-center justify-center gap-8 p-6 bg-white rounded-2xl shadow-md">
+        <div className="flex flex-wrap items-center justify-center gap-8 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
             L
@@ -425,23 +425,31 @@ export default function ContactPage() {
 
           {/* Profile Info */}
           <div className="text-center md:text-left">
-            <h1 className="text-2xl font-semibold text-gray-800">Lucrity</h1>
-            <h2 className="text-gray-500">@Lucrity.com</h2>
+            <h1 className="text-lg font-semibold text-gray-800 uppercase leading-snug">
+              Lucrity
+            </h1>
+            <h2 className="text-gray-400 text-[12px] -mt-1">@lucritycom</h2>
           </div>
 
           {/* Stats */}
           <div className="flex gap-8 text-center">
             <div>
-              <h2 className="text-xl font-bold text-gray-800">222</h2>
-              <h3 className="text-sm text-gray-500">Posts</h3>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                222
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Posts</h3>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-800">856</h2>
-              <h3 className="text-sm text-gray-500">Followers</h3>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                856
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Followers</h3>
             </div>
             <div>
-              <h2 className="text-xl font-bold text-gray-800">1k</h2>
-              <h3 className="text-sm text-gray-500">Following</h3>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                1k
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Following</h3>
             </div>
           </div>
 
