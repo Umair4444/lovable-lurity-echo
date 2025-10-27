@@ -12,7 +12,7 @@ import Clients from "./pages/Clients";
 import Price from "./pages/Price";
 import HowItWorks from "./pages/How-It-Works";
 import Portal from "./pages/Portal";
-import ContactPage from "./pages/ContactPage";
+import Contact from "./pages/contact";
 
 const queryClient = new QueryClient();
 
@@ -24,8 +24,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/portal" element={<Portal />} />
-          {/* <Route path="/contact" element={<ContactPage />} /> */}
           <Route path="/blog" element={<Blog />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/download" element={<Download />} />
