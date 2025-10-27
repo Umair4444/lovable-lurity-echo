@@ -6,6 +6,7 @@ import {
   InstagramIcon,
   Heart,
   MessageCircle,
+  MoveRightIcon,
 } from "lucide-react";
 import Footer from "@/components/Footer";
 
@@ -195,66 +196,127 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form */}
-      <section className="flex flex-col items-center justify-center py-16 px-4 bg-gray-50">
+      <section className="flex flex-col items-center justify-center py-16 px-4 bg-[#F3F7f9]">
         <div className="w-full max-w-4xl">
           <h2 className="text-center font-bold text-[32px] md:text-[36px] mb-10">
             Contact form
           </h2>
 
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <div className="bg-transparent p-8 rounded-2xl shadow-lg">
             <div className="space-y-6">
               {/* Row 1 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Full Name *"
-                  required
-                  value={formData.fullName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address *"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
-                />
+                {/* Full Name */}
+                <div className="relative w-full">
+                  <input
+                    type="text"
+                    name="fullName"
+                    id="fullName"
+                    required
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="peer bg-transparent w-full px-4 pt-5 pb-2 text-gray-900 border-2 border-gray-300 rounded focus:border-[#626364] focus:outline-none transition-all"
+                    placeholder=" "
+                  />
+                  <label
+                    htmlFor="fullName"
+                    className="absolute left-4 text-black text-base bg-[#F3F7F9] px-1 transition-all duration-200 
+        peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-black 
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#626364]"
+                  >
+                    Full Name
+                  </label>
+                </div>
+
+                {/* Email */}
+                <div className="relative w-full">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="peer bg-transparent w-full px-4 pt-5 pb-2 text-gray-900 border-2 border-gray-300 rounded focus:border-[#626364] focus:outline-none transition-all"
+                    placeholder=" "
+                  />
+                  <label
+                    htmlFor="email"
+                    className="absolute left-4 text-black text-base bg-[#F3F7F9] px-1 transition-all duration-200 
+        peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-black 
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#626364]"
+                  >
+                    Email Address
+                  </label>
+                </div>
               </div>
 
               {/* Row 2 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input
-                  type="text"
-                  name="companyName"
-                  placeholder="Company Name"
-                  value={formData.companyName}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
-                />
-                <input
-                  type="tel"
-                  name="phoneNumber"
-                  placeholder="Phone Number"
-                  value={formData.phoneNumber}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
-                />
+                {/* Company Name */}
+                <div className="relative w-full">
+                  <input
+                    type="text"
+                    name="companyName"
+                    id="companyName"
+                    value={formData.companyName}
+                    onChange={handleChange}
+                    className="peer bg-transparent w-full px-4 pt-5 pb-2 text-gray-900 border-2 border-gray-300 rounded focus:border-[#626364] focus:outline-none transition-all"
+                    placeholder=" "
+                  />
+                  <label
+                    htmlFor="companyName"
+                    className="absolute left-4 text-black text-base bg-[#F3F7F9] px-1 transition-all duration-200 
+        peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-black 
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#626364]"
+                  >
+                    Company Name
+                  </label>
+                </div>
+
+                {/* Phone Number */}
+                <div className="relative w-full">
+                  <input
+                    type="tel"
+                    name="phoneNumber"
+                    id="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    className="peer bg-transparent w-full px-4 pt-5 pb-2 text-gray-900 border-2 border-gray-300 rounded focus:border-[#626364] focus:outline-none transition-all"
+                    placeholder=" "
+                  />
+                  <label
+                    htmlFor="phoneNumber"
+                    className="absolute left-4 text-black text-base bg-[#F3F7F9] px-1 transition-all duration-200 
+        peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-black 
+        peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#626364]"
+                  >
+                    Phone Number
+                  </label>
+                </div>
               </div>
 
               {/* Message */}
-              <textarea
-                name="message"
-                placeholder="Your Message *"
-                rows={5}
-                required
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors resize-none"
-              />
+              <div className="relative w-full">
+                <textarea
+                  name="message"
+                  id="message"
+                  rows={5}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="peer bg-transparent w-full px-4 pt-5 pb-2 text-gray-900 border-2 border-gray-300 rounded focus:border-[#626364] focus:outline-none transition-all resize-none"
+                  placeholder=" "
+                />
+                <label
+                  htmlFor="message"
+                  className="absolute left-4 text-black text-base bg-[#F3F7F9] px-1 transition-all duration-200 
+      peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-black 
+      peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#626364]"
+                >
+                  Your Message
+                </label>
+              </div>
 
               {/* Checkboxes */}
               <div className="space-y-4">
@@ -298,10 +360,10 @@ export default function ContactPage() {
               <div className="flex justify-center pt-4">
                 <button
                   onClick={handleSubmit}
-                  className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg"
+                  className="bg-[#1FC9FF] hover:bg-[#1FC9FF]/80 text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg"
                 >
                   <span>Send message</span>
-                  <Send className="w-5 h-5" />
+                  <MoveRightIcon className="w-5 h-5" />
                 </button>
               </div>
             </div>
