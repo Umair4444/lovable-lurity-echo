@@ -41,16 +41,13 @@ const Blog = () => {
 
   return (
     <section className="bg-secondary py-12">
-      <div className=" mx-auto ">
-        <section className="py-20 bg-yellow px-10 mb-16 rounded-xl">
-          <div className="flex flex-col md:flex-row items-center justify-start gap-10 lg:px-24">
+      <div className="container mx-auto px-3">
+        <section className="py-12 bg-yellow px-10 mb-16 rounded-xl">
+          <div className="flex flex-col md:flex-row items-center justify-start gap-10">
             {/* Text Section */}
-            <div className="flex md:flex-col">
-              <h2 className="font-bold  text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
-                Lurity {""}
-              </h2>
-                <span className="font-bold text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">in the media</span>
-            </div>
+            <h2 className="font-bold text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
+              Lurity in the media
+            </h2>
 
             {/* Logos Grid */}
             <div className="hidden max-w-full flex-1 md:grid grid-cols-4 gap-x-5 gap-y-2 ">
@@ -79,7 +76,7 @@ const Blog = () => {
                 ))}
               </div>
 
-              <div className="w-full flex items-center justify-between gap-x-5 ">
+              <div className="max-w-full w-full flex items-center justify-between gap-x-5 ">
                 {logos.slice(6).map((logo, index) => (
                   <div
                     key={index}
@@ -97,7 +94,7 @@ const Blog = () => {
           </div>
         </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-10 overflow-y-auto scrollbar-hide">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-10">
           {articles.map((article, index) => (
             <Card
               key={index}

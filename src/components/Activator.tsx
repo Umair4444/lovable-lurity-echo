@@ -61,21 +61,15 @@ export default function Activator() {
         {/* --- Tab Content --- */}
         {tabData.map((tab) => (
           <TabsContent key={tab.value} value={tab.value} className="mt-8 px-8">
-            <div className="flex flex-col md:flex-col justify-between items-start md:items-center px-4 lg:px-16 py-12">
+            <div className="flex flex-col justify-between items-start gap-8 pt-10">
               {/* Text Section */}
-              <div className="flex flex-col md:flex-row">
-                <div className="w-full font-bold text-3xl lg:text-4xl text-left my-5 pr-6">
-                  <h1 className="text-3xl lg:text-4xl font-bold">
-                    {tab.title}
-                  </h1>
-                </div>
-
-                <div className="w-full text-left my-5 space-y-6">
-                  <p className="text-gray-700 text-base leading-relaxed">
-                    {tab.text}
-                  </p>
-                  <Button className="w-fit bg-transparent text-black hover:bg-transparent/5 rounded-lg px-6 py-4 uppercase tracking-wide font-bold flex items-center gap-2">
-                    {tab.button} <ArrowRight className="w-4 h-4 text-black" />
+              <div className="flex-1 flex flex-row items-center justify-center text-left gap-12">
+                <h1 className="text-3xl lg:text-4xl font-bold">{tab.title}</h1>
+                <div className="flex flex-col items-start justify-center gap-4">
+                  <p className="text-gray-700 text-base">{tab.text}</p>
+                  <Button className="w-fit bg-magenta text-white hover:bg-magenta/90 rounded-lg px-6 py-4 uppercase tracking-wide font-medium flex items-center gap-2">
+                    {tab.button}{" "}
+                    <ArrowRight className="w-4 h-4 text-yellow-400" />
                   </Button>
                 </div>
               </div>

@@ -210,7 +210,7 @@ const Hero = () => {
 
       {/* Bottom Accent */}
       <section className="relative mt-2 py-20 bg-gradient-magenta">
-        <div className="mx-auto flex flex-col items-start px-6 lg:px-40 lg:flex-row lg:items-center xl:pr-40">
+        <div className="bg-blue-600 mx-auto flex flex-col items-start px-6 lg:px-40 lg:flex-row lg:items-center xl:pr-40">
           {/* <!-- Image Section --> */}
           <div className="image-container mb-6 w-full sm:w-auto lg:mb-0 lg:mr-10">
             <img

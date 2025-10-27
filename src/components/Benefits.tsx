@@ -35,7 +35,7 @@ const Benefits = () => {
             Why should you have Lurity in your campaign?
           </h2>
 
-          <Button className="bg-magenta hover:bg-magenta/90 text-black font-bold px-6 py-8 text-lg rounded-sm shadow-cyan flex items-center group">
+          <Button className="bg-magenta hover:bg-magenta/90 text-white font-bold px-8 py-6 text-lg rounded-lg shadow-cyan flex items-center group">
             I'M INTERESTED
             <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
