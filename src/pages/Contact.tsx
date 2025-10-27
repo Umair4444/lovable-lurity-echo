@@ -9,6 +9,8 @@ import {
   MoveRightIcon,
 } from "lucide-react";
 import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import Topbar from "@/components/Topbar";
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState(0);
@@ -130,9 +132,11 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen">
+      <Topbar />
+      <Navigation />
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[600px] relative">
-        <div className="flex flex-1 flex-col justify-center z-30 pr-4 md:pr-8 py-10">
+      <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[760px] relative pt-10 pb-20">
+        <div className="flex flex-1 flex-col justify-center z-30 pr-4 md:pr-8 py-10 ">
           <h1 className="text-[28px] md:text-[38px] lg:text-[58px] font-bold leading-none mb-6">
             Contact us
           </h1>
@@ -153,7 +157,7 @@ export default function ContactPage() {
 
             {/* Location 1 */}
             <div className="flex items-center">
-              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-md flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6 text-[#152B08]" />
               </div>
               <p className="text-[18px] leading-tight">
@@ -166,7 +170,7 @@ export default function ContactPage() {
 
             {/* Location 2 */}
             <div className="flex items-center">
-              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-sm flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6 text-[#152B08]" />
               </div>
               <p className="text-[18px] leading-tight">
@@ -179,19 +183,79 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Image with Badges */}
-        <div className="hidden lg:block relative flex-1 mr-8">
-          <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20"></div>
-            <div className="absolute top-10 right-10 bg-[#EB008C] text-white px-5 py-2 rounded-full shadow-lg">
-              <p className="text-[10px] uppercase font-medium">headquarters</p>
-              <p className="text-xl font-bold text-center">SK</p>
+        <div className="hidden lg:block relative flex-1 mr-8 py-2">
+          {/* Floating Image */}
+          <div
+            className="absolute top-2 left-0 w-72 h-72 rounded overflow-hidden border-4 border-white shadow-lg"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <img
+              src="/1.png"
+              alt="Person"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            className="absolute bottom-0 right-14 w-72 h-72 rounded overflow-hidden border-4 border-white shadow-lg"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <img
+              src="/1.png"
+              alt="Person"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          {/* Stats Box with Ripple Effect */}
+          <div className="w-full h-full  rounded-2xl relative">
+            {/* Stats Box with Ripple Effect */}
+
+            {/* Ripple border effect */}
+            <div className="absolute z-30 top-6 left-[240px]">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
             </div>
-            <div className="absolute bottom-10 right-10 bg-[#FFD503] text-black px-5 py-2 rounded-full shadow-lg">
-              <p className="text-[10px] uppercase font-medium">headquarters</p>
-              <p className="text-xl font-bold text-center">CZ</p>
+
+            {/* Stats Card */}
+            <div className="absolute z-30 top-0 left-1/3 bg-magenta px-10 py-6 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1 uppercase">
+                  headquarters
+                </div>
+                <div className="text-4xl font-black">SK</div>
+              </div>
+            </div>
+
+            {/* Ripple border effect */}
+            <div className="absolute z-30 bottom-6 left-[240px]">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+
+            {/* Stats Card */}
+            <div className="absolute z-30 bottom-0 left-1/3 bg-yellow px-10 py-6 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1 uppercase">
+                  headquarters
+                </div>
+                <div className="text-4xl font-black">CZ</div>
+              </div>
             </div>
           </div>
+          {/* Decorative Dots */}
+          <div
+            className="absolute bottom-1/4 left-20 w-10 h-10 bg-cyan rounded animate-float"
+            style={{ animationDelay: "0.4s" }}
+          ></div>
+          <div
+            className="absolute z-30 top-32 right-24 w-10 h-10 bg-lime rounded animate-float"
+            style={{ animationDelay: "0.8s" }}
+          ></div>
+          <div
+            className="absolute z-30 bottom-20 left-40 w-5 h-5 bg-magenta rounded animate-float"
+            style={{ animationDelay: "1.1s" }}
+          ></div>
+          <div
+            className="absolute z-30 top-44 right-64 w-5 h-5 bg-yellow rounded animate-float"
+            style={{ animationDelay: "0.6s" }}
+          ></div>{" "}
         </div>
       </section>
 
