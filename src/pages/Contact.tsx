@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   Mail,
   MapPin,
-  Send,
   InstagramIcon,
   Heart,
   MessageCircle,
