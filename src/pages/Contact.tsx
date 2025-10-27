@@ -1,221 +1,530 @@
 import { useState } from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import Navigation from "@/components/Navigation";
+import {
+  Mail,
+  MapPin,
+  Send,
+  InstagramIcon,
+  Heart,
+  MessageCircle,
+} from "lucide-react";
 import Footer from "@/components/Footer";
-import Topbar from "@/components/Topbar";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { useToast } from "@/hooks/use-toast";
 
-const Contact = () => {
-  const { toast } = useToast();
+export default function ContactPage() {
+  const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
+    companyName: "",
+    phoneNumber: "",
     message: "",
+    privacyConsent: false,
+    newsletter: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const tabs = [
+    "All Members",
+    "Board",
+    "Sales",
+    "Developers",
+    "Technical Support",
+  ];
 
-    // Form validation
-    if (
-      !formData.name.trim() ||
-      !formData.email.trim() ||
-      !formData.message.trim()
-    ) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      toast({
-        title: "Error",
-        description: "Please enter a valid email address",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Success message
-    toast({
-      title: "Message Sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
+  const teamMembers = {
+    0: [
+      // All Members
+      { name: "Tomáš Tiefenbach", role: "CEO", img: "/team/image_tomas.png" },
+      {
+        name: "František Farenzena",
+        role: "Country Director SR/CR",
+        img: "/team/image_frantisek.png",
+      },
+      { name: "Jozef Jaššo", role: "CTO", img: "/team/image_jozef.png" },
+      {
+        name: "Adriana Tiefenbach",
+        role: "Head of Support Team",
+        img: "/team/image_adriana.png",
+      },
+      { name: "Petra Svetik", role: "CMO", img: "/team/image_petra_s.png" },
+      {
+        name: "Petra Mertlová",
+        role: "Account Manager SR",
+        img: "/team/image_petra_m.png",
+      },
+      {
+        name: "Katja Janečková",
+        role: "Account Manager CZ",
+        img: "/team/image_katja.png",
+      },
+      {
+        name: "Slavomíra Uhrínková",
+        role: "Account Manager SR",
+        img: "/team/image_slavomira.png",
+      },
+      {
+        name: "Alena Ležovičová",
+        role: "Account Manager SR",
+        img: "/team/image_alena.png",
+      },
+      {
+        name: "Marián Baňák",
+        role: "App Developer",
+        img: "/team/image_marian.png",
+      },
+      {
+        name: "Martin Breier",
+        role: "Backend Developer",
+        img: "/team/image_martin.png",
+      },
+      {
+        name: "Vladimír Čamaj",
+        role: "Fullstack Developer",
+        img: "/team/image_vladimir.png",
+      },
+      {
+        name: "Volodymyr Dethiarenko",
+        role: "Onsite Technician",
+        img: "/team/image_volodymyr.png",
+      },
+    ],
+    1: [
+      // Board
+      { name: "Tomáš Tiefenbach", role: "CEO" },
+      { name: "František Farenzena", role: "Country Director SR/CR" },
+      { name: "Jozef Jaššo", role: "CTO" },
+      { name: "Adriana Tiefenbach", role: "Head of Support Team" },
+      { name: "Petra Svetik", role: "CMO" },
+    ],
+    2: [
+      // Sales
+      { name: "Petra Mertlová", role: "Account Manager SR" },
+      { name: "Katja Janečková", role: "Account Manager CZ" },
+      { name: "Slavomíra Uhrínková", role: "Account Manager SR" },
+      { name: "Alena Ležovičová", role: "Account Manager SR" },
+    ],
+    3: [
+      // Developers
+      { name: "Marián Baňák", role: "App Developer" },
+      { name: "Martin Breier", role: "Backend Developer" },
+      { name: "Vladimír Čamaj", role: "Fullstack Developer" },
+    ],
+    4: [
+      // Technical Support
+      { name: "Volodymyr Dethiarenko", role: "Onsite Technician" },
+    ],
   };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    alert("Message sent successfully!");
+  };
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   return (
-    <div className="min-h-screen relative">
-      <Topbar />
-      <Navigation />
-
+    <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-primary via-secondary to-accent">
-        <div className="container mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6">
-            GET IN TOUCH
+      <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[600px] relative">
+        <div className="flex flex-1 flex-col justify-center z-30 pr-4 md:pr-8 py-10">
+          <h1 className="text-[28px] md:text-[38px] lg:text-[58px] font-bold leading-none mb-6">
+            Contact us
           </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Have questions? We'd love to hear from you. Send us a message and
-            we'll respond as soon as possible.
+          <p className="text-[16px] lg:text-[18px] leading-relaxed mb-8 pr-8">
+            Would you like to know more? Write to us or call us.
           </p>
+
+          <div className="flex flex-col gap-6">
+            {/* Email */}
+            <a href="mailto:hello@lurity.com" className="group">
+              <div className="flex items-center cursor-pointer transition-transform hover:translate-x-2">
+                <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-lg flex items-center justify-center group-hover:bg-[#b8e389] transition-colors">
+                  <Mail className="w-6 h-6 text-[#152B08]" />
+                </div>
+                <p className="font-medium text-[18px]">hello@lurity.com</p>
+              </div>
+            </a>
+
+            {/* Location 1 */}
+            <div className="flex items-center">
+              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-6 h-6 text-[#152B08]" />
+              </div>
+              <p className="text-[18px] leading-tight">
+                <span className="font-medium block">Vlárska 1746/32</span>
+                <span className="text-gray-600">
+                  831 01 Bratislava, Slovak Republic
+                </span>
+              </p>
+            </div>
+
+            {/* Location 2 */}
+            <div className="flex items-center">
+              <div className="w-14 h-14 mr-4 bg-[#CCF2A4] rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-6 h-6 text-[#152B08]" />
+              </div>
+              <p className="text-[18px] leading-tight">
+                <span className="font-medium block">Korunní 2569/108</span>
+                <span className="text-gray-600">
+                  101 00 Prague 10, Czech Republic
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Image with Badges */}
+        <div className="hidden lg:block relative flex-1 mr-8">
+          <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-purple-400/20"></div>
+            <div className="absolute top-10 right-10 bg-[#EB008C] text-white px-5 py-2 rounded-full shadow-lg">
+              <p className="text-[10px] uppercase font-medium">headquarters</p>
+              <p className="text-xl font-bold text-center">SK</p>
+            </div>
+            <div className="absolute bottom-10 right-10 bg-[#FFD503] text-black px-5 py-2 rounded-full shadow-lg">
+              <p className="text-[10px] uppercase font-medium">headquarters</p>
+              <p className="text-xl font-bold text-center">CZ</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 px-6 bg-background">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 rounded-lg">
-              <h2 className="text-3xl font-black mb-6">SEND US A MESSAGE</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label
-                    htmlFor="name"
-                    className="text-sm font-bold mb-2 block"
-                  >
-                    YOUR NAME
-                  </Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John Doe"
-                    className="border-2 border-black focus:border-primary"
-                  />
-                </div>
+      {/* Contact Form */}
+      <section className="flex flex-col items-center justify-center py-16 px-4 bg-gray-50">
+        <div className="w-full max-w-4xl">
+          <h2 className="text-center font-bold text-[32px] md:text-[36px] mb-10">
+            Contact form
+          </h2>
 
-                <div>
-                  <Label
-                    htmlFor="email"
-                    className="text-sm font-bold mb-2 block"
-                  >
-                    YOUR EMAIL
-                  </Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="john@example.com"
-                    className="border-2 border-black focus:border-primary"
-                  />
-                </div>
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <div className="space-y-6">
+              {/* Row 1 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name *"
+                  required
+                  value={formData.fullName}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address *"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
+                />
+              </div>
 
-                <div>
-                  <Label
-                    htmlFor="message"
-                    className="text-sm font-bold mb-2 block"
-                  >
-                    YOUR MESSAGE
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us what's on your mind..."
-                    rows={6}
-                    className="border-2 border-black focus:border-primary resize-none"
-                  />
-                </div>
+              {/* Row 2 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input
+                  type="text"
+                  name="companyName"
+                  placeholder="Company Name"
+                  value={formData.companyName}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
+                />
+                <input
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors"
+                />
+              </div>
 
-                <Button
-                  type="submit"
-                  className="w-full bg-cyan hover:bg-cyan/90 text-black font-bold py-6 text-lg border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
+              {/* Message */}
+              <textarea
+                name="message"
+                placeholder="Your Message *"
+                rows={5}
+                required
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-[#626364] focus:outline-none transition-colors resize-none"
+              />
+
+              {/* Checkboxes */}
+              <div className="space-y-4">
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="privacyConsent"
+                    required
+                    checked={formData.privacyConsent}
+                    onChange={handleChange}
+                    className="mt-1 w-5 h-5 border-2 border-gray-300 rounded accent-blue-500 cursor-pointer"
+                  />
+                  <span className="text-sm text-gray-700 group-hover:text-gray-900">
+                    By providing contact details in this form, I consent to
+                    LURITY s.r.o. contacting me, sending relevant information,
+                    and storing my contact details for this purpose.{" "}
+                    <a
+                      href="/terms-conditions"
+                      className="underline text-blue-600 hover:text-blue-800"
+                    >
+                      More information about privacy.
+                    </a>
+                  </span>
+                </label>
+
+                <label className="flex items-start gap-3 cursor-pointer group">
+                  <input
+                    type="checkbox"
+                    name="newsletter"
+                    checked={formData.newsletter}
+                    onChange={handleChange}
+                    className="mt-1 w-5 h-5 border-2 border-gray-300 rounded accent-blue-500 cursor-pointer"
+                  />
+                  <span className="text-sm text-gray-700 group-hover:text-gray-900">
+                    Subscribe to our newsletter and stay updated!
+                  </span>
+                </label>
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-center pt-4">
+                <button
+                  onClick={handleSubmit}
+                  className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-lg uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg"
                 >
-                  SEND MESSAGE
-                </Button>
-              </form>
-            </div>
-
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="bg-magenta border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 rounded-lg">
-                <div className="flex items-start gap-4">
-                  <div className="bg-white p-3 rounded-lg border-2 border-black">
-                    <FaEnvelope className="text-2xl text-magenta" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black text-white mb-2">
-                      EMAIL US
-                    </h3>
-                    <a
-                      href="mailto:hello@lurity.com"
-                      className="text-white hover:text-white/80 transition-colors"
-                    >
-                      hello@lurity.com
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-yellow border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 rounded-lg">
-                <div className="flex items-start gap-4">
-                  <div className="bg-white p-3 rounded-lg border-2 border-black">
-                    <FaPhone className="text-2xl text-yellow" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black mb-2">CALL US</h3>
-                    <a
-                      href="tel:+1234567890"
-                      className="text-foreground hover:text-primary transition-colors"
-                    >
-                      +1 (234) 567-890
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-cyan border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 rounded-lg">
-                <div className="flex items-start gap-4">
-                  <div className="bg-white p-3 rounded-lg border-2 border-black">
-                    <FaMapMarkerAlt className="text-2xl text-cyan" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-black mb-2">VISIT US</h3>
-                    <p className="text-foreground">
-                      123 Marketing Street
-                      <br />
-                      Creative District
-                      <br />
-                      City, State 12345
-                    </p>
-                  </div>
-                </div>
+                  <span>Send message</span>
+                  <Send className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="flex flex-col justify-center py-20 px-4">
+        <div className="flex justify-center mb-12 overflow-x-auto">
+          <div className="flex gap-2 min-w-max px-4">
+            {tabs.map((tab, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveTab(index)}
+                className={`px-6 py-3 rounded-sm uppercase font-semibold transition-all whitespace-nowrap ${
+                  activeTab === index
+                    ? "bg-[#CCF2A4] text-black shadow-lg transform scale-105"
+                    : "bg-transparent text-gray-700 hover:bg-gray-50 hover:shadow-sm"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl  w-full mx-auto">
+          {teamMembers[activeTab].map((member, index) => (
+            <div key={index} className="flex flex-col items-center group">
+              <div className="w-32 h-32 md:w-60 md:h-60 gap-4 mx-2 rounded-xl overflow-hidden bg-gradient-to-br from-blue-200 to-purple-200 mb-4 shadow-lg group-hover:shadow-2xl transition-all">
+                <div className="w-full h-full flex items-center justify-center text-white font-bold text-3xl bg-gradient-to-br from-blue-500 to-purple-500">
+                  {member.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .join("")}
+                </div>
+              </div>
+              <div className=" w-10/12 ">
+                <h3 className="font-bold text-left text-sm md:text-base mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-[#4D6068] uppercase text-xs md:text-sm text-left leading-tight">
+                  {member.role}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Instagram Feed Section */}
+      <div>
+        <div className="flex flex-wrap items-center justify-center gap-8 p-6 bg-white rounded-2xl shadow-md">
+          {/* Logo */}
+          <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
+            L
+          </div>
+
+          {/* Profile Info */}
+          <div className="text-center md:text-left">
+            <h1 className="text-2xl font-semibold text-gray-800">Lucrity</h1>
+            <h2 className="text-gray-500">@Lucrity.com</h2>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-8 text-center">
+            <div>
+              <h2 className="text-xl font-bold text-gray-800">222</h2>
+              <h3 className="text-sm text-gray-500">Posts</h3>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-800">856</h2>
+              <h3 className="text-sm text-gray-500">Followers</h3>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-800">1k</h2>
+              <h3 className="text-sm text-gray-500">Following</h3>
+            </div>
+          </div>
+
+          {/* Follow Button */}
+          <div>
+            <button className="flex  gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-medium shadow-sm transition-all duration-300">
+              <InstagramIcon />
+              Follow
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap">
+          {/* Box 1 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 2 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 3 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 4 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer CTA */}
       <Footer />
     </div>
   );
-};
-
-export default Contact;
+}
