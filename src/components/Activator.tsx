@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export default function Activator() {
   const tabData = [
@@ -29,30 +30,50 @@ export default function Activator() {
     },
   ];
 
+  const [activeTab, setActiveTab] = useState("dooh");
+  const [clickedTab, setClickedTab] = useState<string | null>(null);
+
+  const handleClick = (value: string) => {
+    setActiveTab(value);
+    setClickedTab(value);
+    setTimeout(() => setClickedTab(null), 2000); // remove flash class after animation
+  };
+
   return (
     <div className="mt-5 text-center space-y-6 py-4">
-      <h3 className="text-5xl font-extrabold">How we're better</h3>
+      <h3 className="text-3xl lg:text-5xl font-extrabold">How we're better</h3>
 
       <Tabs defaultValue="dooh" className="w-full max-w-7xl mx-auto">
         {/* --- Tab Buttons --- */}
-        <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent">
+        <TabsList className="flex items-center justify-between md:justify-center overflow-auto overflow-y-hidden whitespace-nowrap gap-3 bg-transparent scrollbar-hide  px-4 py-10">
           <TabsTrigger
             value="dooh"
-            className="data-[state=active]:bg-cyan data-[state=active]:text-white bg-cyan/10 text-cyan rounded-full px-6 py-3 font-semibold text-lg transition-all"
+            data-state={activeTab === "dooh" ? "active" : ""}
+            className={`material-bubble data-[state=active]:text-magenta bg-tranparent data-[state=active]:hover:bg-pink-50 hover:bg-gray-100 uppercase  text-black rounded-none px-6 py-3 font-semibold text-[14px] transition-all flex-shrink-0 
+              ${clickedTab === "dooh" ? "clicked" : ""}`}
+            onClick={() => handleClick("dooh")}
           >
             Effective DOOH
           </TabsTrigger>
 
           <TabsTrigger
             value="planning"
-            className="data-[state=active]:bg-magenta data-[state=active]:text-white bg-magenta/10 text-magenta rounded-full px-6 py-3 font-semibold text-lg transition-all"
+            data-state={activeTab === "planning" ? "active" : ""}
+            className={`material-bubble data-[state=active]:text-magenta bg-tranparent data-[state=active]:hover:bg-pink-50 hover:bg-gray-100 uppercase text-black rounded-none  px-6 py-3 font-semibold text-[14px] transition-all flex-shrink-0 ${
+              clickedTab === "planning" ? "clicked" : ""
+            }`}
+            onClick={() => handleClick("planning")}
           >
             Planning Software
           </TabsTrigger>
 
           <TabsTrigger
             value="campaign"
-            className="data-[state=active]:bg-yellow data-[state=active]:text-black bg-yellow/10 text-yellow-800 rounded-full px-6 py-3 font-semibold text-lg transition-all"
+            data-state={activeTab === "campaign" ? "active" : ""}
+            className={`material-bubble data-[state=active]:text-magenta bg-tranparent data-[state=active]:hover:bg-pink-50 hover:bg-gray-100 uppercase text-black rounded-none px-6 py-3 font-semibold text-[14px] transition-all flex-shrink-0 ${
+              clickedTab === "campaign" ? "clicked" : ""
+            }`}
+            onClick={() => handleClick("campaign")}
           >
             Campaign Deployment
           </TabsTrigger>
@@ -60,12 +81,12 @@ export default function Activator() {
 
         {/* --- Tab Content --- */}
         {tabData.map((tab) => (
-          <TabsContent key={tab.value} value={tab.value} className="mt-8 px-8">
-            <div className="flex flex-col md:flex-col justify-between items-start md:items-center px-4 lg:px-16 py-12">
+          <TabsContent key={tab.value} value={tab.value} className=" px-8">
+            <div className="flex flex-col md:flex-col justify-between items-start md:items-center px-4 lg:px-16">
               {/* Text Section */}
               <div className="flex flex-col md:flex-row">
                 <div className="w-full font-bold text-3xl lg:text-4xl text-left my-5 pr-6">
-                  <h1 className="text-3xl lg:text-4xl font-bold">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold">
                     {tab.title}
                   </h1>
                 </div>

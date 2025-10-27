@@ -181,3 +181,75 @@ All colors MUST be HSL.
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* for trigger button animation */
+
+/* Tab Trigger Click Animation */
+@keyframes tabClickFlash {
+  0% {
+    background-color: #ff69b4; /* pink */
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.tab-trigger {
+  transition: all 0.3s ease;
+  background-color: transparent;
+  color: black;
+}
+
+.tab-trigger:hover {
+  background-color: #ff4d4d; /* red on hover */
+  color: white;
+}
+
+.tab-trigger[data-state="active"] {
+  background-color: #00c896; /* green when active */
+  color: white;
+}
+
+.tab-trigger.clicked {
+  animation: tabClickFlash 0.6s ease-out;
+}
+
+/* Flash animation when tab is clicked */
+@keyframes tabClickFlash {
+  0% {
+    background-color: #ff69b4; /* Pink flash start */
+  }
+  100% {
+    background-color: transparent; /* Return to transparent */
+  }
+}
+
+/* Apply the animation */
+.clicked {
+  animation: tabClickFlash 0.6s ease-out;
+}
+
+.material-bubble {
+  /* transition: color 1s, background 1s; */
+  background-image: radial-gradient(
+    circle at center,
+    pink 0%,
+    pink 0%,
+    transparent 0%
+  );
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Bubble fill effect on hover */
+.material-bubble:active {
+  background-size: 200% 200%; /* spread the pink color */
+  background-image: radial-gradient(
+    circle at center,
+    pink 0%,
+    pink 60%,
+    transparent 100%
+  );
+  transition: background-size 0.6s ease, color 6s ease;
+}
