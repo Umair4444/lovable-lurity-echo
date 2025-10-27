@@ -86,7 +86,7 @@ const Footer = () => {
               "Cookies",
               "GDPR",
             ].map((item, i) => (
-              <a key={i} href="#" className="hover:text-black">
+              <a key={i} href="#" className="hover:text-yellow">
                 {item}
               </a>
             ))}
@@ -115,7 +115,7 @@ const Footer = () => {
           <h2 className="font-semibold text-2xl mb-4">Kontakt</h2>
           <a
             href="mailto:hello@lurity.com"
-            className="block mb-4 text-gray-600 hover:text-black"
+            className="block mb-4 text-gray-600 hover:text-cyan"
           >
             hello@lurity.com
           </a>
@@ -126,7 +126,7 @@ const Footer = () => {
               href="https://www.facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-cyan"
             >
               <FaFacebookF size={28} />
             </a>
@@ -134,7 +134,7 @@ const Footer = () => {
               href="https://www.instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-black"
+              className="hover:text-magenta"
             >
               <FaInstagram size={28} />
             </a>
