@@ -12,7 +12,7 @@ import Clients from "./pages/Clients";
 import Price from "./pages/Price";
 import HowItWorks from "./pages/How-It-Works";
 import Portal from "./pages/Portal";
-import Contact from "./pages/contact";
+import Contact from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
