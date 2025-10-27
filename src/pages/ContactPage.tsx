@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import Topbar from "@/components/Topbar";
 
-export default function ContactPage() {
+export default function ContactUs() {
   const [activeTab, setActiveTab] = useState(0);
   const [formData, setFormData] = useState({
     fullName: "",
