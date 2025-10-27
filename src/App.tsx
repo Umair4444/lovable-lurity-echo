@@ -9,10 +9,10 @@ import Blog from "./pages/Blog";
 import Formats from "./pages/Formats";
 import Download from "./pages/Download";
 import Clients from "./pages/Clients";
-import Price from "./pages/price";
+import Price from "./pages/Price";
 import HowItWorks from "./pages/How-It-Works";
 import Portal from "./pages/Portal";
-import ContactPage from "./pages/contact";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
