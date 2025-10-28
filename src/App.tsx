@@ -13,6 +13,8 @@ import Price from "./pages/Price";
 import HowItWorks from "./pages/How-It-Works";
 import Portal from "./pages/Portal";
 import ContactUs from "./pages/ContactUs";
+import Cookies from "./pages/Cookies";
+import Terms from "./pages/Terms-Conditions";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ const App = () => (
           <Route path="/download" element={<Download />} />
           <Route path="/formats" element={<Formats />} />
           <Route path="/price" element={<Price />} />
+          <Route path="/cookies" element={<Cookies />} />
+          <Route path="/terms-conditions" element={<Terms />} />
           <Route path="/how-it-works" element={<HowItWorks />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

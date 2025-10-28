@@ -84,9 +84,9 @@ const Footer = () => {
               "Formats",
               "Blog",
               "Cookies",
-              "GDPR",
+              "Terms-Conditions",
             ].map((item, i) => (
-              <a key={i} href="#" className="hover:text-yellow">
+              <a key={i} href={`/${item.toLowerCase().replace(/\s+/g, "-")}`} className="hover:text-yellow">
                 {item}
               </a>
             ))}
