@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -32,7 +32,7 @@ const Navigation = () => {
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between gap-4 h-20">
+          <div className="flex items-center justify-between gap-4 h-16">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <img
@@ -43,21 +43,22 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden w-full lg:flex items-center justify-between gap-4 text-nowrap">
+            <div className="hidden w-full lg:flex items-center justify-around pt-6  gap-4 text-nowrap">
               {navLinks.map((link) => (
-                <Link
+                <NavLink
                   key={link.name}
                   to={link.path}
-                  className="text-sm font-semibold text-black hover:text-cyan transition-colors"
+                  className={({ isActive }) =>
+                    `text-sm font-semibold text-black transition-all pb-[18px] border-b-[3px] ${isActive ? "border-cyan" : "border-transparent"} hover:text-cyan-400`}
                 >
                   {link.name}
-                </Link>
+                </NavLink>
               ))}
             </div>
 
             {/* Launch Button (Desktop) */}
             <div className="hidden lg:block">
-              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-5 py-7 rounded-sm shadow-md">
+              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-5 py-6 rounded-[10px] shadow-md">
                 LAUNCH CAMPAIGN
               </Button>
             </div>
@@ -86,7 +87,7 @@ const Navigation = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setMenuOpen(false)}
-                className="text-sm font-semibold text-white hover:text-cyan transition-colors"
+                className="text-sm font-semibold text-white hover:text-cyan transition-colors "
               >
                 {link.name}
               </Link>
