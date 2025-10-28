@@ -14,10 +14,10 @@ const FooterBanner = () => {
 
       <div className="px-2">
         <div className="flex flex-col items-start sm:items-center lg:items-start space-y-6 mb-20 sm:mb-0">
-          <h2 className="text-5xl md:text-5xl lg:text-6xl text-center md:max-w-[250px] font-black text-black">
+          <h2 className="text-5xl md:text-5xl lg:text-6xl text-center font-black text-black">
             Try it effectively
           </h2>
-          <Button className="bg-yellow w-fit text-black hover:bg-yellow/90 font-bold px-6 py-8 text-lg rounded-s-sm shadow-2xl">
+          <Button className="bg-[#ffd503] w-fit text-black hover:bg-[#ffd503]/90 font-bold px-6 py-8 text-lg rounded-[10px] shadow-2xl">
             Launch campaign{" "}
           </Button>
         </div>
