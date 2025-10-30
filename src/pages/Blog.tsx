@@ -207,7 +207,7 @@ const Blog = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-yellow text-black mt-24 font-bold  py-8 rounded"
+                className="bg-yellow hover:bg-yellow/80 text-black mt-24 font-bold  py-8 rounded"
               >
                 READ MORE <FaArrowRight className="ml-2" />
               </Button>
@@ -217,7 +217,7 @@ const Blog = () => {
       </section>
 
       {/* Blog Grid */}
-      <section className="py-24 px-40">
+      <section className="pt-24 px-40">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
             {blogPosts.map((post, index) => (
@@ -250,10 +250,12 @@ const Blog = () => {
       </section>
 
       <div className="flex flex-row  items-center justify-center mb-32">
-        <button className="flex flex-row  px-6 py-[18px] rounded-sm uppercase tracking-widest bg-[#FFD503] font-bold hover:bg-[#e6c103]">
-          <span>Read more</span>
-          <ArrowRight />
-        </button>
+        <Button
+          size="lg"
+          className="bg-yellow hover:bg-yellow/80 text-black mt-24 font-bold px-6 py-8 rounded-sm"
+        >
+          READ MORE <FaArrowRight className="ml-2" />
+        </Button>
       </div>
 
       <FooterBanner />
