@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const logos = [
   "https://plus.unsplash.com/premium_photo-1671599016130-7882dbff302f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cXVvdGVzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
@@ -232,12 +233,13 @@ const Hero = () => {
 
             {/* <!-- Button --> */}
             <div className=" mt-4">
-              {/* <button className="web-button flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[--why-banner-bg-color] px-6 py-[2px]  uppercase tracking-widest text-black font-bold shadow-md transition-all hover:opacity-90"> */}
-              <div className="w-fit flex min-h-14 items-center justify-center uppercase tracking-widest text-black font-bold transition-all hover:opacity-90">
+              <Link
+                to={"/blog"}
+                className="w-fit flex min-h-14 items-center justify-center uppercase tracking-widest text-black font-bold transition-all hover:opacity-90"
+              >
                 <span>Read more</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </div>
-              {/* </button> */}
+              </Link>
             </div>
           </div>
         </div>
