@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Download as DownloadIcon } from "lucide-react";
+import { Download as DownloadIcon, FileEdit } from "lucide-react";
 import Topbar from "@/components/Topbar";
+import FooterBanner from "@/components/FooterBanner";
 
 const Download = () => {
   const downloads = [
@@ -16,14 +17,14 @@ const Download = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Topbar/>
+      <Topbar />
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 relative overflow-hidden">
+      <section className="pt-24  px-6 relative overflow-hidden">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
+          <div className="text-center mb-28">
+            <h1 className="text-5xl font-black mb-6">
               Documents to download,
               <br />
               e-books, infographics
@@ -31,7 +32,7 @@ const Download = () => {
           </div>
 
           {/* Central Visual with Stats */}
-          <div className="relative max-w-5xl mx-auto h-[600px] flex items-center justify-center">
+          <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
             {/* Central Phone Mockup */}
             <div className="relative z-10">
               <div className="w-[280px] h-[560px] bg-black rounded-[3rem] shadow-2xl overflow-hidden border-8 border-gray-800">
@@ -45,87 +46,112 @@ const Download = () => {
                 </div>
               </div>
             </div>
-
             {/* Floating Stat: Screens (Yellow) */}
-            <div className="absolute top-[15%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-20 animate-fade-in">
-              <div className="bg-yellow text-yellow-foreground rounded-3xl px-8 py-6 shadow-xl">
-                <div className="text-xs font-bold uppercase tracking-wider mb-1">
-                  Screens
-                </div>
-                <div className="text-5xl font-black">600</div>
+            <div className="absolute z-30 left-[calc(33.333%+24px)] -top-5 inset-0 ">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+            {/* Stats Card */}
+            <div className="absolute z-30 left-1/3 -top-10 bg-yellow px-8 py-4 rounded-3xl shadow-lg shadow-yellow/40">
+              <div className="flex flex-col items-center justify-around px-6 h-24">
+                <div className="text-xs font-semibold mb-1">SCREENS</div>
+                <div className="text-4xl font-black">600</div>
               </div>
             </div>
-
             {/* Floating Stat: Views per year (Cyan) */}
-            <div
-              className="absolute bottom-[25%] left-[15%] z-20 animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
-              <div className="bg-cyan text-cyan-foreground rounded-3xl px-8 py-6 shadow-xl">
-                <div className="text-xs font-bold uppercase tracking-wider mb-1">
-                  Views per year
-                </div>
-                <div className="text-5xl font-black">55mil.</div>
+            <div className="absolute z-30 left-[calc(25%+24px)] bottom-28 ">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+            {/* Stats Card */}
+            <div className="absolute z-30 left-1/4 bottom-24 bg-cyan px-8 py-4 rounded-3xl shadow-lg shadow-cyan/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1">VIEWS PER YEAR</div>
+                <div className="text-4xl font-black">55 mil.</div>
               </div>
             </div>
-
             {/* Floating Stat: Views per month (Magenta) */}
-            <div
-              className="absolute top-[35%] right-[15%] z-20 animate-fade-in"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <div className="bg-magenta text-magenta-foreground rounded-3xl px-8 py-6 shadow-xl">
-                <div className="text-xs font-bold uppercase tracking-wider mb-1">
-                  Views per month
+            <div className="absolute z-30 top-[calc(33.333%+28px)] right-[calc(16%+24px)]">
+              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+            </div>
+            {/* Stats Card */}
+            <div className="absolute z-30 top-1/3 right-[16%]  bg-magenta px-10 py-6 rounded-3xl shadow-lg shadow-pink-700/40">
+              <div className="flex flex-col items-center justify-around h-24">
+                <div className="text-xs font-semibold mb-1">
+                  VIEWS PER MONTH
                 </div>
-                <div className="text-5xl font-black">15mil.</div>
+                <div className="text-4xl font-black">15mil.</div>
               </div>
             </div>
-
             {/* Floating decorative elements */}
-            <div className="absolute top-[20%] left-[25%] w-8 h-8 rounded-lg bg-cyan/20 animate-pulse"></div>
             <div
-              className="absolute top-[45%] right-[20%] w-6 h-6 rounded-lg bg-magenta/20 animate-pulse"
-              style={{ animationDelay: "0.5s" }}
-            ></div>
-            <div
-              className="absolute bottom-[30%] right-[25%] w-10 h-10 rounded-full bg-yellow/20 animate-pulse"
-              style={{ animationDelay: "1s" }}
-            ></div>
-            <div
-              className="absolute bottom-[20%] left-[20%] w-4 h-4 rounded-lg bg-primary/20 animate-pulse"
+              className="absolute z-30 top-24 left-[8%] w-5 h-5 bg-blue-700 rounded"
               style={{ animationDelay: "0.8s" }}
             ></div>
-
-            {/* Floating person images (decorative circles) */}
-            <div className="absolute top-[15%] left-[20%] w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan/40 to-cyan/20 animate-fade-in"></div>
             <div
-              className="absolute top-[25%] right-[22%] w-24 h-24 rounded-3xl bg-gradient-to-br from-magenta/40 to-magenta/20 animate-fade-in"
-              style={{ animationDelay: "0.3s" }}
+              className="absolute z-30 top-8 left-52 w-3 h-3 bg-magenta rounded animate-float "
+              style={{ animationDelay: "0.8s" }}
             ></div>
             <div
-              className="absolute bottom-[15%] right-[18%] w-20 h-20 rounded-3xl bg-gradient-to-br from-yellow/40 to-yellow/20 animate-fade-in"
+              className="absolute bottom-20 left-[15%] w-5 h-5 bg-lime rounded animate-float"
+              style={{ animationDelay: "0.4s" }}
+            ></div>
+            <div
+              className="absolute top-16 right-1/4 w-4 h-4 bg-cyan rounded animate-float"
+              style={{ animationDelay: "0.4s" }}
+            ></div>
+            <div
+              className="absolute bottom-1/3 right-32 w-4 h-4 bg-blue-800 rounded animate-float"
+              style={{ animationDelay: "0.4s" }}
+            ></div>
+            <div
+              className="absolute z-30 bottom-48 right-1/3 w-5 h-5 bg-yellow rounded animate-float"
+              style={{ animationDelay: "1.1s" }}
+            ></div>
+            <div
+              className="absolute z-30 bottom-40 right-[calc(33.333%-52px)]  w-3 h-3 bg-magenta rounded animate-float"
               style={{ animationDelay: "0.6s" }}
             ></div>
+            {/* Floating person images (decorative circles) */}
+            <div className="absolute top-[12%] left-[12%] w-52 h-52 overflow-hidden rounded-full ">
+              <img
+                src="/1.png"
+                alt="Person"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute bottom-[8%] right-36 w-40 h-40 overflow-hidden rounded-full">
+              <img
+                src="/2.jpg"
+                alt="Person"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute top-[5%] -right-4 w-52 h-52 overflow-hidden rounded-full bottom-2">
+              <img
+                src="/3.jpg"
+                alt="Person"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Downloads List Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-3xl">
+      <section className="pt-20 pb-10 px-6 bg-[#f3f7f9]">
+        <div className=" mx-auto max-w-6xl">
           <div className="space-y-4">
             {downloads.map((item, index) => (
               <div
                 key={index}
-                className="bg-background border-2 border-border rounded-xl p-6 hover:border-primary transition-all hover:shadow-lg group"
+                className="w-full bg-[#dfebf1] border-2 border-border rounded-xl p-6 hover:border-[#088ed1] transition-all hover:shadow-lg group"
               >
                 <a
                   href={item.file}
                   className="flex items-center justify-between"
                   download
                 >
-                  <span className="text-lg font-bold group-hover:text-primary transition-colors">
+                  <span className="text-base font-bold group-hover:text-primary transition-colors">
+                    <FileEdit className="inline-block w-5 h-5 mr-2 text-muted-foreground group-hover:text-primary transition-colors" />
                     {item.title}
                   </span>
                   <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -134,16 +160,19 @@ const Download = () => {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-10 text-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-white font-bold px-12 text-lg"
+              className="bg-yellow hover:bg-yellow/80 text-black font-bold py-8 px-6 rounded-sm text-base"
             >
               DOWNLOAD ALL
+              <DownloadIcon className="w-6 h-6 " />
             </Button>
           </div>
         </div>
       </section>
+
+      <FooterBanner />
 
       <Footer />
     </div>
