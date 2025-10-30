@@ -231,11 +231,13 @@ const Hero = () => {
             </h2>
 
             {/* <!-- Button --> */}
-            <div className="action-container mt-4">
-              <button className="web-button flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[--why-banner-bg-color] px-6 py-[18px]  uppercase tracking-widest text-black font-bold shadow-md transition-all hover:opacity-90">
+            <div className=" mt-4">
+              {/* <button className="web-button flex min-h-14 items-center justify-center gap-2 rounded-lg bg-[--why-banner-bg-color] px-6 py-[2px]  uppercase tracking-widest text-black font-bold shadow-md transition-all hover:opacity-90"> */}
+              <div className="w-fit flex min-h-14 items-center justify-center uppercase tracking-widest text-black font-bold transition-all hover:opacity-90">
                 <span>Read more</span>
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </div>
+              {/* </button> */}
             </div>
           </div>
         </div>
