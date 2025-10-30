@@ -3,9 +3,22 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Topbar from "@/components/Topbar";
 import Navigation from "@/components/Navigation";
+import {
+  Heart,
+  InstagramIcon,
+  MessageCircle,
+  MoveRightIcon,
+} from "lucide-react";
 
 const Clients = () => {
   const [activeTab, setActiveTab] = useState("all");
+
+  const tabs = [
+    { id: "all", label: "ALL CLIENTS" },
+    { id: "sk_agencies", label: "SK MEDIA AGENCIES" },
+    { id: "cz_agencies", label: "CZ MEDIA AGENCIES" },
+    { id: "brands", label: "SELECTED BRANDS" },
+  ];
 
   const clientLogos = {
     all: [
@@ -176,54 +189,32 @@ const Clients = () => {
       <Topbar />
       <Navigation />
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-32 pb-10 px-6">
         <div className="container mx-auto text-center">
-          <h1 className="text-6xl md:text-7xl font-black mb-12 animate-fade-in">
+          <h1 className="text-6xl  font-black mb-16 animate-fade-in">
             Clients
           </h1>
 
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
-            <Button
-              variant={activeTab === "all" ? "default" : "outline"}
-              onClick={() => setActiveTab("all")}
-              className={`font-bold px-8 ${
-                activeTab === "all" ? "bg-accent text-foreground" : ""
-              }`}
-            >
-              ALL CLIENTS
-            </Button>
-            <Button
-              variant={activeTab === "sk_agencies" ? "default" : "outline"}
-              onClick={() => setActiveTab("sk_agencies")}
-              className={`font-bold px-8 ${
-                activeTab === "sk_agencies" ? "bg-accent text-foreground" : ""
-              }`}
-            >
-              SK MEDIA AGENCIES
-            </Button>
-            <Button
-              variant={activeTab === "cz_agencies" ? "default" : "outline"}
-              onClick={() => setActiveTab("cz_agencies")}
-              className={`font-bold px-8 ${
-                activeTab === "cz_agencies" ? "bg-accent text-foreground" : ""
-              }`}
-            >
-              CZ MEDIA AGENCIES
-            </Button>
-            <Button
-              variant={activeTab === "brands" ? "default" : "outline"}
-              onClick={() => setActiveTab("brands")}
-              className={`font-bold px-8 ${
-                activeTab === "brands" ? "bg-accent text-foreground" : ""
-              }`}
-            >
-              SELECTED BRANDS
-            </Button>
+            {tabs.map((tab) => (
+              <Button
+                key={tab.id}
+                variant={activeTab === tab.id ? "default" : "outline"}
+                onClick={() => setActiveTab(tab.id)}
+                className={`font-bold px-8  ${
+                  activeTab === tab.id
+                    ? "bg-lime/40 text-black rounded-sm text-lg py-6 px-4 hover:bg-lime/60"
+                    : "bg-transparent text-black rounded-sm text-lg py-6 px-4 hover:text-black hover:bg-gray-50"
+                }`}
+              >
+                {tab.label}
+              </Button>
+            ))}
           </div>
 
           {/* Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center justify-items-center max-w-7xl mx-auto animate-fade-in">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center justify-items-center max-w-4xl mx-auto animate-fade-in">
             {getLogos().map((client, index) => (
               <div
                 key={index}
@@ -239,7 +230,188 @@ const Clients = () => {
             ))}
           </div>
         </div>
+        <Button className="bg-[#7ed52e] text-black rounded-sm text-lg font-semibold py-8 px-6 hover:bg-[#7ed52e]/90 uppercase mt-12 flex items-center gap-2 mx-auto">
+          I'm interested in a campaign <MoveRightIcon />
+        </Button>
       </section>
+
+      {/* Instagram Feed Section */}
+      <div>
+        <div className="flex flex-wrap items-center justify-center gap-2 p-5 bg-white rounded-2xl shadow-md">
+          {/* Logo */}
+          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
+            L
+          </div>
+
+          {/* Profile Info */}
+          <div className="text-center md:text-left mr-8">
+            <h1 className="text-lg font-semibold text-gray-800 uppercase leading-snug">
+              Lucrity
+            </h1>
+            <h2 className="text-gray-400 text-[12px] -mt-1">@lucritycom</h2>
+          </div>
+
+          {/* Stats */}
+          <div className="flex gap-8 text-center mr-8">
+            <div>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                222
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Posts</h3>
+            </div>
+            <div>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                856
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Followers</h3>
+            </div>
+            <div>
+              <h2 className="text-base font-bold text-gray-800 leading-snug">
+                1k
+              </h2>
+              <h3 className="text-[12px] text-gray-400 -mt-1">Following</h3>
+            </div>
+          </div>
+
+          {/* Follow Button */}
+          <div>
+            <button className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded font-medium shadow-sm transition-all duration-300">
+              <InstagramIcon className="w-5" />
+              Follow
+            </button>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap">
+          {/* Box 1 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 2 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 3 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+
+          {/* Box 4 */}
+          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
+            {/* Background Image or Color */}
+            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
+
+            {/* Dark overlay on hover */}
+            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                <div className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">15</h2>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                  <h2 className="text-base font-normal">2</h2>
+                </div>
+              </div>
+              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                voluptates explicabo ex neque soluta voluptatibus earum iusto
+                blanditiis nostrum quasi delectus consectetur!
+              </p>
+            </div>
+
+            {/* Title Overlay */}
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
+          </div>
+        </div>
+      </div>
 
       <Footer />
     </div>

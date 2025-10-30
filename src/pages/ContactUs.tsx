@@ -480,14 +480,14 @@ export default function ContactUs() {
 
       {/* Instagram Feed Section */}
       <div>
-        <div className="flex flex-wrap items-center justify-center gap-8 p-5 bg-white rounded-2xl shadow-md">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
-          <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
             L
           </div>
 
           {/* Profile Info */}
-          <div className="text-center md:text-left">
+          <div className="text-center md:text-left mr-8">
             <h1 className="text-lg font-semibold text-gray-800 uppercase leading-snug">
               Lucrity
             </h1>
@@ -495,7 +495,7 @@ export default function ContactUs() {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-8 text-center">
+          <div className="flex gap-8 text-center mr-8">
             <div>
               <h2 className="text-base font-bold text-gray-800 leading-snug">
                 222
@@ -518,8 +518,8 @@ export default function ContactUs() {
 
           {/* Follow Button */}
           <div>
-            <button className="flex  gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-medium shadow-sm transition-all duration-300">
-              <InstagramIcon />
+            <button className="flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white text-sm px-3 py-1 rounded font-medium shadow-sm transition-all duration-300">
+              <InstagramIcon className="w-5" />
               Follow
             </button>
           </div>
