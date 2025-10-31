@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import Topbar from "@/components/Topbar";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { MoveRightIcon } from "lucide-react";
+import FooterBanner from "@/components/FooterBanner";
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -56,32 +58,33 @@ const HowItWorks = () => {
       <Topbar />
       <Navigation />
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl lg:text-6xl font-black leading-tight">
-                7 clicks - and the campaign is running
+      <section className="pt-16 pb-20 px-6">
+        <div className="mx-auto max-w-7xl py-2">
+          <div className="flex items-center justify-center">
+            <div className="space-y-6 animate-fade-in w-full">
+              <h1 className="text-5xl font-black leading-tight ">
+                7 clicks<h1>- and the campaign is running</h1>
               </h1>
-              <p className="text-xl lg:text-2xl text-muted-foreground font-medium">
+              <p className="text-xl  text-black/80 font-medium">
                 Create your campaign yourself and your campaign can be running
                 within 20 minutes!
               </p>
-              <Button
+              {/* <Button
                 size="lg"
                 className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-12 text-lg"
               >
                 I WANT A CAMPAIGN
-              </Button>
+              </Button> */}
+              <button className="bg-[#1FC9FF] hover:bg-[#1FC9FF]/80 text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+                <span>I WANT A CAMPAIGN</span>
+                <MoveRightIcon className="w-5 h-5" />
+              </button>
             </div>
-            <div
-              className="relative animate-fade-in"
-              style={{ animationDelay: "0.2s" }}
-            >
+            <div className="animate-fade-in w-full bg-contain bg-blue-600">
               <img
                 src="https://www.lurity.com/step-ahead/how.jpg"
                 alt="Campaign Background"
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-full object-cover-cover shadow-2xl"
               />
             </div>
           </div>
@@ -89,23 +92,29 @@ const HowItWorks = () => {
       </section>
 
       {/* Steps Navigation */}
-      <section className="py-12 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
+      <section className="mx-auto">
+        <div className="">
+          <div className="flex items-center justify-between md:justify-center py-6 overflow-auto overflow-y-hidden whitespace-nowrap gap-10 bg-transparent scrollbar-hide">
             {steps.map((step, index) => (
               <button
                 key={step.id}
                 onClick={() => setActiveStep(index)}
-                className={`flex flex-col items-center gap-2 px-6 py-4 rounded-lg transition-all duration-300 min-w-[120px] ${
+                className={`flex items-center justify-center gap-4 px-6 py-4 rounded-none  material-bubble transition-all duration-300${
                   activeStep === index
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "bg-background hover:bg-muted text-muted-foreground hover:text-foreground"
+                    ? "  text-magenta hover:bg-pink-50"
+                    : "bg-transparent text-black hover:bg-gray-100"
                 }`}
               >
-                <span className="text-3xl font-black">{step.id}</span>
-                <span className="font-bold text-sm text-center">
-                  {step.title}
-                </span>
+                <div className="flex items-center gap-2 text-lg">
+                  <span
+                    className={` font-normal ${
+                      activeStep === index ? "visible text-magenta" : "hidden"
+                    }`}
+                  >
+                    {step.id}
+                  </span>
+                  <span className={`font-bold  text-center`}>{step.title}</span>
+                </div>
               </button>
             ))}
           </div>
@@ -113,22 +122,22 @@ const HowItWorks = () => {
       </section>
 
       {/* Active Step Content */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in">
-              <h2 className="text-4xl lg:text-5xl font-black">
+      <section className="">
+        <div className="container mx-auto max-w-[72rem]">
+          <div className="flex flex-col gap-12 items-center">
+            <div className="w-full flex items-start justify-between animate-fade-in">
+              <h2 className="text-4xl font-black">
                 {steps[activeStep].content}
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {steps[activeStep].description}
-              </p>
-              <Button
-                size="lg"
-                className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-8"
-              >
-                I'M INTERESTED →
-              </Button>
+              <div className="max-w-xl flex flex-col">
+                <p className="text-sm text-black/80 leading-relaxed">
+                  {steps[activeStep].description}
+                </p>
+                <button className="w-fit text-black font-bold py-4  rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:px-6">
+                  <span> I'M INTERESTED</span>
+                  <MoveRightIcon className="w-5 h-5" />
+                </button>
+              </div>
             </div>
             <div
               className="relative animate-fade-in"
@@ -145,32 +154,35 @@ const HowItWorks = () => {
       </section>
 
       {/* Effectiveness Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-4xl">
-          <div className="space-y-6 text-center">
-            <h2 className="text-3xl lg:text-4xl font-black">
+      <section className="bg-[#FFD503] px-6 py-12 md:py-24">
+        <div className=" mx-auto flex flex-col md:flex-row items-start justify-around  gap-10">
+          {/* Left Title */}
+          <div className="md:w-1/6">
+            <h2 className="text-[46px] leading-none translate-x-6 font-extrabold text-[#152B08]">
               The most effective medium?
             </h2>
-            <p className="text-lg text-muted-foreground">
+          </div>
+
+          {/* Right Text & Button */}
+          <div className="md:w-3/6 flex flex-col items-start">
+            <p className="text-[18px] text-[#152B08] leading-relaxed">
               and also the 2nd most memorable form of advertising: that is OOH
               advertising, which is also considered one of the most likable
               media*
             </p>
-            <Button
-              variant="outline"
-              onClick={() => setShowMore(!showMore)}
-              className="font-bold"
-            >
-              {showMore ? "SHOW LESS" : "SHOW MORE"}
-            </Button>
+
+            <button className=" text-black font-bold  mt-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+              <span> showMore</span>
+              <MoveRightIcon className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
 
       {/* Video Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-5xl">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-muted">
+        <div className="container mx-auto">
+          <div className="relative aspect-video overflow-hidden shadow-2xl bg-muted">
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/6LXO9tiW3gc"
@@ -183,22 +195,7 @@ const HowItWorks = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section
-        className="py-32 px-6 relative bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://www.lurity.com/images/cta_image.png')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-secondary/90 to-accent/90"></div>
-        <div className="container mx-auto text-center relative z-10">
-          <Button
-            size="lg"
-            className="bg-white text-primary hover:bg-white/90 font-bold px-12 text-lg"
-          >
-            LAUNCH CAMPAIGN
-          </Button>
-        </div>
-      </section>
+      <FooterBanner />
 
       <Footer />
     </div>
