@@ -1,8 +1,17 @@
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
-import { TrendingUp, MapPin, Clock, Image } from "lucide-react";
+import {
+  TrendingUp,
+  MapPin,
+  Clock,
+  Image,
+  MoveRightIcon,
+  ArrowRight,
+  Headphones,
+} from "lucide-react";
 import Topbar from "@/components/Topbar";
 import Navigation from "@/components/Navigation";
+import FooterBanner from "@/components/FooterBanner";
 
 const Price = () => {
   return (
@@ -11,30 +20,28 @@ const Price = () => {
       <Navigation />
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl lg:text-6xl font-black leading-tight">
+              <h1 className="text-5xl font-black leading-[3rem]">
                 DOOH is the cheapest online activator
               </h1>
-              <h2 className="text-xl font-bold">
+              <h2 className="text-lg font-bold leading-5">
                 Choose where and how intensely you want to reach your customers.
                 With us, you're actually renting.
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-lg text-black">
                 We'll deliver according to your order.
               </p>
-              <p className="text-base text-muted-foreground">
+              <p className="text-base text-black">
                 We combine visual and dynamic benefits of the image with the
                 advantage of digital rental purchase. Replace regular billboards
                 with flexible digital OOH and control your campaign yourself.
               </p>
-              <Button
-                size="lg"
-                className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-8 mt-4"
-              >
-                I'M INTERESTED →
-              </Button>
+              <button className="bg-[#1FC9FF] hover:bg-[#1FC9FF]/80 text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+                <span>I'm interested</span>
+                <MoveRightIcon className="w-5 h-5" />
+              </button>
             </div>
             <div className="relative animate-fade-in">
               <img
@@ -48,75 +55,81 @@ const Price = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="space-y-4 animate-fade-in">
-              <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center">
-                <TrendingUp className="w-8 h-8 text-white" />
+      <section className="py-20 bg-[#f3f7f9]">
+        <div className="container mx-auto max-w-7xl">
+          <div className="flex flex-col justify-center gap-20">
+            {/* STRENGTH */}
+            <div className="flex gap-10 items-center justify-start animate-fade-in">
+              <div className="w-16 h-16 bg-transparent flex items-center justify-center">
+                <TrendingUp className="w-12 h-12  text-magenta" />
               </div>
-              <h3 className="text-2xl font-black text-pink-500">STRENGTH</h3>
-              <p className="text-sm text-muted-foreground">
-                of the media deployment is set by you in the application
-                according to the intensity requirement of the campaign
-              </p>
+              <h3 className="text-2xl font-extrabold text-magenta">
+                STRENGTH
+                <span className="px-2 text-2xl font-normal text-black">
+                  of the media deployment is set by you in the application
+                  according to the intensity requirement of the campaign
+                </span>
+              </h3>
             </div>
 
+            {/* PLACE */}
             <div
-              className="space-y-4 animate-fade-in"
+              className="flex gap-10 items-center justify-start animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
-              <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-purple-500 to-violet-500 flex items-center justify-center">
-                <MapPin className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-transparent flex items-center justify-center">
+                <MapPin className="w-12 h-12 text-magenta" />
               </div>
-              <h3 className="text-2xl font-black text-purple-500">PLACE</h3>
-              <p className="text-sm text-muted-foreground">
-                of the campaign's run is chosen from several hundred digital
-                screens from the CR or SR according to location (country, city,
-                specific shopping center or other location), type of screen,
-                screen placement, and other parameters
-              </p>
+              <h3 className="text-2xl font-extrabold text-magenta">
+                PLACE
+                <span className="px-2 text-2xl font-normal text-black">
+                  of the campaign’s run is chosen from several hundred digital
+                  screens according to location, type, and placement
+                </span>
+              </h3>
             </div>
 
+            {/* TIME */}
             <div
-              className="space-y-4 animate-fade-in"
+              className="flex gap-10 items-center justify-start animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
-              <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                <Clock className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-transparent flex items-center justify-center">
+                <Clock className="w-12 h-12 text-magenta" />
               </div>
-              <h3 className="text-2xl font-black text-blue-500">TIME</h3>
-              <p className="text-sm text-muted-foreground">
-                of deployment is also up to you: choose exactly when to launch
-                the campaign and how many weeks the target group will perceive
-                your campaign
-              </p>
+              <h3 className="text-2xl font-extrabold text-magenta">
+                TIME
+                <span className="px-2 text-2xl font-normal text-black">
+                  of deployment is up to you — choose when to launch and how
+                  long the campaign runs
+                </span>
+              </h3>
             </div>
 
+            {/* VISUAL / SPOT */}
             <div
-              className="space-y-4 animate-fade-in"
+              className="flex gap-10 items-center justify-start animate-fade-in"
               style={{ animationDelay: "0.3s" }}
             >
-              <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
-                <Image className="w-8 h-8 text-white" />
+              <div className="w-16 h-16 bg-transparent flex items-center justify-center">
+                <Image className="w-12 h-12 text-magenta" />
               </div>
-              <h3 className="text-2xl font-black text-green-500">
+              <h3 className="text-2xl font-extrabold text-magenta">
                 VISUAL / SPOT
+                <span className="px-2 text-2xl font-normal text-black">
+                  use your 10 seconds of airtime however you wish — visual or
+                  video
+                </span>
               </h3>
-              <p className="text-sm text-muted-foreground">
-                the choice is again yours: use your 10 seconds of airtime at
-                your own discretion. Whether it's a visual or a video in those
-                10 seconds is your decision
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Realization Section */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-4xl text-center space-y-6">
-          <h2 className="text-3xl lg:text-4xl font-black">
+      <section className="py-32 px-6 bg-magenta">
+        <div className="container mx-auto max-w-7xl text-justify space-y-6">
+          <h2 className="text-[40px] leading-none  font-black">
             We'll realize your decision at the desired time, on the screens you
             choose, and multiply by the desired strength.
           </h2>
@@ -124,76 +137,92 @@ const Price = () => {
       </section>
 
       {/* Support Section */}
-      <section className="py-20 px-6 bg-muted/30">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <div className="space-y-6">
-              <h2 className="text-3xl lg:text-4xl font-black">
-                <span className="text-primary">SUPPORT</span> this is solely up
-                to us and our team: when you need advice, we have the
-                experience, data, and overview. We are happy to use them to your
-                advantage.
-              </h2>
-              <ul className="space-y-4 text-lg">
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>
-                    Is 10 seconds enough time to capture the attention of a
-                    moving customer?
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>Static or dynamic background?</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>
-                    Where can I find my potential customers / target group?
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-primary mt-1">•</span>
-                  <span>
-                    We can provide a well-founded answer to many questions
-                  </span>
-                </li>
-              </ul>
-              <Button
-                size="lg"
-                className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-8 mt-6"
-              >
-                CONTACT
-              </Button>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-3xl font-black">Did you know?</h2>
-              <p className="text-xl font-semibold">
-                52% of the target group notices the DDOH (digital OOH) format
-                like Lurity, of which 57% visit the shopping place and of that
-                up to 93% actually make a purchase?
-              </p>
-              <Button
-                size="lg"
-                className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-8"
-              >
-                I'M INTERESTED →
-              </Button>
-            </div>
+
+      <section className="p-0 max-w-6xl mx-auto mt-20 sm:p-6 md:p-10 lg:p-14 flex flex-col md:flex-row bg-white rounded-lg border sm:border-[#E2E9ED]">
+        {/* Icon */}
+        <div className="mr-6 flex-shrink-0 flex items-start justify-center">
+          <div className="text-[#7ED52E]">
+            <Headphones
+              className="w-14 h-14 sm:w-16 sm:h-16"
+              strokeWidth={1.5}
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div>
+          <div className="flex items-center mb-4">
+            <h2 className="font-bold text-xl leading-snug">
+              <span className="text-[#7ED52E] font-extrabold pr-1">
+                SUPPORT{" "}
+              </span>
+              <span className="text-gray-900 ">
+                this is solely up to us and our team: when you need advice, we
+                have the experience, data, and overview. We are happy to use
+                them to your advantage.
+              </span>
+            </h2>
+          </div>
+
+          {/* Bullet List */}
+          <ul className="list-disc list-inside text-gray-700 mb-6 font-normal lowercase text-[14px] md:text-[18px] space-y-1">
+            <li>
+              Is 10 seconds enough time to capture the attention of a moving
+              customer?
+            </li>
+            <li>Static or dynamic background?</li>
+            <li>Where can I find my potential customers / target group?</li>
+            <li>We can provide a well-founded answer to many questions</li>
+          </ul>
+
+          {/* Button */}
+
+          <button className="bg-[#7ED52E] hover:bg-[#7ED52E]/80 text-black font-bold py-4 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+            <span>Contact</span>
+            <MoveRightIcon className="w-5 h-5" />
+          </button>
+        </div>
+      </section>
+
+      {/* Banner */}
+      <section className="bg-[#FFD503] px-6 py-12 md:py-16">
+        <div className="container mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
+          {/* Left Title */}
+          <div className="md:w-1/3">
+            <h2 className="text-[46px] leading-tight translate-x-6 font-extrabold text-[#152B08]">
+              Did you know?
+            </h2>
+          </div>
+
+          {/* Right Text & Button */}
+          <div className="md:w-2/3 flex flex-col items-start">
+            <p className="text-[18px] text-[#152B08] leading-relaxed">
+              <span className="font-bold text-[#88510B]">52%</span> of the
+              target group notices the DDOH (digital OOH) format like Lurity, of
+              which <span className="font-bold text-[#88510B]">57%</span> visit
+              the shopping place and of that up to{" "}
+              <span className="font-bold text-[#88510B]">93%</span> actually
+              make a purchase?
+            </p>
+
+            <button className=" text-black font-bold py-4 mt-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+              <span> I’m interested</span>
+              <MoveRightIcon className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
 
       {/* Blog Preview Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="bg-muted/50 rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-            <div className="grid lg:grid-cols-2 gap-0">
-              <div className="relative h-64 lg:h-auto">
+        <div className="container mx-auto max-w-7xl">
+          <div className="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+            <div className="flex">
+              <div className="relative h-auto w-1/2">
                 <img
                   src="https://www.lurity.com/blog/blog_image_01.jpg"
                   alt="OAAA Nielsen studies"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="p-8 lg:p-12 flex flex-col justify-center space-y-4">
@@ -204,9 +233,10 @@ const Price = () => {
                   The latest OAAA Nielsen studies prove: out-of-home creates
                   high target group engagement!
                 </h3>
-                <Button variant="outline" className="w-fit font-bold">
-                  READ MORE
-                </Button>
+                <button className=" w-fit text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+                  <span>Read more</span>
+                  <MoveRightIcon className="w-5 h-5" />
+                </button>
               </div>
             </div>
           </div>
@@ -214,22 +244,7 @@ const Price = () => {
       </section>
 
       {/* Final CTA Section */}
-      <section
-        className="py-32 px-6 relative bg-cover bg-center"
-        style={{
-          backgroundImage: "url('https://www.lurity.com/images/cta_image.png')",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-secondary/90 to-accent/90"></div>
-        <div className="container mx-auto text-center relative z-10">
-          <Button
-            size="lg"
-            className="bg-white text-primary hover:bg-white/90 font-bold px-12 text-lg"
-          >
-            LAUNCH CAMPAIGN
-          </Button>
-        </div>
-      </section>
+      <FooterBanner />
 
       <Footer />
     </div>
