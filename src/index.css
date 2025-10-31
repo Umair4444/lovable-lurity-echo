@@ -226,7 +226,7 @@ All colors MUST be HSL.
 
 /* Apply the animation */
 .clicked {
-  animation: tabClickFlash 0.6s ease-out;
+  animation: tabClickFlash 6s ease-out;
 }
 
 .material-bubble {
@@ -251,5 +251,5 @@ All colors MUST be HSL.
     pink 60%,
     transparent 100%
   );
-  transition: background-size 0.6s ease, color 6s ease;
+  transition: background-size 0.5s ease-out, color 0.3s ease-out;
 }
