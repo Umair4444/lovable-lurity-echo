@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import CampaignBottomBar from "./CampaignBottomBar";
 
 interface GoogleMapApiKeyInputProps {
   onApiKeySubmit: (apiKey: string) => void;

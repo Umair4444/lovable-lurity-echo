@@ -77,6 +77,7 @@ const InteractiveMap = ({ apiKey, locations }: InteractiveMapProps) => {
           )}
         </MarkerClusterer>
       </GoogleMap>
+      
     </LoadScript>
   );
 };

@@ -142,22 +142,27 @@ const Portal = () => {
       <PortalTopbar />
 
       {/* Main Content */}
-      <div className="flex-1 flex relative">
+      <div className="flex-1 flex relative overflow-hidden">
         {/* Left Panel */}
         <CampaignLeftPanel onFilterChange={setFilters} />
 
         {/* Map Area */}
-        <div className="flex-1 relative bg-[#b4d4c5]">
-          {!apiKey ? (
-            <GoogleMapApiKeyInput onApiKeySubmit={setApiKey} />
-          ) : (
-            <InteractiveMap apiKey={apiKey} locations={filteredLocations} />
-          )}
+        <div className="flex-1 relative bg-[#b4d4c5] overflow-hidden">
+          {/* Map or API input */}
+          <div className="h-full pb-14"> {/* space for bottom bar */}
+            {!apiKey ? (
+              <GoogleMapApiKeyInput onApiKeySubmit={setApiKey} />
+            ) : (
+              <InteractiveMap apiKey={apiKey} locations={filteredLocations} />
+            )}
+          </div>
+
+          {/* Fixed Bottom Bar inside map area */}
+          <div className="absolute w-full bottom-0 left-0 right-0 px-6">
+            <CampaignBottomBar />
+          </div>
         </div>
       </div>
-
-      {/* Bottom Bar */}
-      <CampaignBottomBar />
     </div>
   );
 };
