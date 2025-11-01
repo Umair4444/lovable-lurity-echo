@@ -62,7 +62,7 @@ const HowItWorks = () => {
         <div className="mx-auto max-w-7xl py-2">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
             <div className="space-y-6 animate-fade-in w-full">
-              <h1 className="text-3xl md:text-5xl font-black leading-tight ">
+              <h1 className="text-[42px] md:text-5xl font-black leading-tight ">
                 7 clicks<h1>- and the campaign is running</h1>
               </h1>
               <p className="text-sm lg:text-xl text-black/80 font-bold leading-tight">
@@ -118,13 +118,13 @@ const HowItWorks = () => {
       {/* Active Step Content */}
       <section className="">
         <div className="container mx-auto max-w-[72rem]">
-          <div className="flex flex-col gap-12 items-center">
-            <div className="w-full flex items-start justify-between animate-fade-in">
-              <h2 className="text-4xl font-black">
+          <div className="flex flex-col gap-6 items-center">
+            <div className="w-full flex flex-col lg:flex-row items-start gap-10 animate-fade-in">
+              <h2 className="text-4xl font-black py-4">
                 {steps[activeStep].content}
               </h2>
-              <div className="max-w-xl flex flex-col">
-                <p className="text-sm text-black/80 leading-relaxed">
+              <div className="max-w-xl sm:max-w-3xl flex flex-col">
+                <p className="text-sm md:text-base text-black/80 leading-relaxed">
                   {steps[activeStep].description}
                 </p>
                 <button className="w-fit text-black font-bold py-4  rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 hover:shadow-lg hover:px-6">
@@ -148,24 +148,24 @@ const HowItWorks = () => {
       </section>
 
       {/* Effectiveness Section */}
-      <section className="bg-[#FFD503] px-6 py-12 md:py-24">
-        <div className=" mx-auto flex flex-col md:flex-row items-start justify-around  gap-10">
+      <section className="bg-[#ebc711] px-6 py-12 md:py-24 max-h-96">
+        <div className="container mx-auto flex flex-col md:flex-row items-start justify-around gap-10">
           {/* Left Title */}
-          <div className="md:w-1/6">
-            <h2 className="text-[46px] leading-none translate-x-6 font-extrabold text-[#152B08]">
+          <div className="md:w-1/6 lg:w-3/6">
+            <h2 className="text-3xl lg:text-[46px] leading-none lg:text-center  font-extrabold text-[#152B08]">
               The most effective medium?
             </h2>
           </div>
 
           {/* Right Text & Button */}
-          <div className="md:w-3/6 flex flex-col items-start">
-            <p className="text-[18px] text-[#152B08] leading-relaxed">
+          <div className="md:w-4/6 lg:w-auto flex flex-col items-start gap-10 md:gap-2">
+            <p className="text-lg text-[#152B08] leading-relaxed">
               and also the 2nd most memorable form of advertising: that is OOH
               advertising, which is also considered one of the most likable
               media*
             </p>
 
-            <button className=" text-black font-bold  mt-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+            <button className=" text-black font-bold rounded uppercase tracking-widest flex items-center justify-center gap-3">
               <span> showMore</span>
               <MoveRightIcon className="w-5 h-5" />
             </button>
@@ -174,8 +174,8 @@ const HowItWorks = () => {
       </section>
 
       {/* Video Section */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto">
+      <section className="py-20 px-1">
+        <div className="contaier mx-auto">
           <div className="relative aspect-video overflow-hidden shadow-2xl bg-muted">
             <iframe
               className="w-full h-full"
