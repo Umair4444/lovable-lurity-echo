@@ -4,8 +4,23 @@ import Footer from "@/components/Footer";
 import { Download as DownloadIcon, FileEdit } from "lucide-react";
 import Topbar from "@/components/Topbar";
 import FooterBanner from "@/components/FooterBanner";
+import { useState, useEffect } from "react";
+import { FaArrowUp } from "react-icons/fa";
 
 const Download = () => {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const downloads = [
     { title: "terms and conditions", file: "#" },
     { title: "terms and conditions for advertisers", file: "#" },
@@ -46,91 +61,95 @@ const Download = () => {
                 </div>
               </div>
             </div>
-            {/* Floating Stat: Screens (Yellow) */}
-            <div className="absolute z-30 left-[calc(33.333%+24px)] -top-5 inset-0 ">
-              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
-            </div>
-            {/* Stats Card */}
-            <div className="absolute z-30 left-1/3 -top-10 bg-yellow px-8 py-4 rounded-3xl shadow-lg shadow-yellow/40">
-              <div className="flex flex-col items-center justify-around px-6 h-24">
-                <div className="text-xs font-semibold mb-1">SCREENS</div>
-                <div className="text-4xl font-black">600</div>
+            <div className="hidden lg:block px-4">
+              {/* Floating Stat: Screens (Yellow) */}
+              <div className="absolute z-30 left-[calc(33.333%+24px)] -top-5 inset-0 ">
+                <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
               </div>
-            </div>
-            {/* Floating Stat: Views per year (Cyan) */}
-            <div className="absolute z-30 left-[calc(25%+24px)] bottom-28 ">
-              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
-            </div>
-            {/* Stats Card */}
-            <div className="absolute z-30 left-1/4 bottom-24 bg-cyan px-8 py-4 rounded-3xl shadow-lg shadow-cyan/40">
-              <div className="flex flex-col items-center justify-around h-24">
-                <div className="text-xs font-semibold mb-1">VIEWS PER YEAR</div>
-                <div className="text-4xl font-black">55 mil.</div>
-              </div>
-            </div>
-            {/* Floating Stat: Views per month (Magenta) */}
-            <div className="absolute z-30 top-[calc(33.333%+28px)] right-[calc(16%+24px)]">
-              <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
-            </div>
-            {/* Stats Card */}
-            <div className="absolute z-30 top-1/3 right-[16%]  bg-magenta px-10 py-6 rounded-3xl shadow-lg shadow-pink-700/40">
-              <div className="flex flex-col items-center justify-around h-24">
-                <div className="text-xs font-semibold mb-1">
-                  VIEWS PER MONTH
+              {/* Stats Card */}
+              <div className="absolute z-30 left-1/3 -top-10 bg-yellow px-8 py-4 rounded-3xl shadow-lg shadow-yellow/40">
+                <div className="flex flex-col items-center justify-around px-6 h-24">
+                  <div className="text-xs font-semibold mb-1">SCREENS</div>
+                  <div className="text-4xl font-black">600</div>
                 </div>
-                <div className="text-4xl font-black">15mil.</div>
               </div>
-            </div>
-            {/* Floating decorative elements */}
-            <div
-              className="absolute z-30 top-24 left-[8%] w-5 h-5 bg-blue-700 rounded"
-              style={{ animationDelay: "0.8s" }}
-            ></div>
-            <div
-              className="absolute z-30 top-8 left-52 w-3 h-3 bg-magenta rounded animate-float "
-              style={{ animationDelay: "0.8s" }}
-            ></div>
-            <div
-              className="absolute bottom-20 left-[15%] w-5 h-5 bg-lime rounded animate-float"
-              style={{ animationDelay: "0.4s" }}
-            ></div>
-            <div
-              className="absolute top-16 right-1/4 w-4 h-4 bg-cyan rounded animate-float"
-              style={{ animationDelay: "0.4s" }}
-            ></div>
-            <div
-              className="absolute bottom-1/3 right-32 w-4 h-4 bg-blue-800 rounded animate-float"
-              style={{ animationDelay: "0.4s" }}
-            ></div>
-            <div
-              className="absolute z-30 bottom-48 right-1/3 w-5 h-5 bg-yellow rounded animate-float"
-              style={{ animationDelay: "1.1s" }}
-            ></div>
-            <div
-              className="absolute z-30 bottom-40 right-[calc(33.333%-52px)]  w-3 h-3 bg-magenta rounded animate-float"
-              style={{ animationDelay: "0.6s" }}
-            ></div>
-            {/* Floating person images (decorative circles) */}
-            <div className="absolute top-[12%] left-[12%] w-52 h-52 overflow-hidden rounded-full ">
-              <img
-                src="/1.png"
-                alt="Person"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute bottom-[8%] right-36 w-40 h-40 overflow-hidden rounded-full">
-              <img
-                src="/2.jpg"
-                alt="Person"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute top-[5%] -right-4 w-52 h-52 overflow-hidden rounded-full bottom-2">
-              <img
-                src="/3.jpg"
-                alt="Person"
-                className="w-full h-full object-cover"
-              />
+              {/* Floating Stat: Views per year (Cyan) */}
+              <div className="absolute z-30 left-[calc(25%+24px)] bottom-28 ">
+                <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+              </div>
+              {/* Stats Card */}
+              <div className="absolute z-30 left-1/4 bottom-24 bg-cyan px-8 py-4 rounded-3xl shadow-lg shadow-cyan/40">
+                <div className="flex flex-col items-center justify-around h-24">
+                  <div className="text-xs font-semibold mb-1">
+                    VIEWS PER YEAR
+                  </div>
+                  <div className="text-4xl font-black">55 mil.</div>
+                </div>
+              </div>
+              {/* Floating Stat: Views per month (Magenta) */}
+              <div className="absolute z-30 top-[calc(33.333%+28px)] right-[calc(16%+24px)]">
+                <div className="bg-gray-400 w-24 px-16 py-10 h-24 rounded-md border-2 border-transparent opacity-60 animate-border-expand"></div>
+              </div>
+              {/* Stats Card */}
+              <div className="absolute z-30 top-1/3 right-[16%]  bg-magenta px-10 py-6 rounded-3xl shadow-lg shadow-pink-700/40">
+                <div className="flex flex-col items-center justify-around h-24">
+                  <div className="text-xs font-semibold mb-1">
+                    VIEWS PER MONTH
+                  </div>
+                  <div className="text-4xl font-black">15mil.</div>
+                </div>
+              </div>
+              {/* Floating decorative elements */}
+              <div
+                className="absolute z-30 top-24 left-[8%] w-5 h-5 bg-blue-700 rounded"
+                style={{ animationDelay: "0.8s" }}
+              ></div>
+              <div
+                className="absolute z-30 top-8 left-52 w-3 h-3 bg-magenta rounded animate-float "
+                style={{ animationDelay: "0.8s" }}
+              ></div>
+              <div
+                className="absolute bottom-20 left-[15%] w-5 h-5 bg-lime rounded animate-float"
+                style={{ animationDelay: "0.4s" }}
+              ></div>
+              <div
+                className="absolute top-16 right-1/4 w-4 h-4 bg-cyan rounded animate-float"
+                style={{ animationDelay: "0.4s" }}
+              ></div>
+              <div
+                className="absolute bottom-1/3 right-32 w-4 h-4 bg-blue-800 rounded animate-float"
+                style={{ animationDelay: "0.4s" }}
+              ></div>
+              <div
+                className="absolute z-30 bottom-48 right-1/3 w-5 h-5 bg-yellow rounded animate-float"
+                style={{ animationDelay: "1.1s" }}
+              ></div>
+              <div
+                className="absolute z-30 bottom-40 right-[calc(33.333%-52px)]  w-3 h-3 bg-magenta rounded animate-float"
+                style={{ animationDelay: "0.6s" }}
+              ></div>
+              {/* Floating person images (decorative circles) */}
+              <div className="absolute top-[12%] left-[12%] w-52 h-52 overflow-hidden rounded-full ">
+                <img
+                  src="/1.png"
+                  alt="Person"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute bottom-[8%] right-36 w-40 h-40 overflow-hidden rounded-full">
+                <img
+                  src="/2.jpg"
+                  alt="Person"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute top-[5%] -right-4 w-52 h-52 overflow-hidden rounded-full bottom-2">
+                <img
+                  src="/3.jpg"
+                  alt="Person"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -175,6 +194,16 @@ const Download = () => {
       <FooterBanner />
 
       <Footer />
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-cyan border-2 border-black text-black"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp className="text-lg" />
+        </button>
+      )}
     </div>
   );
 };

@@ -9,8 +9,9 @@ const Terms = () => {
       <Navigation />
 
       {/* Main Content */}
-      <main className="flex-1 pt-20 pl-28 ">
-        <div className=" max-w-7xl">
+      <main className=" pt-20 max-w-6xl mx-auto ">
+        {/* <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center"> */}
+        <div className="max-w-7xl mx-auto flex flex-col items-start justify-center text-left min-h-[600px] px-6">
           {/* Regulation Section */}
           <section className="mb-6">
             <h2 className="text-base font-extrabold  uppercase text-foreground mb-1">
@@ -426,13 +427,32 @@ const Terms = () => {
             </ul>
           </section>
 
-          {/* Third Countries Section */}
           <section className="mb-6">
-            <h2 className="text-base font-extrabold uppercase text-foreground ">
+            <h2 className="text-base font-extrabold uppercase text-foreground mb-1">
+              WHAT SOURCES DO MY PERSONAL DATA COME FROM?
+            </h2>
+
+            <p className="text-base text-foreground/90 leading-5 mb-1">
+              If you are a Visitor of public spaces, the source of your personal
+              data is{" "}
+              <span className="font-semibold">smart advertising screens</span>.
+            </p>
+
+            <p className="text-base text-foreground/90 leading-5">
+              In other cases, we process information that you have provided to
+              us in connection with the conclusion of the contract, during our
+              cooperation, or data provided to us by another person of the
+              Advertiser.
+            </p>
+          </section>
+
+          {/* Third Countries Section */}
+          <section className="mb-6 ">
+            <h2 className="text-base font-extrabold uppercase text-foreground">
               DO YOU TRANSFER MY PERSONAL DATA TO THIRD COUNTRIES?
             </h2>
 
-            <p className="text-[15px] font-extrabold text-foreground mb-1">
+            <p className="text-[15px] font-extrabold text-foreground">
               We do not provide your personal data to third countries outside
               the EU.
             </p>

@@ -111,13 +111,13 @@ const Blog = () => {
       {/* Hero Featured Post */}
       <section className="pt-10 px-6">
         <div className="container mx-auto">
-          <div className="grid grid-cols-2 gap-4 items-start rounded-lg bg-[#f5f4f0]">
-            <div className=" order-2 lg:order-2 py-6">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start rounded-lg bg-[#f5f4f0]">
+            <div className=" order-2 lg:order-1 py-6 px-6">
               <h2 className="bg-[#213b54] mx-auto px-6 py-3 rounded-lg w-fit text-white text-2xl text-center font-bold mb-4 border-b-2 border-white">
                 DOOH: Key Stats Driving the Boom
               </h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-center justify-items-center px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-center justify-items-center">
                 <div className="flex items-center text-center space-y-2 max-w-xs">
                   <div className="text-7xl mb-4 ">📈</div>
                   <div className="flex flex-col">
@@ -195,7 +195,7 @@ const Blog = () => {
               </div>
             </div>
 
-            <div className=" order-1 lg:order-2">
+            <div className=" order-1 xl:order-2 px-6">
               <div className="text-sm text-muted-foreground mb-3 font-bold tracking-wider pt-10">
                 {featuredPost.date}
               </div>
@@ -207,7 +207,7 @@ const Blog = () => {
               </p>
               <Button
                 size="lg"
-                className="bg-yellow hover:bg-yellow/80 text-black mt-24 font-bold  py-8 rounded"
+                className="bg-yellow hover:bg-yellow/80 text-black font-bold mb-5 xl:mb-0 py-8 rounded"
               >
                 READ MORE <FaArrowRight className="ml-2" />
               </Button>
@@ -217,9 +217,9 @@ const Blog = () => {
       </section>
 
       {/* Blog Grid */}
-      <section className="pt-24 px-40">
+      <section className="pt-10 md:pt-24 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
             {blogPosts.map((post, index) => (
               <Card
                 key={index}
@@ -236,10 +236,10 @@ const Blog = () => {
                   <div className="text-xs text-muted-foreground mb-3 font-bold tracking-wider">
                     {post.date}
                   </div>
-                  <h3 className="text-3xl font-black mb-4 leading-tight group-hover:text-cyan transition-colors">
+                  <h3 className="text-3xl font-black mb-4 leading-tight line-clamp-2 group-hover:text-cyan transition-colors">
                     {post.title}
                   </h3>
-                  <p className="text-[14px] text-black mb-4 line-clamp-4">
+                  <p className="text-[14px] text-black mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
                 </CardContent>
@@ -249,10 +249,10 @@ const Blog = () => {
         </div>
       </section>
 
-      <div className="flex flex-row  items-center justify-center mb-32">
+      <div className="flex flex-row items-center justify-center mb-16 mt-8 lg:-mt16 xl:mt-24 lg:mb-32">
         <Button
           size="lg"
-          className="bg-yellow hover:bg-yellow/80 text-black mt-24 font-bold px-6 py-8 rounded-sm"
+          className="bg-yellow hover:bg-yellow/80 text-black  font-bold px-6 py-8 rounded-sm"
         >
           READ MORE <FaArrowRight className="ml-2" />
         </Button>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import Topbar from "@/components/Topbar";
@@ -9,9 +9,23 @@ import {
   MessageCircle,
   MoveRightIcon,
 } from "lucide-react";
+import { FaArrowUp } from "react-icons/fa";
 
 const Clients = () => {
   const [activeTab, setActiveTab] = useState("all");
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 200);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const tabs = [
     { id: "all", label: "ALL CLIENTS" },
@@ -23,88 +37,16 @@ const Clients = () => {
   const clientLogos = {
     all: [
       {
-        name: "Orange",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
-      },
-      {
-        name: "Slovak Telekom",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/81/Slovak_Telekom_logo.svg",
-      },
-      {
-        name: "O2",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/O2_logo.svg",
-      },
-      { name: "Swan", logo: "https://www.lurity.com/clients/swan.png" },
-      {
-        name: "4ka",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/4ka_logo.svg",
-      },
-      {
-        name: "Samsung",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
-      },
-      { name: "iStore", logo: "https://www.lurity.com/clients/istore.png" },
-      {
-        name: "Slovenská sporiteľňa",
-        logo: "https://www.lurity.com/clients/slsp.png",
-      },
-      {
-        name: "VÚB Banka",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/d/d0/VUB_logo.svg",
-      },
-      {
-        name: "mBank",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/f/f4/MBank_logo.svg",
-      },
-      { name: "365.bank", logo: "https://www.lurity.com/clients/365bank.png" },
-      {
-        name: "UniCredit",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/6d/UniCredit_logo.svg",
-      },
-      {
         name: "BMW",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg",
-      },
-      {
-        name: "Jaguar",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/89/Jaguar_2012_logo.svg",
-      },
-      {
-        name: "Volvo",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Volvo_iron_symbol.svg",
       },
       {
         name: "Ford",
         logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg",
       },
       {
-        name: "Mazda",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Mazda_logo.svg",
-      },
-      {
-        name: "Hyundai",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/Hyundai_Motor_Company_logo.svg",
-      },
-      {
-        name: "Kooperativa",
-        logo: "https://www.lurity.com/clients/kooperativa.png",
-      },
-      { name: "Dôvera", logo: "https://www.lurity.com/clients/dovera.png" },
-      {
-        name: "Generali",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Generali_logo.svg",
-      },
-      {
-        name: "Kaufland",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Kaufland_201x_logo.svg",
-      },
-      {
-        name: "Billa",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/3/34/Billa_logo.svg",
-      },
-      {
-        name: "Tesco",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/Tesco_Logo.svg",
+        name: "Orange",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
       },
     ],
     sk_agencies: [
@@ -112,61 +54,21 @@ const Clients = () => {
         name: "Orange",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
       },
-      {
-        name: "Slovak Telekom",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/81/Slovak_Telekom_logo.svg",
-      },
-      {
-        name: "4ka",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/57/4ka_logo.svg",
-      },
     ],
     cz_agencies: [
-      {
-        name: "O2",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/O2_logo.svg",
-      },
-    ],
-    brands: [
-      {
-        name: "Samsung",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/2/24/Samsung_Logo.svg",
-      },
       {
         name: "BMW",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg",
       },
-      {
-        name: "Jaguar",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/8/89/Jaguar_2012_logo.svg",
-      },
-      {
-        name: "Volvo",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Volvo_iron_symbol.svg",
-      },
+    ],
+    brands: [
       {
         name: "Ford",
         logo: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Ford_logo_flat.svg",
       },
       {
-        name: "Mazda",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Mazda_logo.svg",
-      },
-      {
-        name: "Hyundai",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/Hyundai_Motor_Company_logo.svg",
-      },
-      {
-        name: "Kaufland",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Kaufland_201x_logo.svg",
-      },
-      {
-        name: "Billa",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/3/34/Billa_logo.svg",
-      },
-      {
-        name: "Tesco",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/Tesco_Logo.svg",
+        name: "BMW",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg",
       },
     ],
   };
@@ -189,14 +91,15 @@ const Clients = () => {
       <Topbar />
       <Navigation />
       {/* Hero Section */}
-      <section className="pt-32 pb-10 px-6">
+      <section className="pt-24 pb-10 px-6">
         <div className="container mx-auto text-center">
-          <h1 className="text-6xl  font-black mb-16 animate-fade-in">
+          <h1 className="text-6xl  font-extrabold mb-16 animate-fade-in">
             Clients
           </h1>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex justify-between lg:justify-center overflow-auto whitespace-nowrap scrollbar-hide gap-4 mb-10">
+            {/* <div className="flex items-center justify-between md:justify-center overflow-auto overflow-y-hidden whitespace-nowrap gap-3 bg-transparent scrollbar-hide  px-4 py-10"> */}
             {tabs.map((tab) => (
               <Button
                 key={tab.id}
@@ -214,20 +117,18 @@ const Clients = () => {
           </div>
 
           {/* Logos Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center justify-items-center max-w-4xl mx-auto animate-fade-in">
-            {getLogos().map((client, index) => (
-              <div
-                key={index}
-                className="w-full h-24 flex items-center justify-center p-4 transition-all duration-300 hover:scale-110 grayscale hover:grayscale-0 opacity-70 hover:opacity-100"
-              >
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(60px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(100px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-6 md:gap-8 lg:gap-y-8 gap-x-4 items-center justify-items-center w-full max-w-4xl mx-auto py-6 px-10">
+            {Array(20)
+              .fill(getLogos())
+              .flat()
+              .map((src, index) => (
                 <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-full object-contain"
-                  loading="lazy"
+                  key={index}
+                  src={src.logo}
+                  alt="Client logo"
+                  className="w-10 sm:w-12 md:w-20 lg:w-24 h-auto object-contain transition-transform duration-300 hover:scale-110"
                 />
-              </div>
-            ))}
+              ))}
           </div>
         </div>
         <Button className="bg-[#7ed52e] text-black rounded-sm text-lg font-semibold py-8 px-6 hover:bg-[#7ed52e]/90 uppercase mt-12 flex items-center gap-2 mx-auto">
@@ -237,14 +138,14 @@ const Clients = () => {
 
       {/* Instagram Feed Section */}
       <div>
-        <div className="flex flex-wrap items-center justify-center gap-2 p-5 bg-white rounded-2xl shadow-md">
+        <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
             L
           </div>
 
           {/* Profile Info */}
-          <div className="text-center md:text-left mr-8">
+          <div className="text-center md:text-left mr-2 sm:mr-8">
             <h1 className="text-lg font-semibold text-gray-800 uppercase leading-snug">
               Lucrity
             </h1>
@@ -252,7 +153,7 @@ const Clients = () => {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-8 text-center mr-8">
+          <div className="flex gap-2 sm:gap-8 text-center mr-2 sm:mr-8">
             <div>
               <h2 className="text-base font-bold text-gray-800 leading-snug">
                 222
@@ -414,6 +315,16 @@ const Clients = () => {
       </div>
 
       <Footer />
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-cyan border-2 border-black text-black"
+          aria-label="Scroll to top"
+        >
+          <FaArrowUp className="text-lg" />
+        </button>
+      )}
     </div>
   );
 };

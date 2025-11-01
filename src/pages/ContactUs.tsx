@@ -436,7 +436,7 @@ export default function ContactUs() {
 
       {/* Team Section */}
       <section className="flex flex-col justify-center py-20 px-4">
-        <div className="flex justify-center mb-12 overflow-x-auto">
+        <div className="flex md:justify-around lg:justify-center mb-12 overflow-x-auto scrollbar-hide">
           <div className="flex gap-2 min-w-max px-4">
             {tabs.map((tab, index) => (
               <button
@@ -480,14 +480,14 @@ export default function ContactUs() {
 
       {/* Instagram Feed Section */}
       <div>
-      <div className="flex flex-wrap items-center justify-center gap-2 p-5 bg-white rounded-2xl shadow-md">
+        <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
             L
           </div>
 
           {/* Profile Info */}
-          <div className="text-center md:text-left mr-8">
+          <div className="text-center md:text-left mr-2 sm:mr-8">
             <h1 className="text-lg font-semibold text-gray-800 uppercase leading-snug">
               Lucrity
             </h1>
@@ -495,7 +495,7 @@ export default function ContactUs() {
           </div>
 
           {/* Stats */}
-          <div className="flex gap-8 text-center mr-8">
+          <div className="flex gap-2 sm:gap-8 text-center mr-2 sm:mr-8">
             <div>
               <h2 className="text-base font-bold text-gray-800 leading-snug">
                 222

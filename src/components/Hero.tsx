@@ -213,11 +213,11 @@ const Hero = () => {
       <section className="relative mt-2 py-20 bg-gradient-magenta">
         <div className="mx-auto flex flex-col items-start px-6 lg:px-40 lg:flex-row lg:items-center xl:pr-40">
           {/* <!-- Image Section --> */}
-          <div className="image-container mb-6 w-full sm:w-auto lg:mb-0 lg:mr-10">
+          <div className=" mb-6 w-auto  lg:mb-0 lg:mr-10 ">
             <img
               src="https://www2.lurity.com/sites/default/files/dooh.jpg"
               alt="OOH is growing globally"
-              className="tab-image w-full max-w-md rounded-lg shadow-lg"
+              className=" lg:w-64 max-w-md rounded-lg shadow-lg"
             />
           </div>
 
