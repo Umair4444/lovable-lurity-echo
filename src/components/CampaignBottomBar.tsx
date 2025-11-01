@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const CampaignBottomBar = () => {
   return (
-    <div className="fixed bottom-0 -right-5 h-12 w-fit bg-[#000638] border-t border-gray-800 z-50 flex items-center px-14">
+    <div className="fixed bottom-0 -right-6 h-12 w-fit bg-[#000638] border-t border-gray-800 z-50 flex items-center px-14">
       {/* Stats Section */}
       <div className="flex items-center justify-between gap-16 px-6">
         {[
