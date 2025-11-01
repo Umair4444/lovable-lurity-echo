@@ -6,7 +6,6 @@ import {
   Clock,
   Image,
   MoveRightIcon,
-  ArrowRight,
   Headphones,
 } from "lucide-react";
 import Topbar from "@/components/Topbar";
@@ -19,21 +18,21 @@ const Price = () => {
       <Topbar />
       <Navigation />
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-16 pb-20 ">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-5xl font-black leading-[3rem]">
+              <h1 className="text-4xl lg:text-5xl lg:bg-red-500 font-extrabold leading-10 lg:leading-[3rem] py-4">
                 DOOH is the cheapest online activator
               </h1>
-              <h2 className="text-lg font-bold leading-5">
+              <h2 className="text-base lg:text-lg font-bold leading-5 lg:leading-4 py-2">
                 Choose where and how intensely you want to reach your customers.
                 With us, you're actually renting.
               </h2>
-              <p className="text-lg text-black">
+              <p className="text-sm lg:text-base text-justify font-medium text-black">
                 We'll deliver according to your order.
               </p>
-              <p className="text-base text-black">
+              <p className="text-sm lg:text-base text-justify font-medium text-black">
                 We combine visual and dynamic benefits of the image with the
                 advantage of digital rental purchase. Replace regular billboards
                 with flexible digital OOH and control your campaign yourself.
@@ -59,7 +58,7 @@ const Price = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col justify-center gap-20">
             {/* STRENGTH */}
-            <div className="flex gap-10 items-center justify-start animate-fade-in">
+            <div className="flex gap-10 items-start justify-start animate-fade-in">
               <div className="w-16 h-16 bg-transparent flex items-center justify-center">
                 <TrendingUp className="w-12 h-12  text-magenta" />
               </div>
@@ -74,7 +73,7 @@ const Price = () => {
 
             {/* PLACE */}
             <div
-              className="flex gap-10 items-center justify-start animate-fade-in"
+              className="flex gap-10 items-start justify-start animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
               <div className="w-16 h-16 bg-transparent flex items-center justify-center">
@@ -91,7 +90,7 @@ const Price = () => {
 
             {/* TIME */}
             <div
-              className="flex gap-10 items-center justify-start animate-fade-in"
+              className="flex gap-10 items-start justify-start animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
               <div className="w-16 h-16 bg-transparent flex items-center justify-center">
@@ -108,7 +107,7 @@ const Price = () => {
 
             {/* VISUAL / SPOT */}
             <div
-              className="flex gap-10 items-center justify-start animate-fade-in"
+              className="flex gap-10 items-start justify-start animate-fade-in"
               style={{ animationDelay: "0.3s" }}
             >
               <div className="w-16 h-16 bg-transparent flex items-center justify-center">
@@ -128,8 +127,8 @@ const Price = () => {
 
       {/* Realization Section */}
       <section className="py-32 px-6 bg-magenta">
-        <div className="container mx-auto max-w-7xl text-justify space-y-6">
-          <h2 className="text-[40px] leading-none  font-black">
+        <div className="mx-auto w-full sm:max-w-lg md:max-w-xl lg:max-w-3xl text-left">
+          <h2 className="text-[34px] md:text-[40px] lg:text-[44px] leading-none font-extrabold">
             We'll realize your decision at the desired time, on the screens you
             choose, and multiply by the desired strength.
           </h2>
@@ -137,8 +136,7 @@ const Price = () => {
       </section>
 
       {/* Support Section */}
-
-      <section className="p-0 max-w-6xl mx-auto my-28 sm:p-6 md:p-10 lg:p-14 flex flex-col md:flex-row bg-white rounded-lg border sm:border-[#E2E9ED]">
+      <section className=" max-w-md sm:max-w-3xl md:max-w-5xl  mx-auto sm:mx-4 lg:mx-auto flex flex-col md:flex-row px-2 sm:p-6 md:p-10 lg:p-14  my-28  bg-white rounded-lg border sm:border-[#E2E9ED]">
         {/* Icon */}
         <div className="mr-6 flex-shrink-0 flex items-start justify-center">
           <div className="text-[#7ED52E]">
@@ -185,11 +183,11 @@ const Price = () => {
       </section>
 
       {/* Banner */}
-      <section className="bg-[#FFD503] px-6 py-12 md:py-16">
-        <div className="container mx-auto flex flex-col md:flex-row items-start justify-between gap-8">
+      <section className="bg-[#FFD503] px-6 py-12 md:py-20">
+        <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between gap-4 md:gap-8">
           {/* Left Title */}
-          <div className="md:w-1/3">
-            <h2 className="text-[46px] leading-tight translate-x-6 font-extrabold text-[#152B08]">
+          <div className="lg:w-1/3">
+            <h2 className="text-4xl lg:text-[46px] leading-tight lg:translate-x-6 font-extrabold text-[#152B08]">
               Did you know?
             </h2>
           </div>
@@ -217,23 +215,23 @@ const Price = () => {
       <section className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="bg-white rounded-2xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-            <div className="flex">
-              <div className="relative h-auto w-1/2">
+            <div className="flex flex-col lg:flex-row items-center justify-center lg:gap-4 ">
+              <div className="relative h-auto w-full lg:w-5/6">
                 <img
                   src="https://www.lurity.com/blog/blog_image_01.jpg"
                   alt="OAAA Nielsen studies"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <div className="p-8 lg:p-12 flex flex-col justify-center space-y-4">
-                <p className="text-sm text-muted-foreground font-semibold">
+              <div className="px-2 py-4 md:p-8 lg:py-4 flex flex-col justify-center space-y-2">
+                <p className="text-sm text-black/40 font-semibold">
                   18 MARCH 2021
                 </p>
-                <h3 className="text-2xl lg:text-3xl font-black">
+                <h3 className="text-2xl md:text-3xl lg:text-3xl font-black">
                   The latest OAAA Nielsen studies prove: out-of-home creates
                   high target group engagement!
                 </h3>
-                <button className=" w-fit text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+                <button className=" w-fit text-black font-bold py-4 rounded uppercase tracking-widest flex items-center justify-center gap-3">
                   <span>Read more</span>
                   <MoveRightIcon className="w-5 h-5" />
                 </button>
