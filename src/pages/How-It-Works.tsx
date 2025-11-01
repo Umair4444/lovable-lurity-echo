@@ -58,23 +58,17 @@ const HowItWorks = () => {
       <Topbar />
       <Navigation />
       {/* Hero Section */}
-      <section className="pt-16 pb-20 px-6">
+      <section className="pt-16 lg:pb-20 px-6">
         <div className="mx-auto max-w-7xl py-2">
-          <div className="flex items-center justify-center">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
             <div className="space-y-6 animate-fade-in w-full">
-              <h1 className="text-5xl font-black leading-tight ">
+              <h1 className="text-3xl md:text-5xl font-black leading-tight ">
                 7 clicks<h1>- and the campaign is running</h1>
               </h1>
-              <p className="text-xl  text-black/80 font-medium">
+              <p className="text-sm lg:text-xl text-black/80 font-bold leading-tight">
                 Create your campaign yourself and your campaign can be running
                 within 20 minutes!
               </p>
-              {/* <Button
-                size="lg"
-                className="bg-[#00BCD4] hover:bg-[#00ACC1] text-white font-bold px-12 text-lg"
-              >
-                I WANT A CAMPAIGN
-              </Button> */}
               <button className="bg-[#1FC9FF] hover:bg-[#1FC9FF]/80 text-black font-bold py-4 px-6 rounded uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
                 <span>I WANT A CAMPAIGN</span>
                 <MoveRightIcon className="w-5 h-5" />

@@ -22,7 +22,7 @@ const Price = () => {
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in">
-              <h1 className="text-4xl lg:text-5xl lg:bg-red-500 font-extrabold leading-10 lg:leading-[3rem] py-4">
+              <h1 className="text-4xl lg:text-5xl font-extrabold leading-10 lg:leading-[3rem] py-4">
                 DOOH is the cheapest online activator
               </h1>
               <h2 className="text-base lg:text-lg font-bold leading-5 lg:leading-4 py-2">
