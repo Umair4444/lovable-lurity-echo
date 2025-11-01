@@ -23,22 +23,22 @@ const Formats = () => {
     {
       id: "shopping-centers",
       label: "Digital screens in shopping centers",
-      icon: <MonitorSmartphone size={40} />,
+      icon: <MonitorSmartphone size={34} />,
     },
     {
       id: "led-indoor",
       label: "LED boards Indoor",
-      icon: <Monitor size={40} />,
+      icon: <Monitor size={34} />,
     },
     {
       id: "led-outdoor",
       label: "LED boards Outdoor",
-      icon: <MonitorCog size={40} />,
+      icon: <MonitorCog size={34} />,
     },
     {
       id: "specific-locations",
       label: "Digital surfaces at specific locations",
-      icon: <MonitorPlay size={40} />,
+      icon: <MonitorPlay size={34} />,
     },
   ];
 
@@ -62,25 +62,23 @@ const Formats = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className=" w-full max-w-6xl  min-h-[800px] my-14 mx-auto flex items-center space-x-2">
-        <div className="container mx-auto px-6 py-20  flex flex-col md:flex-row items-center justify-between">
-          <div className="max-w-2xl  ">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-black mb-8 leading-tight">
+      <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 lg:py-24 space-x-2">
+        <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
+          <div className="max-w-2xl ">
+            <h1 className="text-[44px] lg:text-[56px] sm:text-5xl font-extrabold text-black mb-8 leading-tight">
               Offer of digital
-              <br />
-              OOH Lurity formats
+              <span className="block">OOH Lurity formats</span>
             </h1>
 
             <div className="space-y-4 mb-10">
-              <p className="text-lg text-gray-800 leading-relaxed">
-                <span className="font-bold text-cyan-500 mr-2">•</span>
-                For <span className="font-semibold">brand awareness</span>,
-                larger formats are ideal — a combination of several if your
-                budget allows.
+              <p className="text-base text-gray-800 leading-4">
+                <span className="font-bold text-cyan-500 mr-1">• for</span>
+                <span className="font-semibold">brand awareness</span>, larger
+                formats are ideal — a combination of several if your budget
+                allows.
               </p>
-              <p className="text-lg text-gray-800 leading-relaxed">
-                <span className="font-bold text-cyan-500 mr-2">•</span>
-                For{" "}
+              <p className="text-base text-gray-800 leading-4">
+                <span className="font-bold text-cyan-500 mr-1">• for</span>
                 <span className="font-semibold">frequency and promotion</span>,
                 we recommend the indoor network, ideally combined with LED
                 in/outdoor.
@@ -89,15 +87,15 @@ const Formats = () => {
 
             <Button
               onClick={scrollToFormats}
-              className="group bg-cyan hover:bg-cyan/80 text-black font-bold px-8 py-7 rounded-sm shadow-md text-base flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
+              className="group bg-cyan hover:bg-cyan/80 text-black font-bold px-5 py-7 rounded-[8px] shadow-md text-base flex items-center gap-2 transition-all duration-300 hover:shadow-lg"
             >
               GO TO FORMATS
-              <ArrowRight className="ml-1transform transition-transform duration-300 group-hover:translate-x-1" />
+              <MoveRightIcon className="ml-1transform transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </div>
         </div>
 
-        <div className="w-full  bg-contain hidden lg:block">
+        <div className="w-full  bg-contain block">
           <img src="https://www.lurity.com/step-ahead/formats.jpg" alt="" />
         </div>
       </section>
@@ -107,26 +105,27 @@ const Formats = () => {
         id="formats-section"
         className="py-16 bg-[#f3f7f9] border-b border-gray-200"
       >
-        <div className="container max-w-7xl mx-auto px-6 ">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="container max-w-7xl mx-auto px-6">
+          <div className="grid grid-flow-col auto-cols-[minmax(300px,1fr)] md:auto-cols-[minmax(250px,1fr)] lg:auto-cols-[minmax(300px,1fr)] overflow-auto overflow-y-hidden gap-10 bg-transparent scrollbar-hide">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`group material-bubble flex items-center justify-center gap-1 py-2 rounded-md border  transition-all duration-300 
-          ${
-            activeTab === tab.id
-              ? "bg-transparent text-black border-cyan shadow-md scale-105"
-              : "bg-[#f3f7f9] border-gray-300 border-none text-black hover:border-cyan hover:shadow-sm hover:scale-105"
-          }`}
+                className={`group material-bubble flex items-center justify-start gap-6 py-4 px-2 rounded border transition-all duration-300 
+            ${
+              activeTab === tab.id
+                ? "  text-magenta hover:bg-red-100/30"
+                : "bg-transparent text-black hover:bg-gray-200"
+            }`}
               >
                 <span
-                  className={` transition-transform duration-300 group-hover:scale-110
-                ${activeTab === tab.id ? "text-magenta" : ""}`}
+                  className={`transition-transform duration-300 group-hover:scale-110${
+                    activeTab === tab.id ? "text-magenta" : ""
+                  }`}
                 >
                   {tab.icon}
                 </span>
-                <span className="text-center text-lg font-semibold w-8/12 ">
+                <span className="text-center text-lg font-semibold">
                   {tab.label}
                 </span>
               </button>
