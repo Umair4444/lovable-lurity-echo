@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { FaArrowRight, FaBullseye } from "react-icons/fa";
 import FooterBanner from "@/components/FooterBanner";
+import ImageSlider from "@/components/ImageSlider";
 
 const Formats = () => {
   const [activeTab, setActiveTab] = useState("shopping-centers");
@@ -62,7 +63,7 @@ const Formats = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 lg:py-24 space-x-2">
+      <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 lg:py-24 ">
         <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-2xl ">
             <h1 className="text-[44px] lg:text-[56px] sm:text-5xl font-extrabold text-black mb-8 leading-tight">
@@ -136,10 +137,10 @@ const Formats = () => {
 
       {/* Format Details Section */}
       <section className=" bg-[#f3f7f9] ">
-        <div className=" max-w-7xl mx-auto ">
+        <div className=" max-w-7xl mx-auto px-6 ">
           {activeTab === "shopping-centers" && (
-            <div className="space-y-12 flex items-center  ">
-              <div className="max-w-3xl flex flex-col justify-center py-20">
+            <div className="lg:space-y-12 flex flex-col lg:flex-row items-center  ">
+              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
                   Digital screens in shopping centers
                 </h2>
@@ -174,7 +175,7 @@ const Formats = () => {
               </div>
 
               {/* Image Gallery */}
-              <div className=" flex items-end justify-end">
+              {/* <div className=" flex items-end justify-end">
                 <div className=" bg-gray-200  flex item-end justify-end lg:h-[569px] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
                   <img
                     src={formatImages["shopping-centers"][0]}
@@ -182,7 +183,9 @@ const Formats = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
+              </div> */}
+
+              <ImageSlider images={formatImages["shopping-centers"]} />
             </div>
           )}
 
