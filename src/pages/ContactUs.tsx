@@ -31,6 +31,14 @@ export default function ContactUs() {
     "Technical Support",
   ];
 
+  const posters = [
+    { id: 1, img: "/posterbanner_1.jpg" },
+    { id: 2, img: "/posterbanner_2.jpg" },
+    { id: 3, img: "/posterbanner_3.jpg" },
+    { id: 4, img: "/posterbanner_4.jpg" },
+    { id: 5, img: "/posterbanner_5.jpg" },
+  ];
+
   const teamMembers = {
     0: [
       // All Members
@@ -524,135 +532,55 @@ export default function ContactUs() {
             </button>
           </div>
         </div>
-
-        <div className="flex flex-wrap">
-          {/* Box 1 */}
-          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
-            {/* Background Image or Color */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
-
-            {/* Dark overlay on hover */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
-                <div className="flex items-center gap-2">
-                  <Heart className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">15</h2>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">2</h2>
-                </div>
+        <div className="flex flex-wrap justify-center">
+          {posters.map((poster, index) => (
+            <div
+              key={poster.id}
+              className={`
+        group relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 h-72 overflow-hidden shadow-lg transform transition-all duration-300
+        ${index >= 1 ? "hidden" : "block"}          /* <640px: show 1 */
+        ${index >= 2 ? "sm:hidden" : "sm:block"}   /* 640px+: show 2 */
+        ${index >= 3 ? "md:hidden" : "md:block"}   /* 768px+: show 3 */
+        ${index >= 4 ? "lg:hidden" : "lg:block"}   /* 1024px+: show 4 */
+        ${index >= 5 ? "xl:hidden" : "xl:block"}   /* 1024px+: show 5 */
+      `}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={poster.img}
+                  alt={`Poster ${poster.id}`}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
-                voluptates explicabo ex neque soluta voluptatibus earum iusto
-                blanditiis nostrum quasi delectus consectetur!
-              </p>
-            </div>
 
-            {/* Title Overlay */}
-            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
-          </div>
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          {/* Box 2 */}
-          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
-            {/* Background Image or Color */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
-
-            {/* Dark overlay on hover */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
-                <div className="flex items-center gap-2">
-                  <Heart className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">15</h2>
+              {/* Hover Content */}
+              <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-base font-normal">15</h2>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <h2 className="text-base font-normal">2</h2>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">2</h2>
-                </div>
+                <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
+                  tempora doloribus rem. Error, aperiam nobis! Labore fugit,
+                  voluptates explicabo ex neque soluta voluptatibus earum iusto
+                  blanditiis nostrum quasi delectus consectetur!
+                </p>
               </div>
-              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
-                voluptates explicabo ex neque soluta voluptatibus earum iusto
-                blanditiis nostrum quasi delectus consectetur!
-              </p>
-            </div>
 
-            {/* Title Overlay */}
-            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
-          </div>
-
-          {/* Box 3 */}
-          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
-            {/* Background Image or Color */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
-
-            {/* Dark overlay on hover */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
-                <div className="flex items-center gap-2">
-                  <Heart className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">15</h2>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">2</h2>
-                </div>
+              {/* Title Overlay */}
+              <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300">
+                Poster {poster.id}
               </div>
-              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
-                voluptates explicabo ex neque soluta voluptatibus earum iusto
-                blanditiis nostrum quasi delectus consectetur!
-              </p>
             </div>
-
-            {/* Title Overlay */}
-            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
-          </div>
-
-          {/* Box 4 */}
-          <div className="group relative w-full sm:w-1/2 lg:w-1/4 h-72 overflow-hidden shadow-lg transform transition-all duration-300 ">
-            {/* Background Image or Color */}
-            <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-red-600"></div>
-
-            {/* Dark overlay on hover */}
-            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
-                <div className="flex items-center gap-2">
-                  <Heart className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">15</h2>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                  <h2 className="text-base font-normal">2</h2>
-                </div>
-              </div>
-              <p className="mt-4 text-sm text-white/90 leading-relaxed max-w-sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut
-                tempora doloribus rem. Error, aperiam nobis! Labore fugit,
-                voluptates explicabo ex neque soluta voluptatibus earum iusto
-                blanditiis nostrum quasi delectus consectetur!
-              </p>
-            </div>
-
-            {/* Title Overlay */}
-            <div className="absolute bottom-4 left-4 text-white font-semibold text-lg group-hover:opacity-0 transition-opacity duration-300"></div>
-          </div>
+          ))}
         </div>
       </div>
 
