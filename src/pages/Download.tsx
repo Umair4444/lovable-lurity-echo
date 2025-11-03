@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Download as DownloadIcon, FileEdit } from "lucide-react";
+import { DownloadIcon, FileEdit } from "lucide-react";
 import Topbar from "@/components/Topbar";
 import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
+import DocumentIcon from "../components/icons/Documentation";
 
 const Download = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -170,10 +171,13 @@ const Download = () => {
                   download
                 >
                   <span className="text-base font-bold group-hover:text-primary transition-colors">
-                    <FileEdit className="inline-block w-5 h-5 mr-2 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
+
+                    {/* <FileEdit className="inline-block w-5 h-5 mr-2 text-muted-foreground group-hover:text-primary transition-colors" /> */}
                     {item.title}
                   </span>
                   <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                  {/* <DocumentIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" /> */}
                 </a>
               </div>
             ))}
@@ -185,7 +189,7 @@ const Download = () => {
               className="bg-yellow hover:bg-yellow/80 text-black font-bold py-8 px-6 rounded-sm text-base"
             >
               DOWNLOAD ALL
-              <DownloadIcon className="w-6 h-6 " />
+              <DocumentIcon className="w-6 h-6 " />
             </Button>
           </div>
         </div>
