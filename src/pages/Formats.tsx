@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Navigation from "@/components/Navigation";
 import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
@@ -12,6 +12,8 @@ import {
   MoveRightIcon,
   TargetIcon,
   Settings,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { FaArrowRight, FaBullseye } from "react-icons/fa";
 import FooterBanner from "@/components/FooterBanner";
@@ -19,6 +21,35 @@ import ImageSlider from "@/components/ImageSlider";
 
 const Formats = () => {
   const [activeTab, setActiveTab] = useState("shopping-centers");
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeft, setShowLeft] = useState(false);
+  const [showRight, setShowRight] = useState(false);
+
+  // Detect scroll position
+  const handleScroll = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    setShowLeft(scrollLeft > 10);
+    setShowRight(scrollLeft + clientWidth < scrollWidth - 10);
+  };
+
+  useEffect(() => {
+    handleScroll(); // Initial state
+    const container = scrollRef.current;
+    container?.addEventListener("scroll", handleScroll);
+    return () => container?.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scroll animation
+  const scroll = (direction: "left" | "right") => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const scrollAmount = direction === "left" ? -300 : 300;
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  };
 
   const tabs = [
     {
@@ -104,23 +135,37 @@ const Formats = () => {
       {/* Formats Navigation Tabs */}
       <section
         id="formats-section"
-        className="py-16 bg-[#f3f7f9] border-b border-gray-200"
+        className="relative py-10 bg-[#f3f7f9] border-b border-gray-200"
       >
-        <div className="container max-w-7xl mx-auto px-6">
-          <div className="grid grid-flow-col auto-cols-[minmax(300px,1fr)] md:auto-cols-[minmax(250px,1fr)] lg:auto-cols-[minmax(300px,1fr)] overflow-auto overflow-y-hidden gap-10 bg-transparent scrollbar-hide">
+        <div className="container max-w-7xl mx-auto relative">
+          {/* Left Arrow */}
+          {showLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-100"
+            >
+              <ChevronLeft className="w-5 h-5 text-gray-700" />
+            </button>
+          )}
+
+          {/* Scrollable Tabs */}
+          <div
+            ref={scrollRef}
+            className="grid grid-flow-col auto-cols-[minmax(240px,1fr)] md:auto-cols-[minmax(250px,1fr)] lg:auto-cols-[minmax(240px,1fr)] 
+          overflow-auto overflow-y-hidden gap-10 bg-transparent scrollbar-hide scroll-smooth"
+          >
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`group material-bubble flex items-center justify-start gap-6 py-4 px-2 rounded border transition-all duration-300 
-            ${
-              activeTab === tab.id
-                ? "  text-magenta hover:bg-red-100/30"
-                : "bg-transparent text-black hover:bg-gray-200"
-            }`}
+                className={`group material-bubble flex items-center justify-center gap-3 px-4 py-6 rounded border transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? "text-magenta hover:bg-red-100/30"
+                    : "bg-transparent text-black hover:bg-gray-200"
+                }`}
               >
                 <span
-                  className={`transition-transform duration-300 group-hover:scale-110${
+                  className={`transition-transform duration-300 group-hover:scale-110 ${
                     activeTab === tab.id ? "text-magenta" : ""
                   }`}
                 >
@@ -132,6 +177,16 @@ const Formats = () => {
               </button>
             ))}
           </div>
+
+          {/* Right Arrow */}
+          {showRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-100"
+            >
+              <ChevronRight className="w-5 h-5 text-gray-700" />
+            </button>
+          )}
         </div>
       </section>
 
@@ -175,15 +230,6 @@ const Formats = () => {
               </div>
 
               {/* Image Gallery */}
-              {/* <div className=" flex items-end justify-end">
-                <div className=" bg-gray-200  flex item-end justify-end lg:h-[569px] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img
-                    src={formatImages["shopping-centers"][0]}
-                    alt={`Shopping center format ${formatImages["shopping-centers"][0]}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div> */}
 
               <ImageSlider images={formatImages["shopping-centers"]} />
             </div>
