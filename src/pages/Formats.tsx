@@ -76,9 +76,30 @@ const Formats = () => {
 
   const formatImages = {
     "shopping-centers": [
-      "https://www.lurity.com/formats/malls/malls_1.jpg",
-      "https://www.lurity.com/formats/malls/malls_2.jpg",
-      "https://www.lurity.com/formats/malls/malls_3.jpg",
+      "/s1.jpg",
+      "/s2.jpg",
+      "/s3.jpg",
+      "/s4.jpg",
+      "/s5.jpg",
+      "/s6.jpg",
+    ],
+    "led-indoor": [
+      "/i1.jpg",
+      "/i2.jpg",
+      "/i3.jpg",
+      "/i4.jpg",
+      "/i5.jpg",
+      "/i6.jpg",
+      "/i7.jpg",
+      "/i8.jpg",
+    ],
+    "led-outdoor": ["/o1.jpg", "/o2.jpg", "/o3.jpg"],
+    "specific-locations": [
+      "/l1.jpg",
+      "/l2.jpg",
+      "/l3.jpg",
+      "/l4.jpg",
+      "/l5.jpg",
     ],
   };
 
@@ -135,7 +156,7 @@ const Formats = () => {
       {/* Formats Navigation Tabs */}
       <section
         id="formats-section"
-        className="relative py-10 bg-[#f3f7f9] border-b border-gray-200"
+        className="relative pt-10 bg-[#f3f7f9] border-b border-gray-200"
       >
         <div className="container max-w-7xl mx-auto relative">
           {/* Left Arrow */}
@@ -191,15 +212,16 @@ const Formats = () => {
       </section>
 
       {/* Format Details Section */}
-      <section className=" bg-[#f3f7f9] ">
-        <div className=" max-w-7xl mx-auto px-6 ">
+      <section className="bg-[#f3f7f9]">
+        <div className="max-w-7xl mx-auto container">
+          {/* Shopping Centers */}
           {activeTab === "shopping-centers" && (
-            <div className="lg:space-y-12 flex flex-col lg:flex-row items-center  ">
-              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
+            <div className="px-8 space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+              <div className="max-w-3xl flex flex-col justify-center lg:py-10 ">
+                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-6">
                   Digital screens in shopping centers
                 </h2>
-                <p className="text-lg text-black mb-8">
+                <p className="text-lg text-black mb-8 leading-6">
                   An excellent way to make yourself visible exactly where your
                   target audience is most ready to buy. There are several types
                   of screens available, depending on the OC:
@@ -223,6 +245,7 @@ const Formats = () => {
                     </span>
                   </div>
                 </div>
+
                 <button className="bg-magenta w-fit hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
                   <span>I'm interested</span>
                   <MoveRightIcon className="w-5 h-5" />
@@ -230,14 +253,14 @@ const Formats = () => {
               </div>
 
               {/* Image Gallery */}
-
               <ImageSlider images={formatImages["shopping-centers"]} />
             </div>
           )}
 
+          {/* LED Indoor */}
           {activeTab === "led-indoor" && (
-            <div className="space-y-12 flex items-center">
-              <div className="max-w-3xl">
+            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
+              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
                   LED boards Indoor
                 </h2>
@@ -256,28 +279,21 @@ const Formats = () => {
                     </span>
                   </div>
                 </div>
-                <button className="bg-magenta hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+
+                <button className="bg-magenta w-fit hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
                   <span>I'm interested</span>
                   <MoveRightIcon className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Image Gallery */}
-              <div className="">
-                <div className=" bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img
-                    src={formatImages["shopping-centers"][1]}
-                    alt={`Shopping center format ${formatImages["shopping-centers"][0]}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+              <ImageSlider images={formatImages["led-indoor"]} />
             </div>
           )}
 
+          {/* LED Outdoor */}
           {activeTab === "led-outdoor" && (
-            <div className="space-y-12 flex items-center">
-              <div className="max-w-3xl">
+            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
+              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
                   LED boards Outdoor
                 </h2>
@@ -296,28 +312,21 @@ const Formats = () => {
                     </span>
                   </div>
                 </div>
-                <button className="bg-magenta hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+
+                <button className="bg-magenta w-fit hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
                   <span>I'm interested</span>
                   <MoveRightIcon className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Image Gallery */}
-              <div className="">
-                <div className=" bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img
-                    src={formatImages["shopping-centers"][2]}
-                    alt={`Shopping center format ${formatImages["shopping-centers"][0]}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+              <ImageSlider images={formatImages["led-outdoor"]} />
             </div>
           )}
 
+          {/* Specific Locations */}
           {activeTab === "specific-locations" && (
-            <div className="space-y-12 flex items-center">
-              <div className="max-w-3xl">
+            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
+              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
                   Digital surfaces at specific locations
                 </h2>
@@ -336,22 +345,14 @@ const Formats = () => {
                     </span>
                   </div>
                 </div>
-                <button className="bg-magenta hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
+
+                <button className="bg-magenta w-fit hover:bg-magenta/90 text-sm text-center text-black font-bold py-5 px-6 rounded-[6px] uppercase tracking-widest flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-lg">
                   <span>I'm interested</span>
                   <MoveRightIcon className="w-5 h-5" />
                 </button>
               </div>
 
-              {/* Image Gallery */}
-              <div className="">
-                <div className=" bg-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                  <img
-                    src={formatImages["shopping-centers"][2]}
-                    alt={`Shopping center format ${formatImages["shopping-centers"][0]}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+              <ImageSlider images={formatImages["specific-locations"]} />
             </div>
           )}
         </div>

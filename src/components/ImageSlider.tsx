@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react"; // install via: npm i lucide-react
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -9,12 +9,9 @@ const ImageSlider = ({ images }) => {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
 
-  // Auto-slide every 4 seconds
   useEffect(() => {
     const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
@@ -23,15 +20,16 @@ const ImageSlider = ({ images }) => {
   if (!images || images.length === 0) return null;
 
   return (
-    <div className="relative w-full flex items-center justify-center">
-      <div className="relative bg-gray-200 w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[569px] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+    <div className="relative flex items-center justify-center w-full">
+      {/* Slider Container */}
+      <div className="relative w-[500px] h-[500px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
         {/* Slides */}
         {images.map((src, index) => (
           <img
             key={index}
             src={src}
             alt={`Slide ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[500px] h-[500px]  transition-opacity duration-700 ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           />
