@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const Topbar = () => {
   const [open, setOpen] = useState(false);
@@ -8,28 +8,28 @@ const Topbar = () => {
   const languages = ["EN", "CZ", "SK"];
 
   return (
-    <div className="bg-black py-2 min-h-14 flex items-center px-6">
+    <div className="bg-black py-4 min- flex items-center px-6">
       <div className="flex justify-end items-center text-gray-400 w-full mr-16 space-x-3">
         {/* Email Link */}
         <a
           href="mailto:hello@lurity.com"
-          className="hover:text-white transition-colors"
+          className="hover:text-white transition-colors text-base"
         >
           hello@lurity.com
         </a>
 
         {/* Separator */}
-        <span className="mx-1 text-gray-600">|</span>
+        <span className="mx-2 inline-block w-[1px] h-3 bg-gray-400 align-middle"></span>
 
         {/* Language Dropdown */}
         <div className="relative">
           <button
             type="button"
             onClick={() => setOpen(!open)}
-            className="flex items-center text-gray-400 hover:text-white transition-colors"
+            className="flex items-center text-base text-gray-400 hover:text-white transition-colors"
           >
             {language}
-            <FaChevronDown className="ml-2 text-sm" />
+            <IoMdArrowDropdown className="ml-2 text-sm" />
           </button>
 
           {open && (

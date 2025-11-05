@@ -28,11 +28,11 @@ const Navigation = () => {
     <nav>
       <div
         className={`fixed left-0 right-0 z-40 border-b border-border transition-all duration-500 ${
-          isScrolled ? "top-0 bg-background shadow-md" : "top-12 bg-background"
+          isScrolled ? "top-0 bg-background shadow-md" : "top-14 bg-background"
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between gap-4 h-16">
+          <div className="flex items-center justify-between gap-4 h-[88px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <img
@@ -43,7 +43,7 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden w-full lg:flex items-center justify-around pt-6  gap-4 text-nowrap">
+            <div className="hidden w-full lg:flex items-center justify-around pt-6  gap-2 text-nowrap">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
@@ -58,7 +58,7 @@ const Navigation = () => {
 
             {/* Launch Button (Desktop) */}
             <div className="hidden lg:block">
-              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-5 py-6 rounded-[10px] shadow-md">
+              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-6 py-8 rounded-[10px] shadow-md">
                 LAUNCH CAMPAIGN
               </Button>
             </div>
