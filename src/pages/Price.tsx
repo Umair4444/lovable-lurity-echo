@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import {
   TrendingUp,
@@ -82,8 +81,10 @@ const Price = () => {
               <h3 className="text-2xl font-extrabold text-magenta">
                 PLACE
                 <span className="px-2 text-2xl font-normal text-black">
-                  of the campaign’s run is chosen from several hundred digital
-                  screens according to location, type, and placement
+                  of the campaign's run is chosen from several hundred digital
+                  screens from the CR or SR according to location (country,
+                  city, specific shopping center or other location), type of
+                  screen, screen placement, and other parameters
                 </span>
               </h3>
             </div>
@@ -99,8 +100,9 @@ const Price = () => {
               <h3 className="text-2xl font-extrabold text-magenta">
                 TIME
                 <span className="px-2 text-2xl font-normal text-black">
-                  of deployment is up to you — choose when to launch and how
-                  long the campaign runs
+                  of deployment is also up to you: choose exactly when to launch
+                  the campaign and how many weeks the target group will perceive
+                  your campaign
                 </span>
               </h3>
             </div>
@@ -116,8 +118,9 @@ const Price = () => {
               <h3 className="text-2xl font-extrabold text-magenta">
                 VISUAL / SPOT
                 <span className="px-2 text-2xl font-normal text-black">
-                  use your 10 seconds of airtime however you wish — visual or
-                  video
+                  the choice is again yours: use your 10 seconds of airtime at
+                  your own discretion. Whether it's a visual or a video in those
+                  10 seconds is your decision
                 </span>
               </h3>
             </div>
@@ -126,9 +129,9 @@ const Price = () => {
       </section>
 
       {/* Realization Section */}
-      <section className="py-32 px-6 bg-magenta">
+      <section className="py-28 px-6 bg-magenta">
         <div className="mx-auto w-full sm:max-w-lg md:max-w-xl lg:max-w-3xl text-left">
-          <h2 className="text-[34px] md:text-[40px] lg:text-[44px] leading-none font-extrabold">
+          <h2 className="text-[34px] md:text-[40px] lg:text-[44px] leading-none font-black">
             We'll realize your decision at the desired time, on the screens you
             choose, and multiply by the desired strength.
           </h2>
@@ -183,17 +186,17 @@ const Price = () => {
       </section>
 
       {/* Banner */}
-      <section className="bg-[#FFD503] px-6 py-12 md:py-20">
-        <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between gap-4 md:gap-8">
+      <section className="bg-[#FFD503] px-6 py-10 md:py-12 lg:py-10">
+        <div className="container mx-auto flex flex-col lg:flex-row items-start pt-4 pb-8 justify-around gap-10 md:gap-8 lg:gap-12">
           {/* Left Title */}
           <div className="lg:w-1/3">
-            <h2 className="text-4xl lg:text-[46px] leading-tight lg:translate-x-6 font-extrabold text-[#152B08]">
+            <h2 className="text-3xl lg:text-[44px] leading-tight lg:translate-x-6 font-extrabold text-[#152B08]">
               Did you know?
             </h2>
           </div>
 
           {/* Right Text & Button */}
-          <div className="md:w-2/3 flex flex-col items-start">
+          <div className="md:w-10/12 flex flex-col items-start">
             <p className="text-[18px] text-[#152B08] leading-relaxed">
               <span className="font-bold text-[#88510B]">52%</span> of the
               target group notices the DDOH (digital OOH) format like Lurity, of
@@ -203,7 +206,7 @@ const Price = () => {
               make a purchase?
             </p>
 
-            <button className=" text-black font-bold py-4 mt-6 rounded uppercase tracking-widest flex items-center justify-center gap-3">
+            <button className=" text-black font-bold py-4 mt-10 rounded uppercase tracking-widest flex items-center justify-center gap-3">
               <span> I’m interested</span>
               <MoveRightIcon className="w-5 h-5" />
             </button>
