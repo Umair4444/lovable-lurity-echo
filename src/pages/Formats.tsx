@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import Navigation from "@/components/Navigation";
-import Topbar from "@/components/Topbar";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   MonitorCog,
   MonitorPlay,
   MonitorSmartphone,
@@ -111,9 +107,6 @@ const Formats = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Topbar />
-      <Navigation />
-
       {/* Hero Section */}
       <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 lg:py-24 ">
         <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
@@ -362,8 +355,6 @@ const Formats = () => {
 
       {/* CTA Section */}
       <FooterBanner />
-
-      <Footer />
     </div>
   );
 };

@@ -3,6 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "@/components/ScrollToTop";
+import Layout from "@/layouts/Layout";
+
+// Pages
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
@@ -24,19 +28,24 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/contact" element={<ContactUs />} />
-          <Route path="/portal" element={<Portal />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/download" element={<Download />} />
-          <Route path="/formats" element={<Formats />} />
-          <Route path="/price" element={<Price />} />
-          <Route path="/cookies" element={<Cookies />} />
-          <Route path="/terms-conditions" element={<Terms />} />
-          <Route path="/how-it-works" element={<HowItWorks />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* ✅ All main pages share the same Layout */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Index />} />
+            <Route path="/contact" element={<ContactUs />} />
+            <Route path="/portal" element={<Portal />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/clients" element={<Clients />} />
+            <Route path="/download" element={<Download />} />
+            <Route path="/formats" element={<Formats />} />
+            <Route path="/price" element={<Price />} />
+            <Route path="/cookies" element={<Cookies />} />
+            <Route path="/terms-conditions" element={<Terms />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+          </Route>
+
+          {/* ❌ NotFound is outside layout */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

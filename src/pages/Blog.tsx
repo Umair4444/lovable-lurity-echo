@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaArrowUp, FaArrowRight } from "react-icons/fa";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import Topbar from "@/components/Topbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 
 const Blog = () => {
@@ -105,9 +101,6 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen relative bg-background">
-      <Topbar />
-      <Navigation />
-
       {/* Hero Featured Post */}
       <section className="pt-10 px-6">
         <div className="container mx-auto">
@@ -259,10 +252,7 @@ const Blog = () => {
       </div>
 
       <FooterBanner />
-
-      <Footer />
-
-      {/* Scroll to Top Button */}
+     {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}

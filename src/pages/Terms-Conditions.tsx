@@ -1,13 +1,6 @@
-import Footer from "@/components/Footer";
-import Topbar from "../components/Topbar";
-import Navigation from "../components/Navigation";
-
 const Terms = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Topbar />
-      <Navigation />
-
       {/* Main Content */}
       <main className=" pt-20 max-w-6xl mx-auto ">
         {/* <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center"> */}
@@ -622,8 +615,6 @@ const Terms = () => {
           </section>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

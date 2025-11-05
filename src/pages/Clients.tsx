@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
-import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import Topbar from "@/components/Topbar";
-import Navigation from "@/components/Navigation";
 import {
   Heart,
   InstagramIcon,
@@ -174,8 +171,6 @@ const Clients = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Topbar />
-      <Navigation />
       {/* Hero Section */}
       <section className="pt-24 pb-10 px-6">
         <div className="container mx-auto text-center">
@@ -294,9 +289,15 @@ const Clients = () => {
               <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
                   <div className="flex items-center gap-2">
+                    <span>
+                      <Heart />
+                    </span>
                     <h2 className="text-base font-normal">15</h2>
                   </div>
                   <div className="flex items-center gap-2">
+                    <span>
+                      <MessageCircle />
+                    </span>
                     <h2 className="text-base font-normal">2</h2>
                   </div>
                 </div>
@@ -317,7 +318,6 @@ const Clients = () => {
         </div>
       </div>
 
-      <Footer />
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button

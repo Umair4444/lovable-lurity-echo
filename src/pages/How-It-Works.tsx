@@ -1,8 +1,4 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import Topbar from "@/components/Topbar";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
 import { MoveRightIcon } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 
@@ -55,8 +51,6 @@ const HowItWorks = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Topbar />
-      <Navigation />
       {/* Hero Section */}
       <section className="pt-16 lg:pb-20 px-6">
         <div className="mx-auto max-w-7xl py-2">
@@ -190,8 +184,6 @@ const HowItWorks = () => {
 
       {/* Final CTA Section */}
       <FooterBanner />
-
-      <Footer />
     </div>
   );
 };

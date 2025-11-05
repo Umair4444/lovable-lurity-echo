@@ -1,12 +1,6 @@
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-import Topbar from "@/components/Topbar";
-
 const Cookies = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <Topbar />
-      <Navigation />
       {/* Hero Section */}
       <section className="pt-10 px-6">
         <div className="container mx-auto max-w-4xl text-center">
@@ -74,8 +68,6 @@ const Cookies = () => {
           </article>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

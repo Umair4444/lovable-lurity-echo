@@ -1,8 +1,5 @@
 import { Button } from "@/components/ui/button";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import { DownloadIcon, FileEdit } from "lucide-react";
-import Topbar from "@/components/Topbar";
+import { DownloadIcon } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -33,9 +30,6 @@ const Download = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Topbar />
-      <Navigation />
-
       {/* Hero Section */}
       <section className="pt-24  px-6 relative overflow-hidden">
         <div className="container mx-auto">
@@ -173,11 +167,9 @@ const Download = () => {
                   <span className="text-base font-bold group-hover:text-primary transition-colors">
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
 
-                    {/* <FileEdit className="inline-block w-5 h-5 mr-2 text-muted-foreground group-hover:text-primary transition-colors" /> */}
                     {item.title}
                   </span>
                   <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-                  {/* <DocumentIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" /> */}
                 </a>
               </div>
             ))}
@@ -189,7 +181,7 @@ const Download = () => {
               className="bg-yellow hover:bg-yellow/80 text-black font-bold py-8 px-6 rounded-sm text-base"
             >
               DOWNLOAD ALL
-              <DocumentIcon className="w-6 h-6 " />
+              <DownloadIcon />
             </Button>
           </div>
         </div>
@@ -197,7 +189,6 @@ const Download = () => {
 
       <FooterBanner />
 
-      <Footer />
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <button

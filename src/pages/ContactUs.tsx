@@ -7,9 +7,6 @@ import {
   MessageCircle,
   MoveRightIcon,
 } from "lucide-react";
-import Footer from "@/components/Footer";
-import Navigation from "@/components/Navigation";
-import Topbar from "@/components/Topbar";
 
 export default function ContactUs() {
   const [activeTab, setActiveTab] = useState(0);
@@ -139,8 +136,6 @@ export default function ContactUs() {
 
   return (
     <div className="bg-white min-h-screen">
-      <Topbar />
-      <Navigation />
       {/* Hero Section */}
       <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[760px] relative pt-10 pb-20">
         <div className="flex flex-1 flex-col justify-center z-30 pr-4 md:pr-8 py-10 ">
@@ -561,9 +556,15 @@ export default function ContactUs() {
               <div className="absolute inset-0 flex flex-col justify-center items-center px-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="flex gap-6 items-center justify-center text-white text-2xl font-semibold">
                   <div className="flex items-center gap-2">
+                    <span>
+                      <Heart />
+                    </span>
                     <h2 className="text-base font-normal">15</h2>
                   </div>
                   <div className="flex items-center gap-2">
+                    <span>
+                      <MessageCircle />
+                    </span>
                     <h2 className="text-base font-normal">2</h2>
                   </div>
                 </div>
@@ -583,9 +584,6 @@ export default function ContactUs() {
           ))}
         </div>
       </div>
-
-      {/* Footer CTA */}
-      <Footer />
     </div>
   );
 }

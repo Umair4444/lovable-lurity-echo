@@ -1,4 +1,3 @@
-import Footer from "@/components/Footer";
 import {
   TrendingUp,
   MapPin,
@@ -7,15 +6,11 @@ import {
   MoveRightIcon,
   Headphones,
 } from "lucide-react";
-import Topbar from "@/components/Topbar";
-import Navigation from "@/components/Navigation";
 import FooterBanner from "@/components/FooterBanner";
 
 const Price = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Topbar />
-      <Navigation />
       {/* Hero Section */}
       <section className="pt-16 pb-20 ">
         <div className="container mx-auto max-w-7xl">
@@ -246,8 +241,6 @@ const Price = () => {
 
       {/* Final CTA Section */}
       <FooterBanner />
-
-      <Footer />
     </div>
   );
 };
