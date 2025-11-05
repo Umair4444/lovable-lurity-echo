@@ -31,12 +31,12 @@ const Blog = () => {
   const logos = [
     "/forbes.png",
     "/strategies.png",
-    "/startitup.png",
+    "/mam.png",
     "/ta3.svg",
+    "/startitup.png",
     "/trend.png",
+    "/mediaguru.png",
     "/eva.png",
-    "/mediaguru.png",
-    "/mediaguru.png",
   ];
 
   return (
