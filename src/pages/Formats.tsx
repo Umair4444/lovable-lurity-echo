@@ -142,9 +142,9 @@ const Formats = () => {
           {showLeft && (
             <button
               onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-100"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10  shadow-md p-2 rounded-full hover:bg-transparent/20"
             >
-              <ChevronLeft className="w-5 h-5 text-gray-700" />
+              <ChevronLeft className="w-5 h-5 text-black" />
             </button>
           )}
 
@@ -182,9 +182,9 @@ const Formats = () => {
           {showRight && (
             <button
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow-md p-2 rounded-full hover:bg-gray-100"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10  shadow-md p-2 rounded-full hover:bg-transparent/20"
             >
-              <ChevronRight className="w-5 h-5 text-gray-700" />
+              <ChevronRight className="w-5 h-5 text-black" />
             </button>
           )}
         </div>
