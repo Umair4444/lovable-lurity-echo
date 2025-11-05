@@ -214,11 +214,11 @@ const Formats = () => {
       {/* Format Details Section */}
       <section className="bg-[#f3f7f9]">
         <div className="max-w-7xl mx-auto container">
-          {/* Shopping Centers */}
+          {/* 🏬 Shopping Centers */}
           {activeTab === "shopping-centers" && (
-            <div className="px-8 space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
-              <div className="max-w-3xl flex flex-col justify-center lg:py-10 ">
-                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-6">
+            <div className="md:px-8 lg:space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+              <div className="max-w-3xl flex flex-col justify-center py-10">
+                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-8">
                   Digital screens in shopping centers
                 </h2>
                 <p className="text-lg text-black mb-8 leading-6">
@@ -228,19 +228,19 @@ const Formats = () => {
                 </p>
 
                 <div className="w-fit flex flex-col mb-8">
-                  <div className="w-full flex items-center gap-2 bg-transparent px-2 py-3 rounded-sm">
+                  <div className="flex items-center gap-2 px-2 py-3 rounded-sm">
                     <span className="bg-[#ffc9f3] py-5 px-4 rounded-sm">
                       <Monitor size={15} />
                     </span>
-                    <span className="font-bold text-black ">
+                    <span className="font-bold text-black">
                       Horizontal screens
                     </span>
                   </div>
-                  <div className="w-full flex items-center gap-2 bg-transparent px-2 py-3 rounded-sm">
+                  <div className="flex items-center gap-2 px-2 py-3 rounded-sm">
                     <span className="bg-[#ffc9f3] py-5 px-4 rounded-sm">
                       <Monitor size={15} />
                     </span>
-                    <span className="font-bold text-black ">
+                    <span className="font-bold text-black">
                       Vertical screens
                     </span>
                   </div>
@@ -252,29 +252,30 @@ const Formats = () => {
                 </button>
               </div>
 
-              {/* Image Gallery */}
               <ImageSlider images={formatImages["shopping-centers"]} />
             </div>
           )}
 
-          {/* LED Indoor */}
+          {/* 💡 LED Indoor */}
           {activeTab === "led-indoor" && (
-            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
-              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
-                  LED boards Indoor
+            <div className="md:px-8 space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+              <div className="max-w-3xl flex flex-col justify-center py-10">
+                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-8">
+                  LED boards
                 </h2>
-                <p className="text-lg text-black mb-8">
-                  High-impact LED displays strategically placed in indoor
-                  locations for maximum visibility and engagement.
+                <p className="text-lg text-black mb-8 leading-6">
+                  We have the highest quality LED screens with the highest
+                  resolution also directly in the Shopping malls: they are
+                  usually located in food courts, above escalators, or in the
+                  halls of shopping centers
                 </p>
 
                 <div className="w-fit flex flex-col mb-8">
-                  <div className="w-full flex items-center gap-2 bg-transparent px-2 py-3 rounded-sm">
+                  <div className="flex items-center gap-2 px-2 py-3 rounded-sm">
                     <span className="bg-[#ffc9f3] py-5 px-4 rounded-sm">
                       <FaBullseye size={15} />
                     </span>
-                    <span className="font-bold text-black ">
+                    <span className="font-bold text-black">
                       Screens at specific locations
                     </span>
                   </div>
@@ -290,24 +291,25 @@ const Formats = () => {
             </div>
           )}
 
-          {/* LED Outdoor */}
+          {/* 🌆 LED Outdoor */}
           {activeTab === "led-outdoor" && (
-            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
-              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
+            <div className="md:px-8 space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+              <div className="max-w-3xl flex flex-col justify-center py-10">
+                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-8">
                   LED boards Outdoor
                 </h2>
-                <p className="text-lg text-black mb-8">
-                  Premium outdoor LED advertising solutions designed to capture
-                  attention in high-traffic areas.
+                <p className="text-lg text-black mb-8 leading-6">
+                  The best form of outdoor brand communication: high-end dynamic
+                  digital screens are ideal for brand image, as an eye-catcher
+                  for shopping centres traffic or as a campaign format
                 </p>
 
                 <div className="w-fit flex flex-col mb-8">
-                  <div className="w-full flex items-center gap-2 bg-transparent px-2 py-3 rounded-sm">
+                  <div className="flex items-center gap-2 px-2 py-3 rounded-sm">
                     <span className="bg-[#ffc9f3] py-5 px-4 rounded-sm">
                       <Settings size={15} />
                     </span>
-                    <span className="font-bold text-black ">
+                    <span className="font-bold text-black">
                       Screens at specific locations
                     </span>
                   </div>
@@ -323,24 +325,24 @@ const Formats = () => {
             </div>
           )}
 
-          {/* Specific Locations */}
+          {/* 🎯 Specific Locations */}
           {activeTab === "specific-locations" && (
-            <div className="lg:space-y-20 flex flex-col lg:flex-row items-center">
-              <div className="max-w-3xl flex flex-col justify-center py-10 lg:py-20">
-                <h2 className="text-4xl md:text-5xl font-extrabold text-black mb-6">
+            <div className="md:px-8 space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+              <div className="max-w-3xl flex flex-col justify-center py-10">
+                <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-8">
                   Digital surfaces at specific locations
                 </h2>
-                <p className="text-lg text-black mb-8">
+                <p className="text-lg text-black mb-8 leading-6">
                   Targeted digital advertising placements at strategic locations
                   tailored to your campaign goals.
                 </p>
 
                 <div className="w-fit flex flex-col mb-8">
-                  <div className="w-full flex items-center gap-2 bg-transparent px-2 py-3 rounded-sm">
+                  <div className="flex items-center gap-2 px-2 py-3 rounded-sm">
                     <span className="bg-[#ffc9f3] py-5 px-4 rounded-sm">
                       <TargetIcon size={15} />
                     </span>
-                    <span className="font-bold text-black ">
+                    <span className="font-bold text-black">
                       Screens at specific locations
                     </span>
                   </div>
