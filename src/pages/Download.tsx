@@ -4,6 +4,9 @@ import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import DocumentIcon from "../components/icons/Documentation";
+import JSZip from "jszip";
+import { saveAs } from "file-saver";
+import { toast } from "sonner";
 
 const Download = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -19,14 +22,65 @@ const Download = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const [loading, setLoading] = useState(false);
   const downloads = [
-    { title: "terms and conditions", file: "#" },
-    { title: "terms and conditions for advertisers", file: "#" },
-    { title: "Lurity presentation: about us", file: "#" },
-    { title: "mediakit", file: "#" },
-    { title: "how to prepare data properly", file: "#" },
-    { title: "DOOH: everything you need to know", file: "#" },
+    { title: "terms and conditions", file: "/pdf/terms-and-conditions.pdf" },
+    {
+      title: "terms and conditions for advertisers",
+      file: "/pdf/terms-and-conditions-advertisers.pdf",
+    },
+    {
+      title: "Lurity presentation: about us",
+      file: "/pdf/lurity-about-us.pdf",
+    },
+    { title: "mediakit", file: "/pdf/lurity-mediakit.pdf" },
+    {
+      title: "how to prepare data properly",
+      file: "/pdf/how-to-prepare-data.pdf",
+    },
+    { title: "DOOH: everything you need to know", file: "/pdf/dooh-guide.pdf" },
   ];
+
+  const handleDownloadAll = async () => {
+    try {
+      toast.info("Preparing zip file...");
+      const zip = new JSZip();
+
+      // Add each file to the zip
+      for (const item of downloads) {
+        if (item.file === "#") {
+          // Create placeholder for files not yet available
+          const content = `${item.title}\n\nThis document will be available soon.`;
+          zip.file(`${item.title}.txt`, content);
+        } else {
+          // Fetch actual PDF files
+          const response = await fetch(item.file);
+          const blob = await response.blob();
+          const filename = item.file.split("/").pop() || `${item.title}.pdf`;
+          zip.file(filename, blob);
+        }
+      }
+
+      // Generate the zip file
+      const blob = await zip.generateAsync({ type: "blob" });
+
+      // Create download link
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "lurity-documents.zip";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      toast.success("All files downloaded successfully!");
+    } catch (error) {
+      console.error("Error creating zip:", error);
+      toast.error("Failed to download files");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -152,7 +206,7 @@ const Download = () => {
 
       {/* Downloads List Section */}
       <section className="pt-20 pb-10 px-6 bg-[#f3f7f9]">
-        <div className=" mx-auto max-w-6xl">
+        <div className="mx-auto max-w-6xl ">
           <div className="space-y-4">
             {downloads.map((item, index) => (
               <div
@@ -161,12 +215,11 @@ const Download = () => {
               >
                 <a
                   href={item.file}
-                  className="flex items-center justify-between"
                   download
+                  className="flex items-center justify-between"
                 >
-                  <span className="text-base font-bold group-hover:text-primary transition-colors">
+                  <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
-
                     {item.title}
                   </span>
                   <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -175,12 +228,14 @@ const Download = () => {
             ))}
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-12 text-center flex items-center justify-center">
             <Button
+              onClick={handleDownloadAll}
+              disabled={loading}
               size="lg"
-              className="bg-yellow hover:bg-yellow/80 text-black font-bold py-8 px-6 rounded-sm text-base"
+              className="bg-yellow hover:bg-yellow/80 text-black font-bold py-8 px-6 rounded-sm text-base flex items-center gap-3"
             >
-              DOWNLOAD ALL
+              {loading ? "Preparing ZIP..." : "DOWNLOAD ALL"}
               <DownloadIcon />
             </Button>
           </div>
