@@ -6,6 +6,7 @@ import FooterBanner from "@/components/FooterBanner";
 
 const Blog = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [visiblePosts, setVisiblePosts] = useState(6); // initially show 6
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,30 +75,25 @@ const Blog = () => {
       image:
         "https://www2.lurity.com/sites/default/files/20230426_122736%20-%20k%C3%B3pia.jpg",
     },
-    {
-      date: "03 APRIL 2024",
-      title:
-        "LURITY: The future of digital OOH advertising is an omnichannel marketing approach",
-      excerpt:
-        "Discover how omnichannel strategies are transforming digital out-of-home advertising and creating seamless brand experiences...",
-      image: "https://www2.lurity.com/sites/default/files/dooh.jpg",
-    },
-    {
-      date: "08 JANUARY 2024",
-      title: "Strategies, Advertising Agencies 2023",
-      excerpt:
-        "A comprehensive look at the most effective advertising strategies and agency trends that shaped 2023...",
-      image: "https://www2.lurity.com/sites/default/files/Lurity.png",
-    },
-    {
-      date: "15 DECEMBER 2023",
-      title: "The Evolution of DOOH: From Static to Dynamic",
-      excerpt:
-        "Exploring the technological advancements that have revolutionized digital out-of-home advertising...",
-      image:
-        "https://www2.lurity.com/sites/default/files/20230426_122736%20-%20k%C3%B3pia.jpg",
-    },
   ];
+
+  // Generate 50 posts using blogPosts as base
+  const blogPost = [...blogPosts]; // final array
+
+  for (let i = 0; blogPost.length < 50; i++) {
+    const base = blogPosts[i % blogPosts.length]; // pick from base posts
+    blogPost.push({
+      date: base.date,
+      title: `${base.title} (Post ${blogPost.length + 1})`,
+      excerpt: base.excerpt,
+      image: base.image,
+    });
+  }
+
+  // Show 6 more posts on click
+  const loadMorePosts = () => {
+    setVisiblePosts((prev) => Math.min(prev + 6, blogPost.length));
+  };
 
   return (
     <div className="min-h-screen relative bg-background">
@@ -213,7 +209,7 @@ const Blog = () => {
       <section className="pt-10 md:pt-24 px-4">
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
-            {blogPosts.map((post, index) => (
+            {blogPost.slice(0, visiblePosts).map((post, index) => (
               <Card
                 key={index}
                 className="hover:bg-[#e5e7eb] overflow-hidden border-none"
@@ -242,17 +238,20 @@ const Blog = () => {
         </div>
       </section>
 
-      <div className="flex flex-row items-center justify-center mb-16 mt-8 lg:-mt16 xl:mt-24 lg:mb-32">
-        <Button
-          size="lg"
-          className="bg-yellow hover:bg-yellow/80 text-black  font-bold px-6 py-8 rounded-sm"
-        >
-          READ MORE <FaArrowRight className="ml-2" />
-        </Button>
-      </div>
+      {visiblePosts < blogPost.length && (
+        <div className="flex flex-row items-center justify-center mb-16 mt-8 lg:-mt16 xl:mt-24 lg:mb-32">
+          <Button
+            size="lg"
+            className="bg-yellow hover:bg-yellow/80 text-black font-bold px-6 py-8 rounded-sm"
+            onClick={loadMorePosts}
+          >
+            READ MORE <FaArrowRight className="ml-2" />
+          </Button>
+        </div>
+      )}
 
       <FooterBanner />
-     {/* Scroll to Top Button */}
+      {/* Scroll to Top Button */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
