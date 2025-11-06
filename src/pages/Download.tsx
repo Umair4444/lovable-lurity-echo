@@ -226,7 +226,7 @@ const Download = () => {
                 <div className="flex items-center justify-between">
                   <button
                     onClick={() => setPreviewPdf(item)}
-                    className="text-base font-bold group-hover:text-primary transition-colors flex items-center flex-1 text-left"
+                    className="text-base font-bold group-hover:text-primary transition-colors flex items-center flex-1 text-left hover:underline"
                   >
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     {item.title}
