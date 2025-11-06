@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { DownloadIcon, X } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -7,16 +7,9 @@ import DocumentIcon from "../components/icons/Documentation";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { toast } from "sonner";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 
 const Download = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [previewPdf, setPreviewPdf] = useState<{ title: string; file: string } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,73 +34,51 @@ const Download = () => {
       title: "Lurity presentation: about us",
       file: "/pdf/lurity-about-us.pdf",
     },
-    { title: "mediakit", file: "/pdf/mediakit.pdf" },
+    { title: "mediakit", file: "/pdf/lurity-mediakit.pdf" },
     {
       title: "how to prepare data properly",
       file: "/pdf/how-to-prepare-data.pdf",
     },
-    { title: "DOOH: everything you need to know", file: "/pdf/lurity_dooh_EN_FINAL_compressed.pdf" },
+    { title: "DOOH: everything you need to know", file: "/pdf/dooh-guide.pdf" },
   ];
-
-  const handleDownloadSingle = (file: string, title: string) => {
-    // Create a temporary anchor element to trigger download
-    const link = document.createElement('a');
-    link.href = file;
-    link.download = file.split("/").pop() || `${title}.pdf`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    toast.success("File download started!");
-  };
 
   const handleDownloadAll = async () => {
     try {
-      setLoading(true);
       toast.info("Preparing zip file...");
       const zip = new JSZip();
 
-      // Fetch files using XMLHttpRequest to avoid CORS issues
-      const fetchFile = (url: string): Promise<Blob> => {
-        return new Promise((resolve, reject) => {
-          const xhr = new XMLHttpRequest();
-          xhr.open('GET', url, true);
-          xhr.responseType = 'blob';
-          xhr.onload = () => {
-            if (xhr.status === 200) {
-              resolve(xhr.response);
-            } else {
-              reject(new Error(`Failed to load ${url}`));
-            }
-          };
-          xhr.onerror = () => reject(new Error(`Network error for ${url}`));
-          xhr.send();
-        });
-      };
-
       // Add each file to the zip
-      const promises = downloads.map(async (item) => {
-        try {
-          const blob = await fetchFile(item.file);
+      for (const item of downloads) {
+        if (item.file === "#") {
+          // Create placeholder for files not yet available
+          const content = `${item.title}\n\nThis document will be available soon.`;
+          zip.file(`${item.title}.txt`, content);
+        } else {
+          // Fetch actual PDF files
+          const response = await fetch(item.file);
+          const blob = await response.blob();
           const filename = item.file.split("/").pop() || `${item.title}.pdf`;
           zip.file(filename, blob);
-        } catch (error) {
-          console.error(`Error adding ${item.title} to zip:`, error);
-          toast.error(`Failed to add ${item.title} to zip`);
         }
-      });
-
-      await Promise.all(promises);
+      }
 
       // Generate the zip file
       const blob = await zip.generateAsync({ type: "blob" });
-      saveAs(blob, "lurity-documents.zip");
+
+      // Create download link
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "lurity-documents.zip";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
 
       toast.success("All files downloaded successfully!");
     } catch (error) {
       console.error("Error creating zip:", error);
       toast.error("Failed to download files");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -242,22 +213,17 @@ const Download = () => {
                 key={index}
                 className="w-full bg-[#dfebf1] border-2 border-border rounded-xl p-6 hover:border-[#088ed1] transition-all hover:shadow-lg group"
               >
-                <div className="flex items-center justify-between">
-                  <button
-                    onClick={() => setPreviewPdf(item)}
-                    className="text-base font-bold group-hover:text-primary transition-colors flex items-center flex-1 text-left hover:underline"
-                  >
+                <a
+                  href={item.file}
+                  download
+                  className="flex items-center justify-between"
+                >
+                  <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     {item.title}
-                  </button>
-                  <button
-                    onClick={() => handleDownloadSingle(item.file, item.title)}
-                    className="hover:scale-110 transition-transform ml-4"
-                    aria-label={`Download ${item.title}`}
-                  >
-                    <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-                  </button>
-                </div>
+                  </span>
+                  <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
               </div>
             ))}
           </div>
@@ -277,34 +243,6 @@ const Download = () => {
       </section>
 
       <FooterBanner />
-
-      {/* PDF Preview Modal */}
-      <Dialog open={!!previewPdf} onOpenChange={() => setPreviewPdf(null)}>
-        <DialogContent className="max-w-5xl h-[90vh] p-0">
-          <DialogHeader className="p-6 pb-0">
-            <DialogTitle className="text-xl font-bold flex items-center justify-between">
-              {previewPdf?.title}
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setPreviewPdf(null)}
-                className="h-8 w-8"
-              >
-                <X className="h-4 w-4" />
-              </Button>
-            </DialogTitle>
-          </DialogHeader>
-          <div className="flex-1 p-6 pt-4">
-            {previewPdf && (
-              <iframe
-                src={previewPdf.file}
-                className="w-full h-full rounded-lg border"
-                title={previewPdf.title}
-              />
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
