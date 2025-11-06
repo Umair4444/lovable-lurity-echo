@@ -23,6 +23,12 @@ const Download = () => {
   };
 
   const [loading, setLoading] = useState(false);
+
+  const zipfile = {
+    title: "Lurity_Documents",
+    file: "/documents/lurity-docs.zip",
+  };
+
   const downloads = [
     {
       title: "terms and conditions",
@@ -47,46 +53,15 @@ const Download = () => {
     },
   ];
 
-  const handleDownloadAll = async () => {
-    try {
-      toast.info("Preparing zip file...");
-      const zip = new JSZip();
-
-      // Add each file to the zip
-      for (const item of downloads) {
-        if (item.file === "#") {
-          // Create placeholder for files not yet available
-          const content = `${item.title}\n\nThis document will be available soon.`;
-          zip.file(`${item.title}.txt`, content);
-        } else {
-          // Fetch actual PDF files
-          const response = await fetch(item.file);
-          const blob = await response.blob();
-          const filename = item.file.split("/").pop() || `${item.title}.pdf`;
-          console.log(blob);
-          zip.file(filename, blob);
-        }
-      }
-
-      // Generate the zip file
-      const blob = await zip.generateAsync({ type: "blob" });
-
-      // Create download link
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "lurity-documents.zip";
-      document.body.appendChild(a);
-      // a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-
-      toast.success("All files downloaded successfully!");
-    } catch (error) {
-      console.error("Error creating zip:", error);
-      toast.error("Failed to download files");
-    }
-  };
+const handleDownloadAll = () => {
+  const filename = zipfile.title + ".zip"; // ✅ Ensure extension
+  const aTag = document.createElement("a");
+  aTag.href = zipfile.file;
+  aTag.setAttribute("download", filename);
+  document.body.appendChild(aTag);
+  aTag.click();
+  aTag.remove();
+};
 
   return (
     <div className="min-h-screen bg-background">
