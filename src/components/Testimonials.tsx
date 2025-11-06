@@ -12,46 +12,59 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
-    image: "https://www.lurity.com/customerReviews/ZSS.png",
+    image: "/testimonials/ZSS.png",
     name: "Marek Lukoťka",
     position: "CMO, Železničná spoločnosť Slovensko",
-    quote:
-      "I really appreciate the connection of the online and offline world. It is also interesting for me that we know how many and what people really saw our OOH advertising, which is quite complicated with other OOH media.",
+    quote: "It's unbelievable what the system offers in OOH.",
   },
   {
-    image: "https://www.lurity.com/customerReviews/orange.png",
+    image: "/testimonials/orange.png",
     name: "Radka Petricova",
     position: "Media Coordinator, Orange Slovensko",
     quote:
-      "The concept itself caught my attention, especially because it's a Slovak product. At Lurity, I appreciate the UI interface, which is very user-friendly and intuitive.",
+      "I really appreciate the connection of the online and offline world. It is also interesting for me that we know how many and what people really saw our OOH advertising, which is quite complicated with other OOH media. At the same time, the system on which the network is built is simple, understandable, and flexible for the user.",
   },
   {
-    image: "https://www.lurity.com/customerReviews/profit_365.png",
+    image: "/testimonials/profit_365.png",
     name: "Ing. Tomáš Krajčovič",
     position: "Marketing & Sales Manager, PROFIT 365",
     quote:
-      "The speed with which we can create an advertising campaign and adjust it on the go brings flexibility to the world of OOH advertising.",
+      "The concept itself caught my attention, especially because it's a Slovak product. At Lurity, I appreciate the UI interface, which is very user-friendly and intuitive, whether setting up the first campaign or viewing individual statistics.",
   },
   {
-    image: "https://randomuser.me/api/portraits/women/22.jpg",
-    name: "Sarah Johnson",
-    position: "Brand Manager, Nova Media",
+    image: "/testimonials/miau.png",
+    name: "Milan Brčák",
+    position: "Editor in Chief, MIAU",
     quote:
-      "The planning software is incredibly easy to use. We saw immediate improvements in ad reach.",
+      "The speed with which we can create an advertising campaign and get it among the target group of our readers, adjust it on the go thanks to real-time feedback with the ability to plan the budget literally by the hour, brings an unprecedented dose of action and flexibility to the world of OOH advertising.",
   },
   {
-    image: "https://randomuser.me/api/portraits/men/33.jpg",
-    name: "James Lee",
-    position: "Founder, VisionX",
+    image: "/testimonials/paukin.png",
+    name: "Dávid Paučin",
+    position: "CEO, Justin Paukin",
     quote:
-      "I love how fast and transparent the campaign deployment process is. Highly recommended!",
+      "The Lurity system indeed has intuitive and simple controls. Setting up and subsequently launching the campaign was really very quick, which I appreciate. Last but not least, it's necessary to highlight the possibility of targeting a key segment of customers, or the measurability of individual campaigns. We look forward to further cooperation.",
   },
   {
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
-    name: "Maria Gonzalez",
-    position: "Operations Head, AdLink",
+    image: "/testimonials/eva.jpeg",
+    name: "Mária Mičková",
+    position: "Project Manager, EVA",
     quote:
-      "Customer service is top-notch. Lurity makes everything effortless and professional.",
+      "The Lurity concept thrilled us because the campaign Eva Charity Bazaar in connection with this platform was exclusive and unique. We very much appreciate the measurability and thus the information we can utilize in the future about our target group. It's different, it's fresh, and we like the team of talented young people standing behind Lurity. We will definitely continue in cooperation.",
+  },
+  {
+    image: "/testimonials/predpredaj_sk.png",
+    name: "Katarína Bilská",
+    position: "Marketing Manager, Predpredaj SK",
+    quote:
+      "The Lurity system is for everyone who swears by offline but believes that implementation can be more sophisticated than we are used to. I appreciate the possibility of immediate campaign launch, essentially within a few hours, without the need for reservation and waiting for pasting. The biggest benefit for me is that by using the platform, you reduce the negative impact of the campaign on the environment, since everything happens electronically without the need for printing.",
+  },
+  {
+    image: "/testimonials/bubo_travel.jpg",
+    name: "Pavel Fellner",
+    position: "Co-owner, CK BUBO",
+    quote:
+      "I consider LURITY to be the future of marketing, which combines the advantages of online marketing and real-world advertising. That's also why I decided to sell BUBO trips through this platform.",
   },
 ];
 
@@ -99,11 +112,14 @@ export default function TestimonialsSlider() {
               >
                 <Quote className="w-12 h-12 text-cyan opacity-20 absolute top-6 right-6" />
                 <div className="flex items-center gap-4 mb-6">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
+                  <div className="w-16 h-16 flex items-center justify-center">
+                    <img
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </div>
+
                   <div>
                     <h3 className="font-bold text-lg">{testimonial.name}</h3>
                     <p className="text-sm text-muted-foreground">
