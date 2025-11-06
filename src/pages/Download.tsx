@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, X } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -7,9 +7,16 @@ import DocumentIcon from "../components/icons/Documentation";
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import { toast } from "sonner";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Download = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [previewPdf, setPreviewPdf] = useState<{ title: string; file: string } | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -217,13 +224,16 @@ const Download = () => {
                 className="w-full bg-[#dfebf1] border-2 border-border rounded-xl p-6 hover:border-[#088ed1] transition-all hover:shadow-lg group"
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
+                  <button
+                    onClick={() => setPreviewPdf(item)}
+                    className="text-base font-bold group-hover:text-primary transition-colors flex items-center flex-1 text-left"
+                  >
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     {item.title}
-                  </span>
+                  </button>
                   <button
                     onClick={() => handleDownloadSingle(item.file, item.title)}
-                    className="hover:scale-110 transition-transform"
+                    className="hover:scale-110 transition-transform ml-4"
                     aria-label={`Download ${item.title}`}
                   >
                     <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
@@ -248,6 +258,34 @@ const Download = () => {
       </section>
 
       <FooterBanner />
+
+      {/* PDF Preview Modal */}
+      <Dialog open={!!previewPdf} onOpenChange={() => setPreviewPdf(null)}>
+        <DialogContent className="max-w-5xl h-[90vh] p-0">
+          <DialogHeader className="p-6 pb-0">
+            <DialogTitle className="text-xl font-bold flex items-center justify-between">
+              {previewPdf?.title}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setPreviewPdf(null)}
+                className="h-8 w-8"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </DialogTitle>
+          </DialogHeader>
+          <div className="flex-1 p-6 pt-4">
+            {previewPdf && (
+              <iframe
+                src={previewPdf.file}
+                className="w-full h-full rounded-lg border"
+                title={previewPdf.title}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Scroll to Top Button */}
       {showScrollTop && (
