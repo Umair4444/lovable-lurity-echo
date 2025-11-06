@@ -53,15 +53,15 @@ const Download = () => {
     },
   ];
 
-const handleDownloadAll = () => {
-  const filename = zipfile.title + ".zip"; // ✅ Ensure extension
-  const aTag = document.createElement("a");
-  aTag.href = zipfile.file;
-  aTag.setAttribute("download", filename);
-  document.body.appendChild(aTag);
-  aTag.click();
-  aTag.remove();
-};
+  const handleDownloadAll = () => {
+    const filename = zipfile.title + ".zip"; // ✅ Ensure extension
+    const aTag = document.createElement("a");
+    aTag.href = zipfile.file;
+    aTag.setAttribute("download", filename);
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -196,6 +196,8 @@ const handleDownloadAll = () => {
               >
                 <a
                   href={item.file}
+                  download={item.title + ".pdf"}
+                  rel="noopener noreferrer"
                   className="flex items-center justify-between"
                 >
                   <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
