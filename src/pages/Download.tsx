@@ -25,21 +25,27 @@ const Download = () => {
 
   const [loading, setLoading] = useState(false);
   const downloads = [
-    { title: "terms and conditions", file: "/pdf/terms-and-conditions.pdf" },
+    {
+      title: "terms and conditions",
+      file: "/documents/terms-and-conditions.pdf",
+    },
     {
       title: "terms and conditions for advertisers",
-      file: "/pdf/terms-and-conditions-advertisers.pdf",
+      file: "/documents/terms-and-conditions-advertisers.pdf",
     },
     {
       title: "Lurity presentation: about us",
-      file: "/pdf/lurity-about-us.pdf",
+      file: "/documents/lurity-about-us.pdf",
     },
-    { title: "mediakit", file: "/pdf/lurity-mediakit.pdf" },
+    { title: "mediakit", file: "/documents/lurity-mediakit.pdf" },
     {
       title: "how to prepare data properly",
-      file: "/pdf/how-to-prepare-data.pdf",
+      file: "/documents/how-to-prepare-data.pdf",
     },
-    { title: "DOOH: everything you need to know", file: "/pdf/dooh-guide.pdf" },
+    {
+      title: "DOOH: everything you need to know",
+      file: "/documents/dooh-guide.pdf",
+    },
   ];
 
   const handleDownloadAll = async () => {
@@ -58,6 +64,7 @@ const Download = () => {
           const response = await fetch(item.file);
           const blob = await response.blob();
           const filename = item.file.split("/").pop() || `${item.title}.pdf`;
+          console.log(blob);
           zip.file(filename, blob);
         }
       }
@@ -71,7 +78,7 @@ const Download = () => {
       a.href = url;
       a.download = "lurity-documents.zip";
       document.body.appendChild(a);
-      a.click();
+      // a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
 
@@ -215,7 +222,6 @@ const Download = () => {
               >
                 <a
                   href={item.file}
-                  download
                   className="flex items-center justify-between"
                 >
                   <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
