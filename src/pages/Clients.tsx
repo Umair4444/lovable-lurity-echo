@@ -261,7 +261,7 @@ const Clients = () => {
         <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
-            L
+            <img src="/instalogo.jpg" className="rounded-full p-1" />
           </div>
 
           {/* Profile Info */}

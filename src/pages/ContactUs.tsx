@@ -39,84 +39,136 @@ export default function ContactUs() {
   const teamMembers = {
     0: [
       // All Members
-      { name: "Tomáš Tiefenbach", role: "CEO", img: "/team/image_tomas.png" },
+      {
+        name: "Tomáš Tiefenbach",
+        role: "CEO",
+        img: "/members/Tomáš Tiefenbach.png",
+      },
       {
         name: "František Farenzena",
         role: "Country Director SR/CR",
-        img: "/team/image_frantisek.png",
+        img: "/members/František Farenzena.png",
       },
-      { name: "Jozef Jaššo", role: "CTO", img: "/team/image_jozef.png" },
+      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef Jaššo.png" },
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
-        img: "/team/image_adriana.png",
+        img: "/members/Adriana Tiefenbach.png",
       },
-      { name: "Petra Svetik", role: "CMO", img: "/team/image_petra_s.png" },
+      {
+        name: "Petra Svetik",
+        role: "CMO",
+        img: "/members/Petra Svetik.png",
+      },
       {
         name: "Petra Mertlová",
         role: "Account Manager SR",
-        img: "/team/image_petra_m.png",
+        img: "/members/Petra Mertlová.png",
       },
       {
         name: "Katja Janečková",
         role: "Account Manager CZ",
-        img: "/team/image_katja.png",
+        img: "/members/Katja Janečková.png",
       },
       {
         name: "Slavomíra Uhrínková",
         role: "Account Manager SR",
-        img: "/team/image_slavomira.png",
+        img: "/members/Slavomíra Uhrínková.png",
       },
       {
         name: "Alena Ležovičová",
         role: "Account Manager SR",
-        img: "/team/image_alena.png",
+        img: "/members/Alena Ležovičová.png",
       },
       {
         name: "Marián Baňák",
         role: "App Developer",
-        img: "/team/image_marian.png",
+        img: "/members/Marián Baňák.png",
       },
       {
         name: "Martin Breier",
         role: "Backend Developer",
-        img: "/team/image_martin.png",
+        img: "/members/Martin Breier.png",
       },
       {
         name: "Vladimír Čamaj",
         role: "Fullstack Developer",
-        img: "/team/image_vladimir.png",
+        img: "/members/Vladimír Čamaj.png",
       },
       {
         name: "Volodymyr Dethiarenko",
         role: "Onsite Technician",
-        img: "/team/image_volodymyr.png",
+        img: "/members/Volodymyr Dethiarenko.png",
       },
     ],
     1: [
       // Board
-      { name: "Tomáš Tiefenbach", role: "CEO" },
-      { name: "František Farenzena", role: "Country Director SR/CR" },
-      { name: "Jozef Jaššo", role: "CTO" },
-      { name: "Adriana Tiefenbach", role: "Head of Support Team" },
-      { name: "Petra Svetik", role: "CMO" },
+      {
+        name: "Tomáš Tiefenbach",
+        role: "CEO",
+        img: "/members/Tomáš Tiefenbach.png",
+      },
+      {
+        name: "František Farenzena",
+        role: "Country Director SR/CR",
+        img: "/members/František Farenzena.png",
+      },
+      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef Jaššo.png" },
+      {
+        name: "Adriana Tiefenbach",
+        role: "Head of Support Team",
+        img: "/members/Adriana Tiefenbach.png",
+      },
+      { name: "Petra Svetik", role: "CMO", img: "/members/Petra Svetik.png" },
     ],
     2: [
       // Sales
-      { name: "Petra Mertlová", role: "Account Manager SR" },
-      { name: "Katja Janečková", role: "Account Manager CZ" },
-      { name: "Slavomíra Uhrínková", role: "Account Manager SR" },
-      { name: "Alena Ležovičová", role: "Account Manager SR" },
+      {
+        name: "Petra Mertlová",
+        role: "Account Manager SR",
+        img: "/members/Petra Mertlová.png",
+      },
+      {
+        name: "Katja Janečková",
+        role: "Account Manager CZ",
+        img: "/members/Katja Janečková.png",
+      },
+      {
+        name: "Slavomíra Uhrínková",
+        role: "Account Manager SR",
+        img: "/members/Slavomíra Uhrínková.png",
+      },
+      {
+        name: "Alena Ležovičová",
+        role: "Account Manager SR",
+        img: "/members/Alena Ležovičová.png",
+      },
     ],
     3: [
       // Developers
-      { name: "Marián Baňák", role: "App Developer" },
-      { name: "Martin Breier", role: "Backend Developer" },
-      { name: "Vladimír Čamaj", role: "Fullstack Developer" },
+      {
+        name: "Marián Baňák",
+        role: "App Developer",
+        img: "/members/Marián Baňák.png",
+      },
+      {
+        name: "Martin Breier",
+        role: "Backend Developer",
+        img: "/members/Martin Breier.png",
+      },
+      {
+        name: "Vladimír Čamaj",
+        role: "Fullstack Developer",
+        img: "/members/Vladimír Čamaj.png",
+      },
     ],
     4: [
       // Technical Support
-      { name: "Volodymyr Dethiarenko", role: "Onsite Technician" },
+      {
+        name: "Volodymyr Dethiarenko",
+        role: "Onsite Technician",
+        img: "/members/Volodymyr Dethiarenko.png",
+      },
     ],
   };
 
@@ -457,17 +509,26 @@ export default function ContactUs() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl w-full mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 max-w-5xl w-full mx-auto">
           {teamMembers[activeTab].map((member, index) => (
             <div key={index} className="flex flex-col items-center group">
-              <div className="w-32 h-32 md:w-60 md:h-60 gap-4 mx-2 rounded-xl overflow-hidden bg-gradient-to-br from-blue-200 to-purple-200 mb-4 shadow-lg group-hover:shadow-2xl transition-all">
-                <div className="w-full h-full flex items-center justify-center text-white font-bold text-3xl bg-gradient-to-br from-blue-500 to-purple-500">
-                  {member.name
-                    .split(" ")
-                    .map((n) => n[0])
-                    .join("")}
-                </div>
+              <div className="w-32 h-32 md:w-60 md:h-60 gap-4 mx-2 rounded-xl overflow-hidden mb-4 shadow-lg group-hover:shadow-2xl transition-all">
+                {member.img ? (
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-white font-bold text-3xl bg-gradient-to-br from-blue-500 to-purple-500">
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </div>
+                )}
               </div>
+
               <div className=" w-10/12 ">
                 <h3 className="font-bold text-left text-sm md:text-base mb-1">
                   {member.name}
@@ -486,7 +547,10 @@ export default function ContactUs() {
         <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
-            L
+            <img
+            src="/instalogo.jpg"
+            className="rounded-full p-1"
+            />
           </div>
 
           {/* Profile Info */}
