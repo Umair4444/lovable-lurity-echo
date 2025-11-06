@@ -49,16 +49,15 @@ const Download = () => {
     { title: "DOOH: everything you need to know", file: "/pdf/lurity_dooh_EN_FINAL_compressed.pdf" },
   ];
 
-  const handleDownloadSingle = async (file: string, title: string) => {
-    try {
-      const response = await fetch(file);
-      const blob = await response.blob();
-      saveAs(blob, file.split("/").pop() || `${title}.pdf`);
-      toast.success("File downloaded successfully!");
-    } catch (error) {
-      console.error("Error downloading file:", error);
-      toast.error("Failed to download file");
-    }
+  const handleDownloadSingle = (file: string, title: string) => {
+    // Create a temporary anchor element to trigger download
+    const link = document.createElement('a');
+    link.href = file;
+    link.download = file.split("/").pop() || `${title}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    toast.success("File download started!");
   };
 
   const handleDownloadAll = async () => {
@@ -67,17 +66,37 @@ const Download = () => {
       toast.info("Preparing zip file...");
       const zip = new JSZip();
 
+      // Fetch files using XMLHttpRequest to avoid CORS issues
+      const fetchFile = (url: string): Promise<Blob> => {
+        return new Promise((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.responseType = 'blob';
+          xhr.onload = () => {
+            if (xhr.status === 200) {
+              resolve(xhr.response);
+            } else {
+              reject(new Error(`Failed to load ${url}`));
+            }
+          };
+          xhr.onerror = () => reject(new Error(`Network error for ${url}`));
+          xhr.send();
+        });
+      };
+
       // Add each file to the zip
-      for (const item of downloads) {
+      const promises = downloads.map(async (item) => {
         try {
-          const response = await fetch(item.file);
-          const blob = await response.blob();
+          const blob = await fetchFile(item.file);
           const filename = item.file.split("/").pop() || `${item.title}.pdf`;
           zip.file(filename, blob);
         } catch (error) {
           console.error(`Error adding ${item.title} to zip:`, error);
+          toast.error(`Failed to add ${item.title} to zip`);
         }
-      }
+      });
+
+      await Promise.all(promises);
 
       // Generate the zip file
       const blob = await zip.generateAsync({ type: "blob" });
