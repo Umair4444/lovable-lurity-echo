@@ -73,7 +73,7 @@ const Footer = () => {
         {/* Menu */}
         <div className="w-full lg:w-3/5">
           <h2 className="font-semibold text-2xl mb-4">Menu</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-2 text-gray-600">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-y-2 text-white/80">
             {[
               "How it works",
               "Clients",
@@ -86,7 +86,11 @@ const Footer = () => {
               "Cookies",
               "Terms-Conditions",
             ].map((item, i) => (
-              <a key={i} href={`/${item.toLowerCase().replace(/\s+/g, "-")}`} className="hover:text-yellow">
+              <a
+                key={i}
+                href={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="hover:text-yellow"
+              >
                 {item}
               </a>
             ))}
@@ -96,7 +100,7 @@ const Footer = () => {
         {/* Address */}
         <div className="w-full lg:w-2/4">
           <h2 className="font-semibold text-2xl mb-4">Adresa</h2>
-          <div className="text-gray-600">
+          <div className="text-white/80">
             <div className="mb-8">
               <p>Lurity SK s.r.o.,</p>
               <p>Vlárska 1746/32, 831 01 Bratislava</p>
@@ -115,13 +119,13 @@ const Footer = () => {
           <h2 className="font-semibold text-2xl mb-4">Kontakt</h2>
           <a
             href="mailto:hello@lurity.com"
-            className="block mb-4 text-gray-600 hover:text-cyan"
+            className="block mb-4 text-white/80 hover:text-cyan"
           >
             hello@lurity.com
           </a>
 
           {/* Social Icons */}
-          <div className="flex gap-4 pt-6 text-gray-500">
+          <div className="flex gap-4 pt-6 text-white">
             <a
               href="https://www.facebook.com/"
               target="_blank"
@@ -142,7 +146,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="h-px bg-[#181818] w-full"></div>
-      <div className="text-center pt-6">© Lurity SK s.r.o., 2024</div>
+      <div className="text-center pt-6 pb-2">© Lurity SK s.r.o., 2024</div>
     </footer>
   );
 };
