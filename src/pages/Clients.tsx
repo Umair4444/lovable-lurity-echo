@@ -222,8 +222,7 @@ const Clients = () => {
           </h1>
 
           {/* Filter Tabs */}
-          <div className="flex justify-between lg:justify-center overflow-auto whitespace-nowrap scrollbar-hide gap-4 mb-10">
-            {/* <div className="flex items-center justify-between md:justify-center overflow-auto overflow-y-hidden whitespace-nowrap gap-3 bg-transparent scrollbar-hide  px-4 py-10"> */}
+          <div className=" flex justify-between lg:justify-center overflow-auto whitespace-nowrap scrollbar-hide gap-4  mb-10">
             {tabs.map((tab) => (
               <Button
                 key={tab.id}
@@ -241,7 +240,7 @@ const Clients = () => {
           </div>
 
           {/* Logos Grid */}
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(60px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(100px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-6 md:gap-8 lg:gap-y-8 gap-x-4 items-center justify-items-center w-full max-w-4xl mx-auto py-6 ">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(50px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(60px,1fr))] md:grid-cols-[repeat(auto-fit,minmax(100px,1fr))] lg:grid-cols-[repeat(auto-fit,minmax(120px,1fr))] gap-4 px-4 md:px-8 lg:px-12 items-center justify-items-center w-full max-w-4xl mx-auto py-6  ">
             {getLogos().map((src, index) => (
               <img
                 key={index}
