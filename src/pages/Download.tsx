@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 import DocumentIcon from "../components/icons/Documentation";
 import JSZip from "jszip";
-import { saveAs } from "file-saver";
 import { toast } from "sonner";
 
 const Download = () => {
