@@ -34,51 +34,54 @@ const Download = () => {
       title: "Lurity presentation: about us",
       file: "/pdf/lurity-about-us.pdf",
     },
-    { title: "mediakit", file: "/pdf/lurity-mediakit.pdf" },
+    { title: "mediakit", file: "/pdf/mediakit.pdf" },
     {
       title: "how to prepare data properly",
       file: "/pdf/how-to-prepare-data.pdf",
     },
-    { title: "DOOH: everything you need to know", file: "/pdf/dooh-guide.pdf" },
+    { title: "DOOH: everything you need to know", file: "/pdf/lurity_dooh_EN_FINAL_compressed.pdf" },
   ];
+
+  const handleDownloadSingle = async (file: string, title: string) => {
+    try {
+      const response = await fetch(file);
+      const blob = await response.blob();
+      saveAs(blob, file.split("/").pop() || `${title}.pdf`);
+      toast.success("File downloaded successfully!");
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      toast.error("Failed to download file");
+    }
+  };
 
   const handleDownloadAll = async () => {
     try {
+      setLoading(true);
       toast.info("Preparing zip file...");
       const zip = new JSZip();
 
       // Add each file to the zip
       for (const item of downloads) {
-        if (item.file === "#") {
-          // Create placeholder for files not yet available
-          const content = `${item.title}\n\nThis document will be available soon.`;
-          zip.file(`${item.title}.txt`, content);
-        } else {
-          // Fetch actual PDF files
+        try {
           const response = await fetch(item.file);
           const blob = await response.blob();
           const filename = item.file.split("/").pop() || `${item.title}.pdf`;
           zip.file(filename, blob);
+        } catch (error) {
+          console.error(`Error adding ${item.title} to zip:`, error);
         }
       }
 
       // Generate the zip file
       const blob = await zip.generateAsync({ type: "blob" });
-
-      // Create download link
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "lurity-documents.zip";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+      saveAs(blob, "lurity-documents.zip");
 
       toast.success("All files downloaded successfully!");
     } catch (error) {
       console.error("Error creating zip:", error);
       toast.error("Failed to download files");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -213,17 +216,19 @@ const Download = () => {
                 key={index}
                 className="w-full bg-[#dfebf1] border-2 border-border rounded-xl p-6 hover:border-[#088ed1] transition-all hover:shadow-lg group"
               >
-                <a
-                  href={item.file}
-                  download
-                  className="flex items-center justify-between"
-                >
+                <div className="flex items-center justify-between">
                   <span className="text-base font-bold group-hover:text-primary transition-colors flex items-center">
                     <DocumentIcon className="inline-block w-7 h-7 mr-4 text-muted-foreground group-hover:text-primary transition-colors" />
                     {item.title}
                   </span>
-                  <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
-                </a>
+                  <button
+                    onClick={() => handleDownloadSingle(item.file, item.title)}
+                    className="hover:scale-110 transition-transform"
+                    aria-label={`Download ${item.title}`}
+                  >
+                    <DownloadIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>

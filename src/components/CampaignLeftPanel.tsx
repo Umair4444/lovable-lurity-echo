@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { useState, Dispatch, SetStateAction } from "react";
 import { MapPin, ChevronDown } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 
-const CampaignLeftPanel = () => {
+interface CampaignLeftPanelProps {
+  onFilterChange: Dispatch<SetStateAction<{
+    showOnlySelected: boolean;
+    activeView: "list" | "map" | "preview";
+    deviceName: string;
+    country: string;
+    location: string;
+    category: string;
+  }>>;
+}
+
+const CampaignLeftPanel = ({ onFilterChange }: CampaignLeftPanelProps) => {
   const [showOnlySelected, setShowOnlySelected] = useState(false);
   const [activeView, setActiveView] = useState<"map" | "list" | "preview">("map");
 
