@@ -72,18 +72,19 @@ const Hero = () => {
             {/* Main Phone Mockup */}
             <div className="relative w-[300px] lg:w-[350px] mx-auto">
               {/* Slider Container */}
-              <div className="relative bg-black rounded-[3rem] p-3 shadow-2xl">
+              {/* <div className="relative bg-black  p-3 shadow-2xl rounded-lg"> */}
+              <div className="relative bg-black p-3 shadow-2xl rounded-t-xl rounded-b-none">
                 {/* Main Image */}
-                <div className="bg-black rounded-[2.5rem] aspect-[9/19] flex items-center justify-center overflow-hidden">
+                <div className="bg-black rounded-t-xl rounded-b-none pt-4 aspect-[9/19] flex items-center justify-center overflow-hidden">
                   <img
                     src={logos[current]}
                     alt="Lurity"
-                    className="w-full object-contain transition-all duration-700"
+                    className="w-full h-full object-cover transition-all duration-700"
                   />
                 </div>
 
                 {/* Bottom Image (static) */}
-                <div className="absolute w-full bg-black -bottom-0 -left-0  rounded-full  flex flex-row items-center justify-center gap-2 h-28 mt-4">
+                <div className="absolute w-full bg-black -bottom-0 -left-0 rounded-t-xl rounded-b-none  flex flex-row items-center justify-center gap-2 h-28 mt-4">
                   <img
                     src="/lurity.png"
                     alt="Lurity Body"
