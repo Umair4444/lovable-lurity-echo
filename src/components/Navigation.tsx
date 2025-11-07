@@ -32,7 +32,7 @@ const Navigation = () => {
         }`}
       >
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between gap-4 h-[88px]">
+          <div className="flex items-center justify-between gap-4 h-[80px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
               <img
@@ -43,13 +43,13 @@ const Navigation = () => {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden w-full lg:flex items-center justify-around pt-6  gap-2 text-nowrap">
+            <div className="hidden w-full lg:flex items-center justify-around pt-5  gap-2 text-nowrap">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-sm font-semibold text-black transition-all pb-[18px] border-b-[3px] ${isActive ? "border-cyan" : "border-transparent"} hover:text-cyan-400`}
+                    `text-sm font-semibold text-black transition-all pb-[12px] border-b-[3px] ${isActive ? "border-cyan" : "border-transparent"} hover:text-cyan-400`}
                 >
                   {link.name}
                 </NavLink>
@@ -58,7 +58,7 @@ const Navigation = () => {
 
             {/* Launch Button (Desktop) */}
             <div className="hidden lg:block">
-              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-6 py-8 rounded-[10px] shadow-md">
+              <Button className="bg-cyan hover:bg-cyan/80 text-black font-bold px-6 py-7 rounded-[10px] shadow-md">
                 LAUNCH CAMPAIGN
               </Button>
             </div>
