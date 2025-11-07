@@ -78,7 +78,7 @@ export default function ContactUs() {
       {
         name: "Alena Ležovičová",
         role: "Account Manager SR",
-        img: "/members/Alena_Ležovičová.png",
+        img: "/members/Alena-Lezovicova.png",
       },
       {
         name: "Marián Baňák",
@@ -141,7 +141,7 @@ export default function ContactUs() {
       {
         name: "Alena Ležovičová",
         role: "Account Manager SR",
-        img: "/members/Alena_Ležovičová.png",
+        img: "/members/Alena-Lezovicova.png",
       },
     ],
     3: [
