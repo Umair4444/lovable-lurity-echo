@@ -81,14 +81,6 @@ const Download = () => {
             {/* Central Phone Mockup */}
             <div className="relative z-10">
               <div className="w-[280px] h-[560px] bg-black rounded-[3rem] shadow-2xl overflow-hidden border-8 border-gray-800">
-                {/* <div className="w-full h-full bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center">
-                      <span className="text-white font-bold text-2xl">L</span>
-                    </div>
-                    <span className="text-white font-bold text-xl">LURITY</span>
-                  </div>
-                </div> */}
                 <img src="/downloads-bg1.jpg" alt="" className="" />
               </div>
             </div>
