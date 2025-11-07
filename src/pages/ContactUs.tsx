@@ -42,14 +42,14 @@ export default function ContactUs() {
       {
         name: "Tomáš Tiefenbach",
         role: "CEO",
-        img: "/members/Tomáš Tiefenbach.png",
+        img: "/members/Tomas-Tiefenbach.png",
       },
       {
         name: "František Farenzena",
         role: "Country Director SR/CR",
-        img: "/members/František Farenzena.png",
+        img: "/members/Frantisek-Farenzena.png",
       },
-      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef Jaššo.png" },
+      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef-Jasso.png" },
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
@@ -58,22 +58,22 @@ export default function ContactUs() {
       {
         name: "Petra Svetik",
         role: "CMO",
-        img: "/members/Petra Svetik.png",
+        img: "/members/Petra-Svetik.png",
       },
       {
         name: "Petra Mertlová",
         role: "Account Manager SR",
-        img: "/members/Petra Mertlová.png",
+        img: "/members/Petra-Mertlova.png",
       },
       {
         name: "Katja Janečková",
         role: "Account Manager CZ",
-        img: "/members/Katja Janečková.png",
+        img: "/members/Katja-Janeckova.png",
       },
       {
         name: "Slavomíra Uhrínková",
         role: "Account Manager SR",
-        img: "/members/Slavomíra Uhrínková.png",
+        img: "/members/Slavomira-Uhrinkova.png",
       },
       {
         name: "Alena Ležovičová",
@@ -83,22 +83,22 @@ export default function ContactUs() {
       {
         name: "Marián Baňák",
         role: "App Developer",
-        img: "/members/Marián Baňák.png",
+        img: "/members/Marian-Banak.png",
       },
       {
         name: "Martin Breier",
         role: "Backend Developer",
-        img: "/members/Martin Breier.png",
+        img: "/members/Martin-Breier.png",
       },
       {
         name: "Vladimír Čamaj",
         role: "Fullstack Developer",
-        img: "/members/Vladimír Čamaj.png",
+        img: "/members/Vladimir-Camaj.png",
       },
       {
         name: "Volodymyr Dethiarenko",
         role: "Onsite Technician",
-        img: "/members/Volodymyr Dethiarenko.png",
+        img: "/members/Volodymyr-Dethiarenko.png",
       },
     ],
     1: [
@@ -106,37 +106,37 @@ export default function ContactUs() {
       {
         name: "Tomáš Tiefenbach",
         role: "CEO",
-        img: "/members/Tomáš Tiefenbach.png",
+        img: "/members/Tomas-Tiefenbach.png",
       },
       {
         name: "František Farenzena",
         role: "Country Director SR/CR",
-        img: "/members/František Farenzena.png",
+        img: "/members/Frantisek-Farenzena.png",
       },
-      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef Jaššo.png" },
+      { name: "Jozef Jaššo", role: "CTO", img: "/members/Jozef-Jasso.png" },
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
         img: "/members/Adriana_Tiefenbach.png",
       },
-      { name: "Petra Svetik", role: "CMO", img: "/members/Petra Svetik.png" },
+      { name: "Petra Svetik", role: "CMO", img: "/members/Petra-Svetik.png" },
     ],
     2: [
       // Sales
       {
         name: "Petra Mertlová",
         role: "Account Manager SR",
-        img: "/members/Petra Mertlová.png",
+        img: "/members/Petra-Mertlova.png",
       },
       {
         name: "Katja Janečková",
         role: "Account Manager CZ",
-        img: "/members/Katja Janečková.png",
+        img: "/members/Katja-Janeckova.png",
       },
       {
         name: "Slavomíra Uhrínková",
         role: "Account Manager SR",
-        img: "/members/Slavomíra Uhrínková.png",
+        img: "/members/Slavomira-Uhrinkova.png",
       },
       {
         name: "Alena Ležovičová",
@@ -149,17 +149,17 @@ export default function ContactUs() {
       {
         name: "Marián Baňák",
         role: "App Developer",
-        img: "/members/Marián Baňák.png",
+        img: "/members/Marian-Banak.png",
       },
       {
         name: "Martin Breier",
         role: "Backend Developer",
-        img: "/members/Martin Breier.png",
+        img: "/members/Martin-Breier.png",
       },
       {
         name: "Vladimír Čamaj",
         role: "Fullstack Developer",
-        img: "/members/Vladimír Čamaj.png",
+        img: "/members/Vladimir-Camaj.png",
       },
     ],
     4: [
@@ -167,7 +167,7 @@ export default function ContactUs() {
       {
         name: "Volodymyr Dethiarenko",
         role: "Onsite Technician",
-        img: "/members/Volodymyr Dethiarenko.png",
+        img: "/members/Volodymyr-Dethiarenko.png",
       },
     ],
   };
