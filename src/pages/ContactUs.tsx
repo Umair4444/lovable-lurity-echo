@@ -53,7 +53,7 @@ export default function ContactUs() {
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
-        img: "/members/Adriana Tiefenbach.png",
+        img: "/members/Adriana_Tiefenbach.png",
       },
       {
         name: "Petra Svetik",
@@ -78,7 +78,7 @@ export default function ContactUs() {
       {
         name: "Alena Ležovičová",
         role: "Account Manager SR",
-        img: "/members/Alena Ležovičová.png",
+        img: "/members/Alena_Ležovičová.png",
       },
       {
         name: "Marián Baňák",
@@ -117,7 +117,7 @@ export default function ContactUs() {
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
-        img: "/members/Adriana Tiefenbach.png",
+        img: "/members/Adriana_Tiefenbach.png",
       },
       { name: "Petra Svetik", role: "CMO", img: "/members/Petra Svetik.png" },
     ],
@@ -141,7 +141,7 @@ export default function ContactUs() {
       {
         name: "Alena Ležovičová",
         role: "Account Manager SR",
-        img: "/members/Alena Ležovičová.png",
+        img: "/members/Alena_Ležovičová.png",
       },
     ],
     3: [
@@ -547,10 +547,7 @@ export default function ContactUs() {
         <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2 p-5 bg-white rounded-2xl shadow-md">
           {/* Logo */}
           <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-2xl">
-            <img
-            src="/instalogo.jpg"
-            className="rounded-full p-1"
-            />
+            <img src="/instalogo.jpg" className="rounded-full p-1" />
           </div>
 
           {/* Profile Info */}
