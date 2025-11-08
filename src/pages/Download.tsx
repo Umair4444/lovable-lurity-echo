@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { DownloadIcon } from "lucide-react";
+import { ChevronLeft, ChevronRight, DownloadIcon } from "lucide-react";
 import FooterBanner from "@/components/FooterBanner";
 import { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
@@ -9,6 +9,23 @@ import { toast } from "sonner";
 
 const Download = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [current, setCurrent] = useState(0);
+
+  // Auto slide every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % logos.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + logos.length) % logos.length);
+  };
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % logos.length);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +45,13 @@ const Download = () => {
     title: "Lurity_Documents",
     file: "/documents/lurity-docs.zip",
   };
+
+  const logos = [
+    "https://plus.unsplash.com/premium_photo-1671599016130-7882dbff302f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cXVvdGVzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    "https://images.unsplash.com/photo-1567219934540-9f75f7b87552?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cXVvdGVzfGVufDB8MXwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600",
+    "https://images.unsplash.com/photo-1698620225002-36b415f78d57?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHF1b3Rlc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+    "https://images.unsplash.com/photo-1641673840250-2843679337f3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHF1b3Rlc3xlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&q=60&w=600",
+  ];
 
   const downloads = [
     {
@@ -80,10 +104,48 @@ const Download = () => {
           <div className="relative max-w-6xl mx-auto h-[600px] flex items-center justify-center">
             {/* Central Phone Mockup */}
             <div className="relative z-10">
-              <div className="w-[280px] h-[560px] bg-black rounded-[3rem] shadow-2xl overflow-hidden border-8 border-gray-800">
+              {/* <div className="w-[280px] h-[560px] bg-black rounded-[3rem] shadow-2xl overflow-hidden border-8 border-gray-800">
                 <img src="/downloads-bg1.jpg" alt="" className="" />
+              </div> */}
+              <div className="relative w-[280px] h-[560px] mx-auto">
+                {/* Slider Container */}
+                {/* <div className="relative bg-black  p-3 shadow-2xl rounded-lg"> */}
+                <div className="relative bg-black p-3 shadow-2xl rounded-t-xl rounded-b-none">
+                  {/* Main Image */}
+                  <div className="bg-black rounded-t-xl rounded-b-none pt-4 aspect-[9/19] flex items-center justify-center overflow-hidden">
+                    <img
+                      src={logos[current]}
+                      alt="Lurity"
+                      className="w-full h-full object-cover transition-all duration-700"
+                    />
+                  </div>
+
+                  {/* Bottom Image (static) */}
+                  <div className="absolute w-full bg-black -bottom-0 -left-0 rounded-t-xl rounded-b-none  flex flex-row items-center justify-center gap-2 h-28 mt-4">
+                    <img
+                      src="/lurity.png"
+                      alt="Lurity Body"
+                      className="w-52 object-contain"
+                    />
+                  </div>
+
+                  {/* Arrows */}
+                  <button
+                    onClick={prevSlide}
+                    className="absolute hidden left-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-black" />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="absolute hidden right-3 top-1/2 -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+                  >
+                    <ChevronRight className="w-6 h-6 text-black" />
+                  </button>
+                </div>
               </div>
             </div>
+
             <div className="hidden lg:block px-4">
               {/* Floating Stat: Screens (Yellow) */}
               <div className="absolute z-30 left-[calc(33.333%+24px)] -top-5 inset-0 ">
