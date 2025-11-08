@@ -53,7 +53,7 @@ export default function ContactUs() {
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
-        img: "/members/Adriana_Tiefenbach.png",
+        img: "/members/Adriana-Tiefenbach.png",
       },
       {
         name: "Petra Svetik",
@@ -117,7 +117,7 @@ export default function ContactUs() {
       {
         name: "Adriana Tiefenbach",
         role: "Head of Support Team",
-        img: "/members/Adriana_Tiefenbach.png",
+        img: "/members/Adriana-Tiefenbach.png",
       },
       { name: "Petra Svetik", role: "CMO", img: "/members/Petra-Svetik.png" },
     ],
