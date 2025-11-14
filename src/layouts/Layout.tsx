@@ -1,14 +1,11 @@
-// src/layouts/Layout.jsx
-import Navigation from "@/components/Navigation";
-import Topbar from "@/components/Topbar";
 import Footer from "@/components/Footer";
 import { Outlet } from "react-router-dom";
+import Header from "@/components/Header";
 
 const Layout = () => {
   return (
     <>
-      <Topbar />
-      <Navigation />
+  <Header/>
       <main>
         <Outlet /> {/* 👈 this is where child routes render */}
       </main>

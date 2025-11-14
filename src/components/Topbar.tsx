@@ -8,7 +8,7 @@ const Topbar = () => {
   const languages = ["EN", "CZ", "SK"];
 
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full">
       <div className="py-4 flex items-center px-14">
         <div className="flex justify-end items-center text-gray-400 w-full mr-16 space-x-3">
           {/* Email Link */}
@@ -20,7 +20,7 @@ const Topbar = () => {
           </a>
 
           {/* Separator */}
-          <span className="inline-block w-[1px] h-3 bg-gray-400 align-middle"></span>
+          <span className="inline-block w-[1px] h-3 bg-gray-400"></span>
 
           {/* Language Dropdown */}
           <div className="relative">
@@ -30,7 +30,7 @@ const Topbar = () => {
               className="flex items-center text-base text-gray-400 hover:text-white transition-colors px-2"
             >
               {language}
-              <IoMdArrowDropdown className=" text-sm" />
+              <IoMdArrowDropdown className="text-sm" />
             </button>
 
             {open && (
