@@ -98,7 +98,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen relative bg-background">
       {/* Hero Featured Post */}
-      <section className="pt-10 px-6">
+      <section className="pt-36 px-6">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start rounded-lg bg-[#f5f4f0]">
             <div className=" order-2 lg:order-1 py-6 px-6">

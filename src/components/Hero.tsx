@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center pt-20  overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col items-center pt-48 overflow-hidden bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}

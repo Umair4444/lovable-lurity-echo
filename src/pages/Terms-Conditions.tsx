@@ -2,7 +2,7 @@ const Terms = () => {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Main Content */}
-      <main className=" pt-20 max-w-6xl mx-auto ">
+      <main className=" pt-40 max-w-6xl mx-auto ">
         {/* <div className=" max-w-7xl mx-auto flex flex-col items-center justify-center"> */}
         <div className="max-w-7xl mx-auto flex flex-col items-start justify-center text-left min-h-[600px] px-6">
           {/* Regulation Section */}

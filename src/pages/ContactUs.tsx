@@ -189,7 +189,7 @@ export default function ContactUs() {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[760px] relative pt-10 pb-20">
+      <section className="flex flex-col lg:flex-row pl-4 md:pl-32 min-h-[400px] lg:min-h-[760px] relative pt-40 pb-20">
         <div className="flex flex-1 flex-col justify-center z-30 pr-4 md:pr-8 py-10 ">
           <h1 className="text-[28px] md:text-[38px] lg:text-[58px] font-bold leading-none mb-6">
             Contact us

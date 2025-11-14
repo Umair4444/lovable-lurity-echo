@@ -9,7 +9,7 @@ const Cookies = () => {
       </section>
 
       {/* Main Content */}
-      <main className="flex-1 py-8 px-10">
+      <main className="flex-1 py-28 px-10">
         <div className=" mx-auto max-w-7xl">
           <article className="prose prose-lg max-w-none">
             {/* Introduction */}

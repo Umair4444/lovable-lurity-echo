@@ -1,15 +1,21 @@
 import Footer from "@/components/Footer";
-import { Outlet } from "react-router-dom";
 import Header from "@/components/Header";
+import { Outlet, useLocation } from "react-router-dom";
 
 const Layout = () => {
+  const location = useLocation();
+
+  // Check if current path is /portal
+  const isPortalPage = location.pathname === "/portal";
+
   return (
     <>
-  <Header/>
+      {!isPortalPage && <Header />}
       <main>
-        <Outlet /> {/* 👈 this is where child routes render */}
+        {/* Add top padding only if header is shown */}
+        <Outlet />
       </main>
-      <Footer />
+      {!isPortalPage && <Footer />}
     </>
   );
 };

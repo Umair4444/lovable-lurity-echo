@@ -4,14 +4,13 @@ import { IoMdArrowDropdown } from "react-icons/io";
 const Topbar = () => {
   const [open, setOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
-
   const languages = ["EN", "CZ", "SK"];
 
   return (
     <div className="bg-black w-full">
-      <div className="py-4 flex items-center px-14">
-        <div className="flex justify-end items-center text-gray-400 w-full mr-16 space-x-3">
-          {/* Email Link */}
+      <div className="py-3 flex items-center px-14">
+        <div className="flex justify-end items-center text-white/90 w-full mr-16 space-x-3">
+          {/* Email */}
           <a
             href="mailto:hello@lurity.com"
             className="hover:text-white transition-colors text-base pr-2"
@@ -20,14 +19,14 @@ const Topbar = () => {
           </a>
 
           {/* Separator */}
-          <span className="inline-block w-[1px] h-3 bg-gray-400"></span>
+          <span className="inline-block w-[1px] h-3 bg-white/90"></span>
 
           {/* Language Dropdown */}
           <div className="relative">
             <button
               type="button"
               onClick={() => setOpen(!open)}
-              className="flex items-center text-base text-gray-400 hover:text-white transition-colors px-2"
+              className="flex items-center text-base text-white/90 hover:text-white transition-colors px-2"
             >
               {language}
               <IoMdArrowDropdown className="text-sm" />

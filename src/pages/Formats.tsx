@@ -108,7 +108,7 @@ const Formats = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 lg:py-24 ">
+      <section className="max-w-3xl lg:max-w-7xl min-h-[700px] mx-auto flex flex-col lg:flex-row items-center justify-center md:px-20 lg:px-10 py-16 lg:py-32 ">
         <div className="container mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between">
           <div className="max-w-2xl ">
             <h1 className="text-[44px] lg:text-[56px] sm:text-5xl font-extrabold text-black mb-8 leading-tight">

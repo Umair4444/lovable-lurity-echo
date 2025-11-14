@@ -52,7 +52,7 @@ const HowItWorks = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-16 lg:pb-20 px-6">
+      <section className="pt-32 lg:pb-20 px-6">
         <div className="mx-auto max-w-7xl py-2">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-2">
             <div className="space-y-6 animate-fade-in w-full">

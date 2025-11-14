@@ -90,7 +90,7 @@ const Download = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24  px-6 relative overflow-hidden">
+      <section className="pt-40  px-6 relative overflow-hidden">
         <div className="container mx-auto">
           <div className="text-center mb-28">
             <h1 className="text-5xl font-black mb-6">

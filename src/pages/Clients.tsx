@@ -215,7 +215,7 @@ const Clients = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="pt-24 pb-10 px-6">
+      <section className="pt-40 pb-10 px-6">
         <div className="container mx-auto text-center">
           <h1 className="text-6xl  font-extrabold mb-16 animate-fade-in">
             Clients

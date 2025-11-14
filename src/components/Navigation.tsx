@@ -37,9 +37,11 @@ const Navigation = () => {
                 key={link.name}
                 to={link.path}
                 className={({ isActive }) =>
-                  `text-sm font-semibold text-black pb-[12px] border-b-3 ${
-                    isActive ? "border-cyan" : "border-transparent"
-                  } hover:text-cyan-400`
+                  `text-sm font-semibold text-black pb-[12px] border-b-[3px] ${
+                    isActive
+                      ? "border-cyan text-cyan"
+                      : "border-transparent hover:text-cyan-400"
+                  }`
                 }
               >
                 {link.name}
