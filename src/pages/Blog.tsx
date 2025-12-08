@@ -3,6 +3,7 @@ import { FaArrowUp, FaArrowRight } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import FooterBanner from "@/components/FooterBanner";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -36,6 +37,7 @@ const Blog = () => {
       excerpt:
         "Why Every Campaign Should Include Outdoor and Digital OOH Advertising As digital advertising faces growing challenges—banner blindness, rising co...",
       image: "https://www2.lurity.com/sites/default/files/dooh.jpg",
+      link: "/blog/ooh-growing-globally-and-its-dooh-thats-driving-it-forward",
     },
     {
       date: "02 OCTOBER 2025",
@@ -43,6 +45,7 @@ const Blog = () => {
       excerpt:
         "Digital Out-of-Home (DOOH) advertising has come a long way. Once reserved for tech-savvy brands and pilot campaigns, it has evolved into a full-fledg...",
       image: "https://www2.lurity.com/sites/default/files/Lurity.png",
+      link: "/blog/dooh-2026-new-horizons-and-next-wave-ooh-transformation",
     },
     {
       date: "12 SEPTEMBER 2025",
@@ -51,6 +54,7 @@ const Blog = () => {
         "In today's fast-paced advertising landscape, brands are constantly seeking innovative ways to capture attention and drive results...",
       image:
         "https://www2.lurity.com/sites/default/files/20230426_122736%20-%20k%C3%B3pia.jpg",
+      link: "/blog/5-reasons-why-digital-ooh-belongs-in-every-media-mix",
     },
     {
       date: "03 APRIL 2024",
@@ -59,6 +63,7 @@ const Blog = () => {
       excerpt:
         "Discover how omnichannel strategies are transforming digital out-of-home advertising and creating seamless brand experiences...",
       image: "https://www2.lurity.com/sites/default/files/dooh.jpg",
+      link: "/blog/lurity-the-future-of-digital-ooh-advertising-is-an-omnichannel-marketing-approach",
     },
     {
       date: "08 JANUARY 2024",
@@ -66,6 +71,7 @@ const Blog = () => {
       excerpt:
         "A comprehensive look at the most effective advertising strategies and agency trends that shaped 2023...",
       image: "https://www2.lurity.com/sites/default/files/Lurity.png",
+      link: "/blog/strategies-advertising-agencies-2023",
     },
     {
       date: "15 DECEMBER 2023",
@@ -74,6 +80,7 @@ const Blog = () => {
         "Exploring the technological advancements that have revolutionized digital out-of-home advertising...",
       image:
         "https://www2.lurity.com/sites/default/files/20230426_122736%20-%20k%C3%B3pia.jpg",
+      link: "/blog/the-evolution-of-dooh-from-static-to-dynamic",
     },
   ];
 
@@ -87,6 +94,7 @@ const Blog = () => {
       title: `${base.title} (Post ${blogPost.length + 1})`,
       excerpt: base.excerpt,
       image: base.image,
+      link: base.link,
     });
   }
 
@@ -194,12 +202,15 @@ const Blog = () => {
               <p className="text-[14px] mb-8 leading-relaxed">
                 {featuredPost.excerpt}
               </p>
-              <Button
-                size="lg"
-                className="bg-yellow hover:bg-yellow/80 text-black font-bold mb-5 xl:mb-0 py-8 rounded"
-              >
-                READ MORE <FaArrowRight className="ml-2" />
-              </Button>
+
+              <Link to={blogPosts[0].link}>
+                <Button
+                  size="lg"
+                  className="bg-yellow hover:bg-yellow/80 text-black font-bold mb-5 xl:mb-0 py-8 rounded"
+                >
+                  READ MORE <FaArrowRight className="ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -210,29 +221,31 @@ const Blog = () => {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-16">
             {blogPost.slice(0, visiblePosts).map((post, index) => (
-              <Card
-                key={index}
-                className="hover:bg-[#e5e7eb] overflow-hidden border-none"
-              >
-                <div className="aspect-video overflow-hidden m-4">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover "
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <div className="text-xs text-muted-foreground mb-3 font-bold tracking-wider">
-                    {post.date}
+              <Link to={post.link}>
+                <Card
+                  key={index}
+                  className="hover:bg-[#e5e7eb] overflow-hidden border-none cursor-pointer"
+                >
+                  <div className="aspect-video overflow-hidden m-4">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover "
+                    />
                   </div>
-                  <h3 className="text-3xl font-black mb-4 leading-tight line-clamp-2 group-hover:text-cyan transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-[14px] text-black mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <div className="text-xs text-muted-foreground mb-3 font-bold tracking-wider">
+                      {post.date}
+                    </div>
+                    <h3 className="text-3xl font-black mb-4 leading-tight line-clamp-2 group-hover:text-cyan transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-[14px] text-black mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>

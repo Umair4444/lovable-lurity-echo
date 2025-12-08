@@ -19,6 +19,7 @@ import Portal from "./pages/Portal";
 import ContactUs from "./pages/ContactUs";
 import Cookies from "./pages/Cookies";
 import Terms from "./pages/Terms-Conditions";
+import BlogPost from "./pages/blogs/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +36,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/portal" element={<Portal />} />
-            <Route path="/blog" element={<Blog />} />
             <Route path="/clients" element={<Clients />} />
             <Route path="/download" element={<Download />} />
             <Route path="/formats" element={<Formats />} />
@@ -43,6 +43,8 @@ const App = () => (
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/terms-conditions" element={<Terms />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Route>
 
           {/* ❌ NotFound is outside layout */}
