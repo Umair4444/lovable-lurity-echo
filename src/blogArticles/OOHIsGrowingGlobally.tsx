@@ -3,7 +3,7 @@ import doohContent2 from "@/assets/dooh-content-2.jpg";
 
 const OOHIsGrowingGlobally = () => {
   return (
-    <article className="px-4 py-12">
+    <article className="px-4 py-6">
       <p className="font-semibold text-lg mb-6">
         Why Every Campaign Should Include Outdoor and Digital OOH Advertising
       </p>

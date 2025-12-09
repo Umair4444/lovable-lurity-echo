@@ -1,6 +1,6 @@
 const DOOH2026 = () => {
   return (
-    <article className="px-4 py-12">
+    <article className="px-4 py-6">
       <p className="text-lg mb-8 text-foreground">
         Digital Out-of-Home (DOOH) advertising has come a long way. Once
         reserved for tech-savvy brands and pilot campaigns, it has evolved into
