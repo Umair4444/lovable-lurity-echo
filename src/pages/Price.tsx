@@ -134,7 +134,7 @@ const Price = () => {
       </section>
 
       {/* Support Section */}
-      <section className=" max-w-md sm:max-w-3xl md:max-w-5xl  mx-auto sm:mx-4 lg:mx-auto flex flex-col md:flex-row px-2 sm:p-6 md:p-10 lg:p-14  my-28  bg-white rounded-lg border sm:border-[#E2E9ED]">
+      <section className="max-w-md sm:max-w-3xl md:max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto sm:mx-4 lg:mx-auto flex flex-col md:flex-row px-2 sm:p-6 md:p-10 lg:p-14 my-28 bg-white rounded-lg border sm:border-[#E2E9ED]">
         {/* Icon */}
         <div className="mr-6 flex-shrink-0 flex items-start justify-center">
           <div className="text-[#7ED52E]">
