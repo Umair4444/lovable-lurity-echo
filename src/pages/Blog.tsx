@@ -41,63 +41,13 @@ const Blog = () => {
       {/* Featured Post */}
       <section className="pt-36 px-6">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start rounded-lg bg-[#f5f4f0]">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 items-start rounded-lg bg-[#f3f7f9]">
             {/* Stats Section */}
-            <div className="order-2 lg:order-1 py-6 px-6">
-              {/* <h2 className="bg-[#213b54] mx-auto px-6 py-3 rounded-lg w-fit text-white text-2xl text-center font-bold mb-4 border-b-2 border-white">
-                DOOH: Key Stats Driving the Boom
-              </h2>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-1 text-center justify-items-center">
-                {[
-                  {
-                    icon: "📈",
-                    text: "Global OOH market is expected to reach $45 billion by 2026",
-                    source: "Statista",
-                  },
-                  {
-                    icon: "🌐",
-                    text: "Digital OOH accounts for over 35% of total OOH ad spend",
-                    source: "WARC, 2024",
-                  },
-                  {
-                    icon: "💡",
-                    text: "76% of viewers take action after seeing DOOH ads",
-                    source: "WARC, 2024",
-                  },
-                  {
-                    icon: "🎯",
-                    text: "Targeted DOOH campaigns show +40% uplift in brand awareness",
-                    source: "Nulo case",
-                  },
-                  {
-                    icon: "📊",
-                    text: "DOOH offers real-time data, programmability & measurable ROI",
-                    source: "Place Exchange",
-                  },
-                  {
-                    icon: "🏢",
-                    text: "Major brands like Amazon, McDonald's, Netflix are adopting DOOH at scale",
-                    source: "Nulo case",
-                  },
-                ].map((stat, i) => (
-                  <div key={i} className="flex items-center space-x-3 max-w-xs">
-                    <div className="text-6xl">{stat.icon}</div>
-                    <div>
-                      <p className="font-bold text-left leading-tight">
-                        {stat.text}
-                      </p>
-                      <p className="text-sm text-black/70 text-left">
-                        {stat.source}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div> */}
+            <div className="order-2 lg:order-1 py-2 px-6">
               <img
                 src={featuredPost.image}
                 alt={featuredPost.title}
-                className="h-96 mx-auto"
+                className="h-96 mx-auto rounded-lg"
               />
             </div>
 
@@ -139,7 +89,7 @@ const Blog = () => {
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-md"
                     />
                   </div>
 
