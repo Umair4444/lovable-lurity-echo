@@ -73,7 +73,7 @@ export default function TestimonialsSlider() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 400; // adjust this to control scroll distance
+      const scrollAmount = 620; // adjust this to control scroll distance
       scrollRef.current.scrollBy({
         left: direction === "left" ? -scrollAmount : scrollAmount,
         behavior: "smooth",

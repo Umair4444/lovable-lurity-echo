@@ -46,10 +46,12 @@ const Blog = () => {
           <div className="flex flex-col md:flex-row items-center justify-start gap-10 lg:px-24">
             {/* Text Section */}
             <div className="flex md:flex-col">
-              <h2 className="font-bold  text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
+              <h2 className="font-extrabold  text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
                 Lurity {""}
               </h2>
-                <span className="font-bold text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">in the media</span>
+              <span className="font-extrabold text-[32px] lg:text-[46px] leading-none text-nowrap md:mr-16 xl:mr-28 text-left">
+                in the media
+              </span>
             </div>
 
             {/* Logos Grid */}

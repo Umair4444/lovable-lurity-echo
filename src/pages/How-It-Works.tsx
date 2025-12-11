@@ -160,7 +160,7 @@ const HowItWorks = () => {
             </p>
 
             <button className=" text-black font-bold rounded uppercase tracking-widest flex items-center justify-center gap-3">
-              <span> showMore</span>
+              <span> show More</span>
               <MoveRightIcon className="w-5 h-5" />
             </button>
           </div>
@@ -169,11 +169,12 @@ const HowItWorks = () => {
 
       {/* Video Section */}
       <section className="py-20 px-1">
-        <div className="contaier mx-auto">
+        <div className="container mx-auto">
           <div className="relative aspect-video overflow-hidden shadow-2xl bg-muted">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/6LXO9tiW3gc"
+              // src="https://www.youtube.com/embed/6LXO9tiW3gc"
+              src="https://www.youtube.com/embed/6LXO9tiW3gc?autoplay=1&mute=1&controls=1&rel=0&modestbranding=1"
               title="Lurity tutorial about our Platform: How you can run campaign easy, fast, effective and right now"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
