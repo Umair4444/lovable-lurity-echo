@@ -244,7 +244,7 @@ export default function ContactUs() {
             style={{ animationDelay: "0.3s" }}
           >
             <img
-              src="/1.png"
+              src="/building1.png"
               alt="Person"
               className="w-full h-full object-cover"
             />
@@ -254,7 +254,7 @@ export default function ContactUs() {
             style={{ animationDelay: "0.3s" }}
           >
             <img
-              src="/1.png"
+              src="/building2.png"
               alt="Person"
               className="w-full h-full object-cover"
             />
