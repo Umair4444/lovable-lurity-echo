@@ -251,7 +251,7 @@ const Clients = () => {
             ))}
           </div>
         </div>
-        <Button className="bg-[#7ed52e] text-black rounded-sm text-lg font-semibold py-8 px-6 hover:bg-[#7ed52e]/90 uppercase mt-12 flex items-center gap-2 mx-auto">
+        <Button className="bg-[#7ed52e] text-black rounded-sm text-lg font-semibold py-10 px-8 hover:bg-[#7ed52e]/90 uppercase mt-12 flex items-center gap-2 mx-auto">
           I'm interested in a campaign <MoveRightIcon />
         </Button>
       </section>

@@ -22,14 +22,14 @@ const ImageSlider = ({ images }) => {
   return (
     <div className="relative flex items-center justify-center w-full">
       {/* Slider Container */}
-      <div className="relative w-[600px] md:w-[500px] h-[500px] overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+      <div className="relative w-[600px] md:w-[500px] h-[600px] rounded-md overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
         {/* Slides */}
         {images.map((src, index) => (
           <img
             key={index}
             src={src}
             alt={`Slide ${index + 1}`}
-            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[600px]  md:w-[500px] h-[500px]  transition-opacity duration-700 ease-in-out ${
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-cover w-[600px]  md:w-[500px] h-[600px]  transition-opacity duration-700 ease-in-out ${
               index === currentIndex ? "opacity-100" : "opacity-0"
             }`}
           />

@@ -205,11 +205,11 @@ const Formats = () => {
       </section>
 
       {/* Format Details Section */}
-      <section className="bg-[#f3f7f9]">
+      <section className="bg-[#f3f7f9] pb-6">
         <div className="max-w-7xl mx-auto container">
           {/* 🏬 Shopping Centers */}
           {activeTab === "shopping-centers" && (
-            <div className="md:px-8 lg:space-y-16 flex flex-col lg:flex-row items-center lg:gap-10">
+            <div className="md:px-8 lg:space-y-6 flex flex-col lg:flex-row items-center lg:gap-10">
               <div className="max-w-3xl flex flex-col justify-center py-10">
                 <h2 className="text-4xl md:text-[42px] font-extrabold text-black mb-8">
                   Digital screens in shopping centers
@@ -244,8 +244,9 @@ const Formats = () => {
                   <MoveRightIcon className="w-5 h-5" />
                 </button>
               </div>
-
-              <ImageSlider images={formatImages["shopping-centers"]} />
+              <div className="h-full">
+                <ImageSlider images={formatImages["shopping-centers"]} />
+              </div>
             </div>
           )}
 
