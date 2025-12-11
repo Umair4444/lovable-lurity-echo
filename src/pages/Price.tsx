@@ -40,7 +40,7 @@ const Price = () => {
               <img
                 src="https://www.lurity.com/step-ahead/price.jpg"
                 alt="DOOH Campaign Management"
-                className="w-full h-auto rounded-lg shadow-2xl"
+                className="w-full h-auto rounded-lg"
               />
             </div>
           </div>

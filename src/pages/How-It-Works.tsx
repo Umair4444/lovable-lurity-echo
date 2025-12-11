@@ -68,11 +68,11 @@ const HowItWorks = () => {
                 <MoveRightIcon className="w-5 h-5" />
               </button>
             </div>
-            <div className="animate-fade-in w-full bg-contain bg-blue-600">
+            <div className="animate-fade-in w-full bg-contain">
               <img
                 src="https://www.lurity.com/step-ahead/how.jpg"
                 alt="Campaign Background"
-                className="w-full h-full object-cover-cover shadow-2xl"
+                className="w-full h-full object-cover-cover"
               />
             </div>
           </div>
@@ -81,40 +81,38 @@ const HowItWorks = () => {
 
       {/* Steps Navigation */}
       <section className="mx-auto">
-        <div className="">
-          <div className="flex items-center justify-between md:justify-center py-6 overflow-auto overflow-y-hidden whitespace-nowrap gap-10 bg-transparent scrollbar-hide">
-            {steps.map((step, index) => (
-              <button
-                key={step.id}
-                onClick={() => setActiveStep(index)}
-                className={`flex items-center justify-center gap-4 px-6 py-4 rounded-none  material-bubble transition-all duration-300${
-                  activeStep === index
-                    ? "  text-magenta hover:bg-pink-50"
-                    : "bg-transparent text-black hover:bg-gray-100"
-                }`}
-              >
-                <div className="flex items-center gap-2 text-lg">
-                  <span
-                    className={` font-normal ${
-                      activeStep === index ? "visible text-magenta" : "hidden"
-                    }`}
-                  >
-                    {step.id}
-                  </span>
-                  <span className={`font-bold  text-center`}>{step.title}</span>
-                </div>
-              </button>
-            ))}
-          </div>
+        <div className="flex items-center justify-start xl:justify-center py-4 overflow-auto overflow-y-hidden whitespace-nowrap gap-10 bg-transparent scrollbar-hide">
+          {steps.map((step, index) => (
+            <button
+              key={step.id}
+              onClick={() => setActiveStep(index)}
+              className={`flex items-center justify-center gap-4 px-6 py-4 rounded-none  material-bubble transition-all duration-300${
+                activeStep === index
+                  ? "  text-magenta hover:bg-pink-50"
+                  : "bg-transparent text-black hover:bg-gray-100"
+              }`}
+            >
+              <div className="flex items-center gap-2 text-lg">
+                <span
+                  className={` font-normal ${
+                    activeStep === index ? "visible text-magenta" : "hidden"
+                  }`}
+                >
+                  {step.id}
+                </span>
+                <span className={`font-bold  text-center`}>{step.title}</span>
+              </div>
+            </button>
+          ))}
         </div>
       </section>
 
       {/* Active Step Content */}
       <section className="">
         <div className="container mx-auto max-w-[72rem]">
-          <div className="flex flex-col gap-6 items-center">
+          <div className="flex flex-col gap-4 items-center">
             <div className="w-full flex flex-col lg:flex-row items-start gap-10 animate-fade-in">
-              <h2 className="text-4xl font-black py-4">
+              <h2 className="text-4xl font-black">
                 {steps[activeStep].content}
               </h2>
               <div className="max-w-xl sm:max-w-3xl flex flex-col">
@@ -128,13 +126,13 @@ const HowItWorks = () => {
               </div>
             </div>
             <div
-              className="relative animate-fade-in"
+              className="relative animate-fade-in h-[24rem]"
               style={{ animationDelay: "0.2s" }}
             >
               <img
                 src={steps[activeStep].image}
                 alt={steps[activeStep].title}
-                className="w-full h-auto rounded-2xl shadow-2xl"
+                className="w-full h-full rounded-2xl shadow-2xl"
               />
             </div>
           </div>

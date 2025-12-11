@@ -240,7 +240,7 @@ export default function ContactUs() {
         <div className="hidden lg:block relative flex-1 mr-8 py-2">
           {/* Floating Image */}
           <div
-            className="absolute top-2 left-0 w-72 h-72 rounded overflow-hidden border-4 border-white shadow-lg"
+            className="absolute top-2 left-0 w-72 h-72 rounded overflow-hidden border-4 border-white"
             style={{ animationDelay: "0.3s" }}
           >
             <img
@@ -250,7 +250,7 @@ export default function ContactUs() {
             />
           </div>
           <div
-            className="absolute bottom-0 right-14 w-72 h-72 rounded overflow-hidden border-4 border-white shadow-lg"
+            className="absolute bottom-0 right-14 w-72 h-72 rounded overflow-hidden border-4 border-white"
             style={{ animationDelay: "0.3s" }}
           >
             <img
