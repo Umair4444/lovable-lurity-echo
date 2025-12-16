@@ -4,7 +4,6 @@ import FooterBanner from "@/components/FooterBanner";
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [showMore, setShowMore] = useState(false);
 
   const steps = [
     {
@@ -21,7 +20,7 @@ const HowItWorks = () => {
       content: "Campaign creation",
       description:
         "Design your campaign with our intuitive interface. Choose your target locations, select screens, set your budget, and upload your creative materials.",
-      image: "https://www.lurity.com/images/how_tab_image_1.png",
+      image: "https://www.lurity.com/images/how_tab_image_2.png",
     },
     {
       id: "03",
@@ -29,7 +28,7 @@ const HowItWorks = () => {
       content: "Campaign approval",
       description:
         "Our team reviews your campaign to ensure quality and compliance. Approval typically takes just a few minutes.",
-      image: "https://www.lurity.com/images/how_tab_image_1.png",
+      image: "https://www.lurity.com/images/how_tab_image_3.png",
     },
     {
       id: "04",
@@ -37,7 +36,7 @@ const HowItWorks = () => {
       content: "Campaign display",
       description:
         "Your campaign goes live on selected digital screens across shopping centers and high-traffic locations.",
-      image: "https://www.lurity.com/images/how_tab_image_1.png",
+      image: "https://www.lurity.com/images/how_tab_image_4.png",
     },
     {
       id: "05",
@@ -45,7 +44,7 @@ const HowItWorks = () => {
       content: "Campaign monitoring",
       description:
         "Track your campaign performance in real-time with detailed analytics and insights from your dashboard.",
-      image: "https://www.lurity.com/images/how_tab_image_1.png",
+      image: "https://www.lurity.com/images/how_tab_image_5.png",
     },
   ];
 
@@ -111,7 +110,7 @@ const HowItWorks = () => {
       <section className="">
         <div className="container mx-auto max-w-[72rem]">
           <div className="flex flex-col gap-4 items-center">
-            <div className="w-full flex flex-col lg:flex-row items-start gap-10 animate-fade-in">
+            <div className="w-full flex flex-col lg:flex-row items-start gap-4 lg:gap-20 animate-fade-in">
               <h2 className="text-4xl font-black">
                 {steps[activeStep].content}
               </h2>
@@ -126,7 +125,7 @@ const HowItWorks = () => {
               </div>
             </div>
             <div
-              className="relative animate-fade-in h-[24rem]"
+              className="relative animate-fade-in w-auto h-[24rem] lg:h-auto"
               style={{ animationDelay: "0.2s" }}
             >
               <img
